@@ -1,352 +1,290 @@
-// =========================
-// Datos (edítalos a tu gusto)
-// =========================
-const DATA = {
-  promos: [
-    {
-      brand: "BK",
-      title: "Combo XL + gaseosa",
-      text: "Aprovecha tu beneficio exclusivo",
-      priceLabel: "Ahora",
-      price: "S/ 22.90",
-      img: "assets/promo-1.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "KFC",
-      title: "Twister + papas",
-      text: "Promo por tiempo limitado",
-      priceLabel: "Ahora",
-      price: "S/ 19.90",
-      img: "assets/promo-2.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "BEM",
-      title: "20% en hamburguesas",
-      text: "Descuento en carta seleccionada",
-      priceLabel: "Dto.",
-      price: "20%",
-      img: "assets/promo-3.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=1200&q=70",
-    },
-  ],
-  premios: [
-    {
-      brand: "TOP",
-      title: "Tu eliges: iPhone / Android",
-      text: "Premio",
-      priceLabel: "Sorteo",
-      price: "Mes",
-      img: "assets/premio-1.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "NIN",
-      title: "Consola de videojuegos",
-      text: "Premio",
-      priceLabel: "Sorteo",
-      price: "Mes",
-      img: "assets/premio-2.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "HOG",
-      title: "Electrodoméstico (ej: Refrigeradora)",
-      text: "Premio",
-      priceLabel: "Sorteo",
-      price: "Mes",
-      img: "assets/premio-3.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=70",
-    },
-  ],
-  winners: [
-    {
-      name: "María L.",
-      prize: "Ganó: Consola",
-      img: "assets/ganador-1.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=70",
-    },
-    {
-      name: "Carlos R.",
-      prize: "Ganó: Smartphone",
-      img: "assets/ganador-2.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=70",
-    },
-    {
-      name: "Ana P.",
-      prize: "Ganó: Gift Card",
-      img: "assets/ganador-3.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1524503033411-f214d2b3d3c4?auto=format&fit=crop&w=400&q=70",
-    },
-    {
-      name: "Jorge M.",
-      prize: "Ganó: Electro",
-      img: "assets/ganador-4.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=70",
-    },
-  ],
-};
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sorteos • Inicio</title>
 
-// =========================
-// Helpers
-// =========================
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-function imgUrl(item) {
-  // usa asset local si existe; si no, fallback
-  return item.img || item.fallback;
-}
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Decorative background blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
 
-// =========================
-// Render
-// =========================
-function renderCarousel(trackEl, dotsEl, items, kind) {
-  trackEl.innerHTML = "";
-  dotsEl.innerHTML = "";
-
-  items.forEach((it, idx) => {
-    const card = document.createElement("article");
-    card.className = "itemCard";
-    card.innerHTML = `
-      <div class="itemImg" style="background-image:url('${imgUrl(it)}')"></div>
-      <div class="itemBody">
-        <div class="brandCircle" title="${it.brand}">${it.brand}</div>
-        <div class="itemMeta">
-          <div class="itemTitle">${it.title}</div>
-          <div class="itemText">${it.text}</div>
-        </div>
-        <div class="itemPill">
-          <span class="small">${it.priceLabel}</span>
-          <span class="big">${it.price}</span>
-        </div>
+  <!-- Sidebar (Desktop) -->
+  <aside class="sidebar" aria-label="Navegación principal">
+    <div class="sidebar__brand">
+      <div class="logoMark">S</div>
+      <div class="brandText">
+        <div class="brandName">Sorteos</div>
+        <div class="brandSub">Web</div>
       </div>
-    `;
-    card.addEventListener("click", () => openModal(kind, items));
-    trackEl.appendChild(card);
-
-    const dot = document.createElement("button");
-    dot.className = "dot" + (idx === 0 ? " is-active" : "");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Ir a ${kind} ${idx + 1}`);
-    dot.addEventListener("click", () => scrollToIndex(trackEl, idx, dotsEl));
-    dotsEl.appendChild(dot);
-  });
-
-  // initial state
-  setActiveDot(trackEl, dotsEl);
-}
-
-function renderWinners() {
-  const grid = $("#winnersGrid");
-  grid.innerHTML = "";
-
-  DATA.winners.forEach((w) => {
-    const row = document.createElement("div");
-    row.className = "winner";
-    row.innerHTML = `
-      <div class="winnerImg" style="background-image:url('${imgUrl(w)}')"></div>
-      <div>
-        <div class="winnerName">${w.name}</div>
-        <div class="winnerPrize">${w.prize}</div>
-      </div>
-    `;
-    grid.appendChild(row);
-  });
-}
-
-// =========================
-// Carousel controls
-// =========================
-function scrollToIndex(trackEl, idx, dotsEl) {
-  const card = trackEl.children[idx];
-  if (!card) return;
-  trackEl.scrollTo({ left: card.offsetLeft - 2, behavior: "smooth" });
-  setTimeout(() => setActiveDot(trackEl, dotsEl), 220);
-}
-
-function setActiveDot(trackEl, dotsEl) {
-  const cards = [...trackEl.children];
-  if (!cards.length) return;
-
-  const left = trackEl.scrollLeft;
-  let active = 0;
-  let best = Infinity;
-
-  cards.forEach((c, i) => {
-    const d = Math.abs(c.offsetLeft - left);
-    if (d < best) {
-      best = d;
-      active = i;
-    }
-  });
-
-  [...dotsEl.children].forEach((d, i) => d.classList.toggle("is-active", i === active));
-}
-
-function wireCarousel(rootSel, trackSel, dotsSel) {
-  const root = document.querySelector(rootSel);
-  const track = document.querySelector(trackSel);
-  const dots = document.querySelector(dotsSel);
-  const prev = root.querySelector(".carBtn.prev");
-  const next = root.querySelector(".carBtn.next");
-
-  prev.addEventListener("click", () => {
-    track.scrollBy({ left: -track.clientWidth * 0.92, behavior: "smooth" });
-    setTimeout(() => setActiveDot(track, dots), 220);
-  });
-
-  next.addEventListener("click", () => {
-    track.scrollBy({ left: track.clientWidth * 0.92, behavior: "smooth" });
-    setTimeout(() => setActiveDot(track, dots), 220);
-  });
-
-  track.addEventListener("scroll", () => setActiveDot(track, dots));
-}
-
-// =========================
-// Navegación (sidebar + bottom)
-// =========================
-function wireNavigation() {
-  const goTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const setActive = (id) => {
-    $$(".navItem").forEach((b) => b.classList.toggle("is-active", b.dataset.go === id));
-    const center = $(".bNavCenter");
-    if (center) center.classList.toggle("is-active", id === "inicio");
-  };
-
-  // Sidebar
-  $$(".navItem").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      goTo(btn.dataset.go);
-      setActive(btn.dataset.go);
-    });
-  });
-
-  // Bottom nav
-  $$(".bottomNav [data-go]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.dataset.go;
-      // algunos botones son “secciones futuras”: fallback a inicio
-      goTo(document.getElementById(id) ? id : "inicio");
-      setActive(document.getElementById(id) ? id : "inicio");
-    });
-  });
-
-  // “ya tienes cuenta”
-  $("#alreadyBtn")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Aquí conectarías tu login (Firebase/Auth0/etc).");
-  });
-}
-
-// =========================
-// Countdown (Feed)
-// =========================
-function wireCountdown() {
-  // Próximo anuncio: 2 días desde ahora (puedes cambiarlo)
-  const target = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 4 * 60 * 60 * 1000);
-
-  const dEl = $("#cdD");
-  const hEl = $("#cdH");
-  const mEl = $("#cdM");
-  const sEl = $("#cdS");
-
-  const tick = () => {
-    const diff = Math.max(0, target.getTime() - Date.now());
-    const d = Math.floor(diff / (24 * 60 * 60 * 1000));
-    const h = Math.floor((diff / (60 * 60 * 1000)) % 24);
-    const m = Math.floor((diff / (60 * 1000)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    dEl.textContent = String(d);
-    hEl.textContent = String(h).padStart(2, "0");
-    mEl.textContent = String(m).padStart(2, "0");
-    sEl.textContent = String(s).padStart(2, "0");
-  };
-
-  tick();
-  setInterval(tick, 1000);
-}
-
-// =========================
-// Modal “Mostrar más”
-// =========================
-function openModal(kind, items) {
-  const modal = $("#modal");
-  const title = $("#modalTitle");
-  const body = $("#modalBody");
-
-  title.textContent = kind === "promos" ? "Promos" : "Premios";
-
-  body.innerHTML = `
-    <div style="display:grid; gap:12px;">
-      ${items.map(it => `
-        <div style="display:flex; gap:12px; align-items:center; padding:12px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.18);">
-          <div style="width:64px; height:48px; border-radius:14px; background-image:url('${imgUrl(it)}'); background-size:cover; background-position:center; border:1px solid rgba(255,255,255,.12);"></div>
-          <div style="min-width:0;">
-            <div style="font-weight:900;">${it.title}</div>
-            <div style="color:rgba(255,255,255,.55); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:560px;">${it.text}</div>
-          </div>
-          <div style="margin-left:auto; text-align:right;">
-            <div style="color:rgba(255,255,255,.55); font-size:12px;">${it.priceLabel}</div>
-            <div style="font-weight:900;">${it.price}</div>
-          </div>
-        </div>
-      `).join("")}
     </div>
-  `;
 
-  modal.classList.add("is-open");
-  modal.setAttribute("aria-hidden", "false");
-}
+    <nav class="sidebar__nav">
+      <button class="navItem is-active" data-go="inicio" aria-label="Inicio">
+        <span class="ico">🏠</span>
+      </button>
+      <button class="navItem" data-go="promos" aria-label="Promos">
+        <span class="ico">🏷️</span>
+      </button>
+      <button class="navItem" data-go="premios" aria-label="Premios">
+        <span class="ico">🎁</span>
+      </button>
+      <button class="navItem" data-go="planes" aria-label="Planes">
+        <span class="ico">⭐</span>
+      </button>
+      <button class="navItem" data-go="ganadores" aria-label="Ganadores">
+        <span class="ico">🏆</span>
+      </button>
+    </nav>
 
-function wireModal() {
-  const modal = $("#modal");
-  const closeAll = () => {
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-  };
+    <div class="sidebar__footer">
+      <a class="miniLink" href="#" title="Términos">Términos</a>
+      <a class="miniLink" href="#" title="Soporte">Soporte</a>
+    </div>
+  </aside>
 
-  $("[data-open='promos']")?.addEventListener("click", () => openModal("promos", DATA.promos));
-  $("[data-open='premios']")?.addEventListener("click", () => openModal("premios", DATA.premios));
+  <!-- Top right actions -->
+  <header class="topbar">
+    <a class="pillBtn" href="#" id="loginBtn">Iniciar sesión <span class="arrow">→</span></a>
+  </header>
 
-  $$("#modal [data-close]").forEach((el) => el.addEventListener("click", closeAll));
-  window.addEventListener("keydown", (e) => e.key === "Escape" && closeAll());
-}
+  <!-- Main layout -->
+  <main class="layout">
+    <!-- Left/Main column -->
+    <section class="mainCol">
+      <!-- HERO -->
+      <section id="inicio" class="hero card">
+        <div class="hero__bg" aria-hidden="true"></div>
 
-// =========================
-// Init
-// =========================
-function init() {
-  $("#year").textContent = new Date().getFullYear();
+        <div class="hero__content">
+          <div class="hero__kicker">EN ESTE MES</div>
+          <h1 class="hero__title">
+            GANA UN PREMIO <span class="accent">TOP</span>
+          </h1>
+          <p class="hero__subtitle">
+            Suscríbete y participa en sorteos, beneficios y experiencias.
+          </p>
 
-  renderCarousel($("#promosTrack"), $("#promosDots"), DATA.promos, "promos");
-  renderCarousel($("#premiosTrack"), $("#premiosDots"), DATA.premios, "premios");
-  renderWinners();
+          <div class="hero__cta">
+            <a class="ctaBtn" href="#planes">¡Suscríbete!</a>
+            <a class="ghostLink" href="#" id="alreadyBtn">¿Ya tienes cuenta? Inicia sesión</a>
+          </div>
 
-  wireCarousel("[data-carousel='promos']", "#promosTrack", "#promosDots");
-  wireCarousel("[data-carousel='premios']", "#premiosTrack", "#premiosDots");
+          <div class="hero__note">
+            *Aplican términos y condiciones. Imágenes referenciales.
+          </div>
+        </div>
 
-  wireNavigation();
-  wireCountdown();
-  wireModal();
-}
+        <div class="hero__art" aria-hidden="true">
+          <div class="artCard">
+            <div class="artTag">Premio principal</div>
+            <div class="artTitle">“SUV / Consola / iPhone”</div>
+            <div class="artDesc">Cambia el texto e imágenes en <code>app.js</code></div>
+          </div>
+        </div>
+      </section>
 
-init();
+      <!-- PROMOS -->
+      <section id="promos" class="section">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionTitle">Promos</div>
+            <div class="sectionSub">Promos exclusivas</div>
+          </div>
+          <button class="tinyBtn" data-open="promos">Mostrar más <span class="arrow">→</span></button>
+        </div>
 
+        <div class="card">
+          <div class="carousel" data-carousel="promos">
+            <button class="carBtn prev" aria-label="Anterior">‹</button>
+            <div class="carTrack" id="promosTrack"></div>
+            <button class="carBtn next" aria-label="Siguiente">›</button>
+          </div>
+
+          <div class="dots" id="promosDots" aria-label="Paginación de promos"></div>
+        </div>
+      </section>
+
+      <!-- PREMIOS -->
+      <section id="premios" class="section">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionTitle">Premios</div>
+            <div class="sectionSub">¡Premios geniales!</div>
+          </div>
+          <button class="tinyBtn" data-open="premios">Mostrar más <span class="arrow">→</span></button>
+        </div>
+
+        <div class="card">
+          <div class="carousel" data-carousel="premios">
+            <button class="carBtn prev" aria-label="Anterior">‹</button>
+            <div class="carTrack" id="premiosTrack"></div>
+            <button class="carBtn next" aria-label="Siguiente">›</button>
+          </div>
+
+          <div class="dots" id="premiosDots" aria-label="Paginación de premios"></div>
+        </div>
+      </section>
+
+      <!-- PLANES -->
+      <section id="planes" class="section">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionTitle">Planes</div>
+            <div class="sectionSub">Puedes cambiar tu plan en cualquier momento</div>
+          </div>
+        </div>
+
+        <div class="plans">
+          <article class="plan plan--silver">
+            <div class="plan__top">
+              <div class="plan__name">Mensual</div>
+              <div class="plan__badge">Básico</div>
+            </div>
+            <div class="plan__price">
+              <span class="currency">S/</span> 8.50 <span class="period">/ mes</span>
+            </div>
+
+            <ul class="plan__list">
+              <li>Participas por <b>12</b> premios</li>
+              <li>Descuentos en marcas aliadas</li>
+              <li>Acceso a eventos (según campaña)</li>
+              <li>Apoyo a filantropía</li>
+            </ul>
+
+            <button class="plan__btn">Suscribirme</button>
+          </article>
+
+          <article class="plan plan--gold is-featured">
+            <div class="plan__top">
+              <div class="plan__name">Trimestral</div>
+              <div class="plan__badge">Recomendado</div>
+            </div>
+            <div class="plan__price">
+              <span class="currency">S/</span> 25.50 <span class="period">/ 3 meses</span>
+            </div>
+
+            <ul class="plan__list">
+              <li>Participas por <b>36</b> premios</li>
+              <li>Descuentos en marcas aliadas</li>
+              <li>Acceso a eventos (según campaña)</li>
+              <li>Apoyo a filantropía</li>
+            </ul>
+
+            <button class="plan__btn plan__btn--primary">Suscribirme</button>
+          </article>
+
+          <article class="plan plan--neon">
+            <div class="plan__top">
+              <div class="plan__name">Anual</div>
+              <div class="plan__badge">Full</div>
+            </div>
+            <div class="plan__price">
+              <span class="currency">S/</span> 99.00 <span class="period">/ año</span>
+            </div>
+
+            <ul class="plan__list">
+              <li>Participas por <b>144</b> premios</li>
+              <li>Descuentos en marcas aliadas</li>
+              <li>Acceso a eventos (según campaña)</li>
+              <li>Apoyo a filantropía</li>
+            </ul>
+
+            <button class="plan__btn">Suscribirme</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- GANADORES -->
+      <section id="ganadores" class="section">
+        <div class="sectionHead">
+          <div>
+            <div class="sectionTitle">Ellos ya ganaron</div>
+            <div class="sectionSub">El próximo puedes ser tú</div>
+          </div>
+        </div>
+
+        <div class="winners card" id="winnersGrid"></div>
+      </section>
+
+      <footer class="footer">
+        <div>© <span id="year"></span> Sorteos Web</div>
+        <div class="footerLinks">
+          <a href="#">Términos</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Contacto</a>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Right column (Desktop feed) -->
+    <aside class="rightCol">
+      <section class="feed card">
+        <div class="feedHead">
+          <div>
+            <div class="sectionTitle">Feed</div>
+            <div class="sectionSub">Anuncio de ganadores</div>
+          </div>
+          <span class="liveTag">LIVE</span>
+        </div>
+
+        <div class="countdown" aria-label="Cuenta regresiva">
+          <div class="cdItem"><div class="cdNum" id="cdD">--</div><div class="cdLbl">d</div></div>
+          <div class="cdItem"><div class="cdNum" id="cdH">--</div><div class="cdLbl">h</div></div>
+          <div class="cdItem"><div class="cdNum" id="cdM">--</div><div class="cdLbl">m</div></div>
+          <div class="cdItem"><div class="cdNum" id="cdS">--</div><div class="cdLbl">s</div></div>
+        </div>
+
+        <div class="feedDivider"></div>
+
+        <div class="sectionSub" style="margin-bottom:10px;">Anuncios destacados</div>
+        <article class="featured">
+          <div class="featured__img" aria-hidden="true"></div>
+          <div class="featured__body">
+            <div class="featured__title">Calendario 2026</div>
+            <div class="featured__text">Stickers, descuentos y más. Edita esto en <code>index.html</code>.</div>
+          </div>
+        </article>
+      </section>
+    </aside>
+  </main>
+
+  <!-- Bottom nav (Mobile) -->
+  <nav class="bottomNav" aria-label="Navegación inferior">
+    <button class="bNavItem" data-go="premios"><span class="ico">🎁</span><span>Premios</span></button>
+    <button class="bNavItem" data-go="eventos"><span class="ico">🎟️</span><span>Eventos</span></button>
+
+    <button class="bNavCenter is-active" data-go="inicio" aria-label="Inicio">
+      <span class="ico">🏠</span>
+      <span class="bNavCenter__label">Inicio</span>
+    </button>
+
+    <button class="bNavItem" data-go="promos"><span class="ico">🏷️</span><span>Promos</span></button>
+    <button class="bNavItem" data-go="tienda"><span class="ico">🛒</span><span>Tienda</span></button>
+  </nav>
+
+  <!-- Simple modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__panel card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">Listado</div>
+        <button class="modal__close" data-close="1" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
