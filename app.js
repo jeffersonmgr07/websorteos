@@ -1,351 +1,80 @@
-// =========================
-// Datos (edítalos a tu gusto)
-// =========================
-const DATA = {
-  promos: [
-    {
-      brand: "BK",
-      title: "Combo XL + gaseosa",
-      text: "Aprovecha tu beneficio exclusivo",
-      priceLabel: "Ahora",
-      price: "S/ 22.90",
-      img: "assets/promo-1.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "KFC",
-      title: "Twister + papas",
-      text: "Promo por tiempo limitado",
-      priceLabel: "Ahora",
-      price: "S/ 19.90",
-      img: "assets/promo-2.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "BEM",
-      title: "20% en hamburguesas",
-      text: "Descuento en carta seleccionada",
-      priceLabel: "Dto.",
-      price: "20%",
-      img: "assets/promo-3.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=1200&q=70",
-    },
-  ],
-  premios: [
-    {
-      brand: "TOP",
-      title: "Tu eliges: iPhone / Android",
-      text: "Premio",
-      priceLabel: "Sorteo",
-      price: "Mes",
-      img: "assets/premio-1.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "NIN",
-      title: "Consola de videojuegos",
-      text: "Premio",
-      priceLabel: "Sorteo",
-      price: "Mes",
-      img: "assets/premio-2.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?auto=format&fit=crop&w=1200&q=70",
-    },
-    {
-      brand: "HOG",
-      title: "Electrodoméstico (ej: Refrigeradora)",
-      text: "Premio",
-      priceLabel: "Sorteo",
-      price: "Mes",
-      img: "assets/premio-3.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=70",
-    },
-  ],
-  winners: [
-    {
-      name: "María L.",
-      prize: "Ganó: Consola",
-      img: "assets/ganador-1.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=70",
-    },
-    {
-      name: "Carlos R.",
-      prize: "Ganó: Smartphone",
-      img: "assets/ganador-2.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=70",
-    },
-    {
-      name: "Ana P.",
-      prize: "Ganó: Gift Card",
-      img: "assets/ganador-3.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1524503033411-f214d2b3d3c4?auto=format&fit=crop&w=400&q=70",
-    },
-    {
-      name: "Jorge M.",
-      prize: "Ganó: Electro",
-      img: "assets/ganador-4.jpg",
-      fallback:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=70",
-    },
-  ],
+const PRICE = 7.9;
+const TOTAL = 100;
+
+// simula números vendidos
+const soldNumbers = [3, 7, 18, 22, 45, 60, 78];
+
+const grid = document.getElementById("numberGrid");
+const selectedText = document.getElementById("selectedNumbers");
+const totalPrice = document.getElementById("totalPrice");
+const payBtn = document.getElementById("payBtn");
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+
+const modal = document.getElementById("modal");
+const modalSummary = document.getElementById("modalSummary");
+const closeModal = document.getElementById("closeModal");
+
+let selected = [];
+
+function renderGrid() {
+  for (let i = 1; i <= TOTAL; i++) {
+    const btn = document.createElement("div");
+    btn.textContent = i;
+    btn.classList.add("number");
+
+    if (soldNumbers.includes(i)) {
+      btn.classList.add("sold");
+    } else {
+      btn.classList.add("available");
+      btn.onclick = () => toggleNumber(i, btn);
+    }
+
+    grid.appendChild(btn);
+  }
+
+  updateProgress();
+}
+
+function toggleNumber(num, el) {
+  if (selected.includes(num)) {
+    selected = selected.filter(n => n !== num);
+    el.classList.remove("selected");
+  } else {
+    selected.push(num);
+    el.classList.add("selected");
+  }
+
+  updateSummary();
+}
+
+function updateSummary() {
+  if (selected.length === 0) {
+    selectedText.textContent = "Ninguno";
+    payBtn.disabled = true;
+  } else {
+    selectedText.textContent = selected.join(", ");
+    payBtn.disabled = false;
+  }
+
+  totalPrice.textContent = `S/ ${(selected.length * PRICE).toFixed(2)}`;
+}
+
+function updateProgress() {
+  const sold = soldNumbers.length;
+  const percent = (sold / TOTAL) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `${sold} / ${TOTAL} números vendidos`;
+}
+
+payBtn.onclick = () => {
+  modal.style.display = "flex";
+  modalSummary.textContent =
+    `Números: ${selected.join(", ")} — Total: S/ ${(selected.length * PRICE).toFixed(2)}`;
 };
 
-// =========================
-// Helpers
-// =========================
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+closeModal.onclick = () => {
+  modal.style.display = "none";
+};
 
-function imgUrl(item) {
-  // usa asset local si existe; si no, fallback
-  return item.img || item.fallback;
-}
-
-// =========================
-// Render
-// =========================
-function renderCarousel(trackEl, dotsEl, items, kind) {
-  trackEl.innerHTML = "";
-  dotsEl.innerHTML = "";
-
-  items.forEach((it, idx) => {
-    const card = document.createElement("article");
-    card.className = "itemCard";
-    card.innerHTML = `
-      <div class="itemImg" style="background-image:url('${imgUrl(it)}')"></div>
-      <div class="itemBody">
-        <div class="brandCircle" title="${it.brand}">${it.brand}</div>
-        <div class="itemMeta">
-          <div class="itemTitle">${it.title}</div>
-          <div class="itemText">${it.text}</div>
-        </div>
-        <div class="itemPill">
-          <span class="small">${it.priceLabel}</span>
-          <span class="big">${it.price}</span>
-        </div>
-      </div>
-    `;
-    card.addEventListener("click", () => openModal(kind, items));
-    trackEl.appendChild(card);
-
-    const dot = document.createElement("button");
-    dot.className = "dot" + (idx === 0 ? " is-active" : "");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Ir a ${kind} ${idx + 1}`);
-    dot.addEventListener("click", () => scrollToIndex(trackEl, idx, dotsEl));
-    dotsEl.appendChild(dot);
-  });
-
-  // initial state
-  setActiveDot(trackEl, dotsEl);
-}
-
-function renderWinners() {
-  const grid = $("#winnersGrid");
-  grid.innerHTML = "";
-
-  DATA.winners.forEach((w) => {
-    const row = document.createElement("div");
-    row.className = "winner";
-    row.innerHTML = `
-      <div class="winnerImg" style="background-image:url('${imgUrl(w)}')"></div>
-      <div>
-        <div class="winnerName">${w.name}</div>
-        <div class="winnerPrize">${w.prize}</div>
-      </div>
-    `;
-    grid.appendChild(row);
-  });
-}
-
-// =========================
-// Carousel controls
-// =========================
-function scrollToIndex(trackEl, idx, dotsEl) {
-  const card = trackEl.children[idx];
-  if (!card) return;
-  trackEl.scrollTo({ left: card.offsetLeft - 2, behavior: "smooth" });
-  setTimeout(() => setActiveDot(trackEl, dotsEl), 220);
-}
-
-function setActiveDot(trackEl, dotsEl) {
-  const cards = [...trackEl.children];
-  if (!cards.length) return;
-
-  const left = trackEl.scrollLeft;
-  let active = 0;
-  let best = Infinity;
-
-  cards.forEach((c, i) => {
-    const d = Math.abs(c.offsetLeft - left);
-    if (d < best) {
-      best = d;
-      active = i;
-    }
-  });
-
-  [...dotsEl.children].forEach((d, i) => d.classList.toggle("is-active", i === active));
-}
-
-function wireCarousel(rootSel, trackSel, dotsSel) {
-  const root = document.querySelector(rootSel);
-  const track = document.querySelector(trackSel);
-  const dots = document.querySelector(dotsSel);
-  const prev = root.querySelector(".carBtn.prev");
-  const next = root.querySelector(".carBtn.next");
-
-  prev.addEventListener("click", () => {
-    track.scrollBy({ left: -track.clientWidth * 0.92, behavior: "smooth" });
-    setTimeout(() => setActiveDot(track, dots), 220);
-  });
-
-  next.addEventListener("click", () => {
-    track.scrollBy({ left: track.clientWidth * 0.92, behavior: "smooth" });
-    setTimeout(() => setActiveDot(track, dots), 220);
-  });
-
-  track.addEventListener("scroll", () => setActiveDot(track, dots));
-}
-
-// =========================
-// Navegación (sidebar + bottom)
-// =========================
-function wireNavigation() {
-  const goTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const setActive = (id) => {
-    $$(".navItem").forEach((b) => b.classList.toggle("is-active", b.dataset.go === id));
-    const center = $(".bNavCenter");
-    if (center) center.classList.toggle("is-active", id === "inicio");
-  };
-
-  // Sidebar
-  $$(".navItem").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      goTo(btn.dataset.go);
-      setActive(btn.dataset.go);
-    });
-  });
-
-  // Bottom nav
-  $$(".bottomNav [data-go]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.dataset.go;
-      // algunos botones son “secciones futuras”: fallback a inicio
-      goTo(document.getElementById(id) ? id : "inicio");
-      setActive(document.getElementById(id) ? id : "inicio");
-    });
-  });
-
-  // “ya tienes cuenta”
-  $("#alreadyBtn")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Aquí conectarías tu login (Firebase/Auth0/etc).");
-  });
-}
-
-// =========================
-// Countdown (Feed)
-// =========================
-function wireCountdown() {
-  // Próximo anuncio: 2 días desde ahora (puedes cambiarlo)
-  const target = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 4 * 60 * 60 * 1000);
-
-  const dEl = $("#cdD");
-  const hEl = $("#cdH");
-  const mEl = $("#cdM");
-  const sEl = $("#cdS");
-
-  const tick = () => {
-    const diff = Math.max(0, target.getTime() - Date.now());
-    const d = Math.floor(diff / (24 * 60 * 60 * 1000));
-    const h = Math.floor((diff / (60 * 60 * 1000)) % 24);
-    const m = Math.floor((diff / (60 * 1000)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    dEl.textContent = String(d);
-    hEl.textContent = String(h).padStart(2, "0");
-    mEl.textContent = String(m).padStart(2, "0");
-    sEl.textContent = String(s).padStart(2, "0");
-  };
-
-  tick();
-  setInterval(tick, 1000);
-}
-
-// =========================
-// Modal “Mostrar más”
-// =========================
-function openModal(kind, items) {
-  const modal = $("#modal");
-  const title = $("#modalTitle");
-  const body = $("#modalBody");
-
-  title.textContent = kind === "promos" ? "Promos" : "Premios";
-
-  body.innerHTML = `
-    <div style="display:grid; gap:12px;">
-      ${items.map(it => `
-        <div style="display:flex; gap:12px; align-items:center; padding:12px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.18);">
-          <div style="width:64px; height:48px; border-radius:14px; background-image:url('${imgUrl(it)}'); background-size:cover; background-position:center; border:1px solid rgba(255,255,255,.12);"></div>
-          <div style="min-width:0;">
-            <div style="font-weight:900;">${it.title}</div>
-            <div style="color:rgba(255,255,255,.55); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:560px;">${it.text}</div>
-          </div>
-          <div style="margin-left:auto; text-align:right;">
-            <div style="color:rgba(255,255,255,.55); font-size:12px;">${it.priceLabel}</div>
-            <div style="font-weight:900;">${it.price}</div>
-          </div>
-        </div>
-      `).join("")}
-    </div>
-  `;
-
-  modal.classList.add("is-open");
-  modal.setAttribute("aria-hidden", "false");
-}
-
-function wireModal() {
-  const modal = $("#modal");
-  const closeAll = () => {
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-  };
-
-  $("[data-open='promos']")?.addEventListener("click", () => openModal("promos", DATA.promos));
-  $("[data-open='premios']")?.addEventListener("click", () => openModal("premios", DATA.premios));
-
-  $$("#modal [data-close]").forEach((el) => el.addEventListener("click", closeAll));
-  window.addEventListener("keydown", (e) => e.key === "Escape" && closeAll());
-}
-
-// =========================
-// Init
-// =========================
-function init() {
-  $("#year").textContent = new Date().getFullYear();
-
-  renderCarousel($("#promosTrack"), $("#promosDots"), DATA.promos, "promos");
-  renderCarousel($("#premiosTrack"), $("#premiosDots"), DATA.premios, "premios");
-  renderWinners();
-
-  wireCarousel("[data-carousel='promos']", "#promosTrack", "#promosDots");
-  wireCarousel("[data-carousel='premios']", "#premiosTrack", "#premiosDots");
-
-  wireNavigation();
-  wireCountdown();
-  wireModal();
-}
-
-init();
+renderGrid();
