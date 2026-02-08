@@ -1,69 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sorteo Semanal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header class="hero">
-  <h1>🎟️ Sorteo semanal</h1>
-  <p>Compra tu número por <b>S/ 7.90</b> y participa por:</p>
-  <div class="prize">🎧 AirPods / Smartwatch</div>
+<!-- HERO -->
+<section class="hero card">
+  <div class="hero-content">
+    <span class="badge">🎟️ Sorteo semanal</span>
+    <h1>Gana premios increíbles</h1>
+    <p>Compra tu número por <b>S/ 7.90</b> y participa por:</p>
+    <div class="prize">🎧 AirPods / ⌚ Smartwatch</div>
 
-  <div class="progress">
-    <div class="bar" id="progressBar"></div>
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <small id="progressText">0 / 100 números vendidos</small>
   </div>
-  <span id="progressText">0 / 100 números vendidos</span>
-</header>
+</section>
 
-<main class="container">
+<!-- GAME CARD -->
+<section class="game card">
+  <div class="game-layout">
 
-  <!-- GRID -->
-  <section class="grid-section">
-    <h2>Elige tus números</h2>
-    <div class="grid" id="numberGrid"></div>
-  </section>
-
-  <!-- RESUMEN -->
-  <aside class="summary" id="summary">
-    <h3>Tu selección</h3>
-    <p id="selectedNumbers">Ninguno</p>
-    <p class="total">Total: <span id="totalPrice">S/ 0.00</span></p>
-    <button id="payBtn" disabled>Continuar pago</button>
-  </aside>
-
-  <!-- HISTORIAL -->
-  <section class="winners">
-    <h2>🏆 Ganadores anteriores</h2>
-    <div class="winner">
-      <span>María G.</span>
-      <span>🎧 AirPods</span>
-      <span>12/02</span>
+    <!-- GRID -->
+    <div class="grid-area">
+      <h2>Elige tus números</h2>
+      <div class="grid" id="numberGrid"></div>
     </div>
-    <div class="winner">
-      <span>Carlos R.</span>
-      <span>⌚ Smartwatch</span>
-      <span>05/02</span>
-    </div>
-  </section>
 
-</main>
+    <!-- SUMMARY -->
+    <aside class="summary">
+      <h3>Tu jugada</h3>
 
-<!-- MODAL PAGO -->
+      <div class="summary-box">
+        <p class="label">Números elegidos</p>
+        <p id="selectedNumbers">—</p>
+
+        <p class="label">Total</p>
+        <p class="total" id="totalPrice">S/ 0.00</p>
+
+        <button id="payBtn" disabled>Continuar pago</button>
+      </div>
+
+      <div class="payments">
+        <span>Pagos:</span>
+        <div class="pay-icons">
+          <span>📱 Yape</span>
+          <span>📱 Plin</span>
+          <span>💳 Online</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- WINNERS -->
+<section class="winners card">
+  <h2>🏆 Ganadores recientes</h2>
+
+  <div class="winner">
+    <span>María G.</span>
+    <span>🎧 AirPods</span>
+    <span>12/02</span>
+  </div>
+  <div class="winner">
+    <span>Carlos R.</span>
+    <span>⌚ Smartwatch</span>
+    <span>05/02</span>
+  </div>
+</section>
+
+<!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-content">
+  <div class="modal-content card">
     <h3>Finalizar pago</h3>
     <p id="modalSummary"></p>
 
-    <div class="payments">
-      <button>📱 Yape</button>
-      <button>📱 Plin</button>
-      <button>💳 Pago online</button>
-    </div>
+    <button class="pay yape">Pagar con Yape</button>
+    <button class="pay plin">Pagar con Plin</button>
+    <button class="pay online">Pago online</button>
 
     <button class="close" id="closeModal">Cerrar</button>
   </div>
@@ -72,4 +98,3 @@
 <script src="app.js"></script>
 </body>
 </html>
-
