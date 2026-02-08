@@ -19,22 +19,26 @@ body {
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1100px;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 24px auto;
+  max-width: 1200px;
   backdrop-filter: blur(14px);
 }
 
 /* HERO */
+.hero {
+  text-align: center;
+}
+
 .hero h1 {
-  font-size: 36px;
+  font-size: 38px;
   margin: 10px 0;
 }
 
 .badge {
   background: rgba(34,197,94,0.15);
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
 }
@@ -61,22 +65,38 @@ body {
 /* GAME */
 .game-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
+  grid-template-columns: 3fr 1.5fr 1.2fr;
+  gap: 24px;
+  align-items: start;
 }
 
+@media (max-width: 900px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 8px;
+  gap: 10px;
 }
 
 .number {
-  padding: 14px 0;
+  padding: 16px 0;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #333;
   cursor: pointer;
+  font-weight: 600;
+  background: rgba(255,255,255,0.03);
+  transition: all 0.15s ease;
+}
+
+.number:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
 }
 
 .number.selected {
@@ -91,11 +111,23 @@ body {
   cursor: not-allowed;
 }
 
+/* INFO */
+.info {
+  background: rgba(0,0,0,0.25);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.muted {
+  opacity: 0.6;
+  font-size: 13px;
+}
+
 /* SUMMARY */
 .summary-box {
-  background: rgba(0,0,0,0.25);
-  border-radius: 16px;
-  padding: 16px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 18px;
+  padding: 18px;
 }
 
 .label {
@@ -104,22 +136,40 @@ body {
 }
 
 .total {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
 }
 
 .summary button {
   width: 100%;
-  margin-top: 12px;
-  padding: 12px;
+  margin-top: 14px;
+  padding: 14px;
   border-radius: 999px;
   border: none;
   font-weight: 800;
   background: var(--accent);
+  cursor: pointer;
 }
 
 .summary button:disabled {
   background: #333;
+  cursor: not-allowed;
+}
+
+.sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.payments {
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.pay-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 /* WINNERS */
@@ -148,7 +198,7 @@ body {
   width: 100%;
   margin: 6px 0;
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
   font-weight: 700;
 }
