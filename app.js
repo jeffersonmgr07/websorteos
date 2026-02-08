@@ -1,5 +1,7 @@
 const PRICE = 7.9;
 const TOTAL = 100;
+
+// simulación de vendidos
 const soldNumbers = [2, 7, 15, 28, 39, 44, 63];
 
 const grid = document.getElementById("numberGrid");
@@ -24,7 +26,7 @@ function renderGrid() {
     if (soldNumbers.includes(i)) {
       el.classList.add("sold");
     } else {
-      el.onclick = () => toggle(i, el);
+      el.onclick = () => toggleNumber(i, el);
     }
 
     grid.appendChild(el);
@@ -32,7 +34,7 @@ function renderGrid() {
   updateProgress();
 }
 
-function toggle(num, el) {
+function toggleNumber(num, el) {
   if (selected.includes(num)) {
     selected = selected.filter(n => n !== num);
     el.classList.remove("selected");
@@ -51,15 +53,19 @@ function updateSummary() {
 
 function updateProgress() {
   const sold = soldNumbers.length;
-  progressBar.style.width = (sold / TOTAL) * 100 + "%";
+  const percent = (sold / TOTAL) * 100;
+  progressBar.style.width = percent + "%";
   progressText.textContent = `${sold} / ${TOTAL} números vendidos`;
 }
 
 payBtn.onclick = () => {
   modal.style.display = "flex";
-  modalSummary.textContent = `Números: ${selected.join(", ")} — Total S/ ${(selected.length * PRICE).toFixed(2)}`;
+  modalSummary.textContent =
+    `Números: ${selected.join(", ")} — Total S/ ${(selected.length * PRICE).toFixed(2)}`;
 };
 
-closeModal.onclick = () => modal.style.display = "none";
+closeModal.onclick = () => {
+  modal.style.display = "none";
+};
 
 renderGrid();
