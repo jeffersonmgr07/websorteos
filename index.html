@@ -1,290 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sorteos • Inicio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorteo Semanal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Decorative background blobs -->
-  <div class="bg-blobs" aria-hidden="true">
-    <div class="blob blob-a"></div>
-    <div class="blob blob-b"></div>
-    <div class="blob blob-c"></div>
+
+<header class="hero">
+  <h1>🎟️ Sorteo semanal</h1>
+  <p>Compra tu número por <b>S/ 7.90</b> y participa por:</p>
+  <div class="prize">🎧 AirPods / Smartwatch</div>
+
+  <div class="progress">
+    <div class="bar" id="progressBar"></div>
   </div>
+  <span id="progressText">0 / 100 números vendidos</span>
+</header>
 
-  <!-- Sidebar (Desktop) -->
-  <aside class="sidebar" aria-label="Navegación principal">
-    <div class="sidebar__brand">
-      <div class="logoMark">S</div>
-      <div class="brandText">
-        <div class="brandName">Sorteos</div>
-        <div class="brandSub">Web</div>
-      </div>
-    </div>
+<main class="container">
 
-    <nav class="sidebar__nav">
-      <button class="navItem is-active" data-go="inicio" aria-label="Inicio">
-        <span class="ico">🏠</span>
-      </button>
-      <button class="navItem" data-go="promos" aria-label="Promos">
-        <span class="ico">🏷️</span>
-      </button>
-      <button class="navItem" data-go="premios" aria-label="Premios">
-        <span class="ico">🎁</span>
-      </button>
-      <button class="navItem" data-go="planes" aria-label="Planes">
-        <span class="ico">⭐</span>
-      </button>
-      <button class="navItem" data-go="ganadores" aria-label="Ganadores">
-        <span class="ico">🏆</span>
-      </button>
-    </nav>
+  <!-- GRID -->
+  <section class="grid-section">
+    <h2>Elige tus números</h2>
+    <div class="grid" id="numberGrid"></div>
+  </section>
 
-    <div class="sidebar__footer">
-      <a class="miniLink" href="#" title="Términos">Términos</a>
-      <a class="miniLink" href="#" title="Soporte">Soporte</a>
-    </div>
+  <!-- RESUMEN -->
+  <aside class="summary" id="summary">
+    <h3>Tu selección</h3>
+    <p id="selectedNumbers">Ninguno</p>
+    <p class="total">Total: <span id="totalPrice">S/ 0.00</span></p>
+    <button id="payBtn" disabled>Continuar pago</button>
   </aside>
 
-  <!-- Top right actions -->
-  <header class="topbar">
-    <a class="pillBtn" href="#" id="loginBtn">Iniciar sesión <span class="arrow">→</span></a>
-  </header>
-
-  <!-- Main layout -->
-  <main class="layout">
-    <!-- Left/Main column -->
-    <section class="mainCol">
-      <!-- HERO -->
-      <section id="inicio" class="hero card">
-        <div class="hero__bg" aria-hidden="true"></div>
-
-        <div class="hero__content">
-          <div class="hero__kicker">EN ESTE MES</div>
-          <h1 class="hero__title">
-            GANA UN PREMIO <span class="accent">TOP</span>
-          </h1>
-          <p class="hero__subtitle">
-            Suscríbete y participa en sorteos, beneficios y experiencias.
-          </p>
-
-          <div class="hero__cta">
-            <a class="ctaBtn" href="#planes">¡Suscríbete!</a>
-            <a class="ghostLink" href="#" id="alreadyBtn">¿Ya tienes cuenta? Inicia sesión</a>
-          </div>
-
-          <div class="hero__note">
-            *Aplican términos y condiciones. Imágenes referenciales.
-          </div>
-        </div>
-
-        <div class="hero__art" aria-hidden="true">
-          <div class="artCard">
-            <div class="artTag">Premio principal</div>
-            <div class="artTitle">“SUV / Consola / iPhone”</div>
-            <div class="artDesc">Cambia el texto e imágenes en <code>app.js</code></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROMOS -->
-      <section id="promos" class="section">
-        <div class="sectionHead">
-          <div>
-            <div class="sectionTitle">Promos</div>
-            <div class="sectionSub">Promos exclusivas</div>
-          </div>
-          <button class="tinyBtn" data-open="promos">Mostrar más <span class="arrow">→</span></button>
-        </div>
-
-        <div class="card">
-          <div class="carousel" data-carousel="promos">
-            <button class="carBtn prev" aria-label="Anterior">‹</button>
-            <div class="carTrack" id="promosTrack"></div>
-            <button class="carBtn next" aria-label="Siguiente">›</button>
-          </div>
-
-          <div class="dots" id="promosDots" aria-label="Paginación de promos"></div>
-        </div>
-      </section>
-
-      <!-- PREMIOS -->
-      <section id="premios" class="section">
-        <div class="sectionHead">
-          <div>
-            <div class="sectionTitle">Premios</div>
-            <div class="sectionSub">¡Premios geniales!</div>
-          </div>
-          <button class="tinyBtn" data-open="premios">Mostrar más <span class="arrow">→</span></button>
-        </div>
-
-        <div class="card">
-          <div class="carousel" data-carousel="premios">
-            <button class="carBtn prev" aria-label="Anterior">‹</button>
-            <div class="carTrack" id="premiosTrack"></div>
-            <button class="carBtn next" aria-label="Siguiente">›</button>
-          </div>
-
-          <div class="dots" id="premiosDots" aria-label="Paginación de premios"></div>
-        </div>
-      </section>
-
-      <!-- PLANES -->
-      <section id="planes" class="section">
-        <div class="sectionHead">
-          <div>
-            <div class="sectionTitle">Planes</div>
-            <div class="sectionSub">Puedes cambiar tu plan en cualquier momento</div>
-          </div>
-        </div>
-
-        <div class="plans">
-          <article class="plan plan--silver">
-            <div class="plan__top">
-              <div class="plan__name">Mensual</div>
-              <div class="plan__badge">Básico</div>
-            </div>
-            <div class="plan__price">
-              <span class="currency">S/</span> 8.50 <span class="period">/ mes</span>
-            </div>
-
-            <ul class="plan__list">
-              <li>Participas por <b>12</b> premios</li>
-              <li>Descuentos en marcas aliadas</li>
-              <li>Acceso a eventos (según campaña)</li>
-              <li>Apoyo a filantropía</li>
-            </ul>
-
-            <button class="plan__btn">Suscribirme</button>
-          </article>
-
-          <article class="plan plan--gold is-featured">
-            <div class="plan__top">
-              <div class="plan__name">Trimestral</div>
-              <div class="plan__badge">Recomendado</div>
-            </div>
-            <div class="plan__price">
-              <span class="currency">S/</span> 25.50 <span class="period">/ 3 meses</span>
-            </div>
-
-            <ul class="plan__list">
-              <li>Participas por <b>36</b> premios</li>
-              <li>Descuentos en marcas aliadas</li>
-              <li>Acceso a eventos (según campaña)</li>
-              <li>Apoyo a filantropía</li>
-            </ul>
-
-            <button class="plan__btn plan__btn--primary">Suscribirme</button>
-          </article>
-
-          <article class="plan plan--neon">
-            <div class="plan__top">
-              <div class="plan__name">Anual</div>
-              <div class="plan__badge">Full</div>
-            </div>
-            <div class="plan__price">
-              <span class="currency">S/</span> 99.00 <span class="period">/ año</span>
-            </div>
-
-            <ul class="plan__list">
-              <li>Participas por <b>144</b> premios</li>
-              <li>Descuentos en marcas aliadas</li>
-              <li>Acceso a eventos (según campaña)</li>
-              <li>Apoyo a filantropía</li>
-            </ul>
-
-            <button class="plan__btn">Suscribirme</button>
-          </article>
-        </div>
-      </section>
-
-      <!-- GANADORES -->
-      <section id="ganadores" class="section">
-        <div class="sectionHead">
-          <div>
-            <div class="sectionTitle">Ellos ya ganaron</div>
-            <div class="sectionSub">El próximo puedes ser tú</div>
-          </div>
-        </div>
-
-        <div class="winners card" id="winnersGrid"></div>
-      </section>
-
-      <footer class="footer">
-        <div>© <span id="year"></span> Sorteos Web</div>
-        <div class="footerLinks">
-          <a href="#">Términos</a>
-          <a href="#">Privacidad</a>
-          <a href="#">Contacto</a>
-        </div>
-      </footer>
-    </section>
-
-    <!-- Right column (Desktop feed) -->
-    <aside class="rightCol">
-      <section class="feed card">
-        <div class="feedHead">
-          <div>
-            <div class="sectionTitle">Feed</div>
-            <div class="sectionSub">Anuncio de ganadores</div>
-          </div>
-          <span class="liveTag">LIVE</span>
-        </div>
-
-        <div class="countdown" aria-label="Cuenta regresiva">
-          <div class="cdItem"><div class="cdNum" id="cdD">--</div><div class="cdLbl">d</div></div>
-          <div class="cdItem"><div class="cdNum" id="cdH">--</div><div class="cdLbl">h</div></div>
-          <div class="cdItem"><div class="cdNum" id="cdM">--</div><div class="cdLbl">m</div></div>
-          <div class="cdItem"><div class="cdNum" id="cdS">--</div><div class="cdLbl">s</div></div>
-        </div>
-
-        <div class="feedDivider"></div>
-
-        <div class="sectionSub" style="margin-bottom:10px;">Anuncios destacados</div>
-        <article class="featured">
-          <div class="featured__img" aria-hidden="true"></div>
-          <div class="featured__body">
-            <div class="featured__title">Calendario 2026</div>
-            <div class="featured__text">Stickers, descuentos y más. Edita esto en <code>index.html</code>.</div>
-          </div>
-        </article>
-      </section>
-    </aside>
-  </main>
-
-  <!-- Bottom nav (Mobile) -->
-  <nav class="bottomNav" aria-label="Navegación inferior">
-    <button class="bNavItem" data-go="premios"><span class="ico">🎁</span><span>Premios</span></button>
-    <button class="bNavItem" data-go="eventos"><span class="ico">🎟️</span><span>Eventos</span></button>
-
-    <button class="bNavCenter is-active" data-go="inicio" aria-label="Inicio">
-      <span class="ico">🏠</span>
-      <span class="bNavCenter__label">Inicio</span>
-    </button>
-
-    <button class="bNavItem" data-go="promos"><span class="ico">🏷️</span><span>Promos</span></button>
-    <button class="bNavItem" data-go="tienda"><span class="ico">🛒</span><span>Tienda</span></button>
-  </nav>
-
-  <!-- Simple modal -->
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal__backdrop" data-close="1"></div>
-    <div class="modal__panel card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal__head">
-        <div class="modal__title" id="modalTitle">Listado</div>
-        <button class="modal__close" data-close="1" aria-label="Cerrar">✕</button>
-      </div>
-      <div class="modal__body" id="modalBody"></div>
+  <!-- HISTORIAL -->
+  <section class="winners">
+    <h2>🏆 Ganadores anteriores</h2>
+    <div class="winner">
+      <span>María G.</span>
+      <span>🎧 AirPods</span>
+      <span>12/02</span>
     </div>
-  </div>
+    <div class="winner">
+      <span>Carlos R.</span>
+      <span>⌚ Smartwatch</span>
+      <span>05/02</span>
+    </div>
+  </section>
 
-  <script src="app.js"></script>
+</main>
+
+<!-- MODAL PAGO -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Finalizar pago</h3>
+    <p id="modalSummary"></p>
+
+    <div class="payments">
+      <button>📱 Yape</button>
+      <button>📱 Plin</button>
+      <button>💳 Pago online</button>
+    </div>
+
+    <button class="close" id="closeModal">Cerrar</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
