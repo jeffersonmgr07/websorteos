@@ -14,16 +14,21 @@
 <body>
 
 <!-- HERO -->
-<section class="hero card">
-  <span class="badge">🎟️ Sorteo semanal</span>
-  <h1>Gana premios increíbles</h1>
-  <p>Compra tu número por <b>S/ 7.90</b> y participa por:</p>
-  <div class="prize">🎧 AirPods / ⌚ Smartwatch</div>
+<section class="hero card hero--banner">
+  <div class="hero__media" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
 
-  <div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
+  <div class="hero__content">
+    <span class="badge">🎟️ Sorteo semanal</span>
+    <h1>Gana premios increíbles</h1>
+    <p>Compra tu número por <b>S/ 7.90</b> y participa por:</p>
+    <div class="prize">🎧 AirPods / ⌚ Smartwatch</div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <small id="progressText">0 / 100 números vendidos</small>
   </div>
-  <small id="progressText">0 / 100 números vendidos</small>
 </section>
 
 <!-- GAME -->
@@ -34,6 +39,7 @@
     <div class="grid-area">
       <h2>Elige tus números</h2>
       <div class="grid" id="numberGrid"></div>
+      <p class="hint">Tip: puedes elegir más de un número.</p>
     </div>
 
     <!-- INFO -->
@@ -42,7 +48,18 @@
       <p><b>Premio:</b> AirPods / Smartwatch</p>
       <p><b>Precio:</b> S/ 7.90 por número</p>
       <p><b>Fecha:</b> Viernes 8:00 pm</p>
-      <p class="muted">Método: número aleatorio en vivo</p>
+
+      <p class="muted" style="margin-top:10px;">
+        📺 Se transmitirá en <b>Facebook Live</b> y <b>TikTok Live</b>.
+        <br/>
+        🎁 Habrá <b>premios extras</b> para los que estén conectados.
+      </p>
+
+      <div class="info__chips">
+        <span class="chip">🔴 Facebook Live</span>
+        <span class="chip">🎵 TikTok Live</span>
+        <span class="chip">🎁 Premios extra</span>
+      </div>
     </div>
 
     <!-- SUMMARY -->
@@ -56,7 +73,11 @@
         <p class="label">Total</p>
         <p class="total" id="totalPrice">S/ 0.00</p>
 
-        <button id="payBtn" disabled>Continuar pago</button>
+        <button id="payBtn" disabled>Continuar compra por WhatsApp</button>
+
+        <p class="micro muted" style="margin-top:10px;">
+          Al continuar, te abriremos WhatsApp para coordinar el pago (QR Yape/Plin).
+        </p>
       </div>
 
       <div class="payments">
@@ -86,21 +107,11 @@
     <span>⌚ Smartwatch</span>
     <span>05/02</span>
   </div>
+
+  <p class="hint" style="margin-top:12px;">
+    Publicamos resultados y evidencia del sorteo en nuestras redes después de cada transmisión.
+  </p>
 </section>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content card">
-    <h3>Finalizar pago</h3>
-    <p id="modalSummary"></p>
-
-    <button class="pay yape">Pagar con Yape</button>
-    <button class="pay plin">Pagar con Plin</button>
-    <button class="pay online">Pago online</button>
-
-    <button class="close" id="closeModal">Cerrar</button>
-  </div>
-</div>
 
 <script src="app.js"></script>
 </body>
