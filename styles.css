@@ -3,6 +3,7 @@
   --card: rgba(255,255,255,0.06);
   --border: rgba(255,255,255,0.12);
   --accent: #22c55e;
+  --muted: rgba(255,255,255,0.68);
 }
 
 * {
@@ -12,7 +13,10 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: radial-gradient(1100px 700px at 75% -10%, rgba(124,58,237,.22), transparent 60%),
+              radial-gradient(900px 600px at 30% -20%, rgba(6,182,212,.18), transparent 55%),
+              radial-gradient(900px 700px at 0% 60%, rgba(34,197,94,.10), transparent 60%),
+              var(--bg);
   color: white;
 }
 
@@ -24,20 +28,50 @@ body {
   margin: 24px auto;
   max-width: 1200px;
   backdrop-filter: blur(14px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.55);
 }
 
-/* HERO */
+/* HERO banner */
 .hero {
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.hero__media{
+  position:absolute;
+  inset:0;
+  background-image: url("img/Banner1.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.hero__overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.30) 100%),
+              radial-gradient(700px 300px at 20% 20%, rgba(34,197,94,.18), transparent 55%),
+              radial-gradient(800px 320px at 70% 0%, rgba(124,58,237,.22), transparent 60%);
+}
+
+.hero__content{
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
 }
 
 .hero h1 {
-  font-size: 38px;
+  font-size: 40px;
   margin: 10px 0;
+  letter-spacing: -0.02em;
 }
 
 .badge {
-  background: rgba(34,197,94,0.15);
+  display:inline-block;
+  background: rgba(34,197,94,0.18);
+  border: 1px solid rgba(34,197,94,0.25);
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
@@ -45,15 +79,16 @@ body {
 
 .prize {
   font-weight: 800;
-  margin: 10px 0;
+  margin: 10px 0 12px;
 }
 
-/* PROGRESS */
+/* Progress */
 .progress {
   height: 8px;
-  background: #222;
+  background: rgba(255,255,255,.12);
   border-radius: 8px;
   overflow: hidden;
+  max-width: 520px;
 }
 
 .progress-bar {
@@ -61,6 +96,8 @@ body {
   width: 0%;
   background: linear-gradient(90deg, #22c55e, #06b6d4);
 }
+
+small { color: var(--muted); }
 
 /* GAME */
 .game-layout {
@@ -71,88 +108,125 @@ body {
 }
 
 @media (max-width: 900px) {
-  .game-layout {
-    grid-template-columns: 1fr;
-  }
+  .game-layout { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 34px; }
+  .hero { min-height: 260px; }
+  .progress { max-width: 100%; }
 }
 
-/* GRID */
+.grid-area h2 { margin: 0 0 12px; }
+
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 10px;
 }
 
+@media (max-width: 900px) {
+  .grid { gap: 8px; }
+}
+
 .number {
   padding: 16px 0;
   text-align: center;
   border-radius: 12px;
-  border: 1px solid #333;
+  border: 1px solid rgba(255,255,255,.10);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   background: rgba(255,255,255,0.03);
-  transition: all 0.15s ease;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  user-select: none;
 }
 
 .number:hover {
   transform: translateY(-1px);
-  border-color: var(--accent);
+  border-color: rgba(34,197,94,0.55);
 }
 
 .number.selected {
-  background: var(--accent);
-  color: black;
-  font-weight: 800;
+  background: rgba(34,197,94,0.95);
+  color: #06100a;
+  border-color: rgba(34,197,94,0.55);
+  box-shadow: 0 0 0 8px rgba(34,197,94,0.10);
+  font-weight: 900;
 }
 
 .number.sold {
-  background: #222;
-  color: #555;
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.30);
+  border-color: rgba(255,255,255,0.08);
   cursor: not-allowed;
+  text-decoration: line-through;
 }
 
-/* INFO */
+/* Info */
 .info {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.28);
   border-radius: 18px;
   padding: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-.muted {
-  opacity: 0.6;
-  font-size: 13px;
+.muted { color: var(--muted); }
+.micro { font-size: 12px; }
+
+.info__chips{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.chip{
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
 }
 
-/* SUMMARY */
+/* Summary */
 .summary-box {
   background: rgba(0,0,0,0.35);
   border-radius: 18px;
   padding: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .label {
   font-size: 12px;
-  opacity: 0.6;
+  opacity: 0.65;
+  margin: 0;
 }
 
 .total {
-  font-size: 26px;
+  font-size: 28px;
+  font-weight: 900;
+  margin: 6px 0 0;
+  letter-spacing: -0.02em;
+}
+
+#selectedNumbers{
+  margin: 6px 0 14px;
   font-weight: 800;
+  word-break: break-word;
 }
 
 .summary button {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 10px;
   padding: 14px;
   border-radius: 999px;
   border: none;
-  font-weight: 800;
-  background: var(--accent);
+  font-weight: 900;
+  background: rgba(34,197,94,0.95);
   cursor: pointer;
 }
 
 .summary button:disabled {
-  background: #333;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.35);
   cursor: not-allowed;
 }
 
@@ -164,46 +238,26 @@ body {
 .payments {
   margin-top: 14px;
   font-size: 13px;
+  color: rgba(255,255,255,0.85);
 }
 
 .pay-icons {
   display: flex;
   gap: 10px;
-  margin-top: 6px;
+  margin-top: 8px;
+  color: rgba(255,255,255,0.85);
 }
 
-/* WINNERS */
+/* Winners */
 .winner {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #222;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  max-width: 360px;
-}
-
-.pay {
-  width: 100%;
-  margin: 6px 0;
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  font-weight: 700;
-}
-
-.close {
-  background: #333;
-  color: white;
+.hint{
+  margin-top: 10px;
+  color: rgba(255,255,255,0.60);
+  font-size: 12px;
 }
