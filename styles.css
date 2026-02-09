@@ -261,3 +261,19 @@ small { color: var(--muted); }
   color: rgba(255,255,255,0.60);
   font-size: 12px;
 }
+/* 📱 Ajustes UX para móviles */
+@media (max-width: 600px) {
+
+  /* menos columnas = números más anchos */
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+  }
+
+  /* números un poco más grandes */
+  .number {
+    padding: 18px 0;
+    font-size: 15px;
+    border-radius: 14px;
+  }
+}
