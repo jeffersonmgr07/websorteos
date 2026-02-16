@@ -2,117 +2,551 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sorteo Semanal</title>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JudithAlva.com — Sorteos & Suscripciones</title>
+  <meta name="description" content="Sorteos por suscripción — Promos, Premios, Ganadores, Eventos y Planes. Primer sorteo: PlayStation 5 (20 de marzo)." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
-
-<!-- HERO -->
-<section class="hero card hero--banner">
-  <div class="hero__media" aria-hidden="true"></div>
-  <div class="hero__overlay" aria-hidden="true"></div>
-
-  <div class="hero__content">
-    <span class="badge">🎟️ Sorteo semanal</span>
-    <h1>Gana premios increíbles</h1>
-    <p>Compra tu número por <b>S/ 7.90</b> y participa por:</p>
-    <div class="prize">🎧 AirPods / ⌚ Smartwatch</div>
-
-    <div class="progress">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-    <small id="progressText">0 / 100 números vendidos</small>
-  </div>
-</section>
-
-<!-- GAME -->
-<section class="game card">
-  <div class="game-layout">
-
-    <!-- GRID -->
-    <div class="grid-area">
-      <h2>Elige tus números</h2>
-      <div class="grid" id="numberGrid"></div>
-      <p class="hint">Tip: puedes elegir más de un número.</p>
-    </div>
-
-    <!-- INFO -->
-    <div class="info">
-      <h3>📦 Sorteo actual</h3>
-      <p><b>Premio:</b> AirPods / Smartwatch</p>
-      <p><b>Precio:</b> S/ 7.90 por número</p>
-      <p><b>Fecha:</b> Viernes 8:00 pm</p>
-
-      <p class="muted" style="margin-top:10px;">
-        📺 Se transmitirá en <b>Facebook Live</b> y <b>TikTok Live</b>.
-        <br/>
-        🎁 Habrá <b>premios extras</b> para los que estén conectados.
-      </p>
-
-      <div class="info__chips">
-        <span class="chip">🔴 Facebook Live</span>
-        <span class="chip">🎵 TikTok Live</span>
-        <span class="chip">🎁 Premios extra</span>
+  <!-- Sidebar (PC) -->
+  <aside class="side">
+    <div class="side-top">
+      <div class="brand-mini">
+        <img src="assets/img/logo.png" alt="JudithAlva.com" />
+      </div>
+      <div class="side-icons">
+        <a class="ico active" href="#inicio" aria-label="Inicio">
+          <span>⌂</span>
+        </a>
+        <a class="ico" href="#promos" aria-label="Promos">
+          <span>％</span>
+        </a>
+        <a class="ico" href="#premios" aria-label="Próximos premios">
+          <span>🎁</span>
+        </a>
+        <a class="ico" href="#ganadores" aria-label="Ganadores">
+          <span>🏆</span>
+        </a>
+        <a class="ico" href="#eventos" aria-label="Eventos">
+          <span>🎟️</span>
+        </a>
+        <a class="ico" href="#planes" aria-label="Planes">
+          <span>★</span>
+        </a>
       </div>
     </div>
 
-    <!-- SUMMARY -->
-    <aside class="summary sticky">
-      <h3>Tu jugada</h3>
+    <div class="side-bottom">
+      <div class="side-hint">JudithAlva.com</div>
+    </div>
+  </aside>
 
-      <div class="summary-box">
-        <p class="label">Números elegidos</p>
-        <p id="selectedNumbers">—</p>
-
-        <p class="label">Total</p>
-        <p class="total" id="totalPrice">S/ 0.00</p>
-
-        <button id="payBtn" disabled>Continuar compra por WhatsApp</button>
-
-        <p class="micro muted" style="margin-top:10px;">
-          Al continuar, te abriremos WhatsApp para coordinar el pago (QR Yape/Plin).
-        </p>
-      </div>
-
-      <div class="payments">
-        <span>Pagos disponibles</span>
-        <div class="pay-icons">
-          <span>📱 Yape</span>
-          <span>📱 Plin</span>
-          <span>💳 Online</span>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img class="brand-logo" src="assets/img/logo.png" alt="JudithAlva.com" />
+        <div class="brand-text">
+          <div class="brand-title">JudithAlva.com</div>
+          <div class="brand-sub">Sorteos • Promos • Eventos</div>
         </div>
       </div>
-    </aside>
 
+      <div class="topbar-actions">
+        <a class="btn ghost" href="#ganadores">Ver ganadores</a>
+        <button class="btn" id="openAuth">Iniciar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="main">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="hero-kicker">PRIMER SORTEO</div>
+          <h1 class="hero-title">
+            Este <span class="accent">20 de marzo</span> sorteamos una
+            <span class="accent">PlayStation 5</span>
+          </h1>
+
+          <p class="hero-desc">
+            Transmisión en <b>Facebook Live</b> y <b>TikTok Live</b>. Habrá <b>premios extra</b> para las personas conectadas.
+          </p>
+
+          <div class="hero-badges">
+            <div class="pill">🎥 Facebook Live</div>
+            <div class="pill">📱 TikTok Live</div>
+            <div class="pill">🎁 Premios extra en vivo</div>
+          </div>
+
+          <div class="countdown-card" aria-label="Cuenta regresiva">
+            <div class="countdown-title">Cuenta regresiva</div>
+            <div class="countdown" id="countdown">
+              <div class="cd">
+                <div class="num" id="cdDays">--</div>
+                <div class="lbl">Días</div>
+              </div>
+              <div class="cd">
+                <div class="num" id="cdHours">--</div>
+                <div class="lbl">Horas</div>
+              </div>
+              <div class="cd">
+                <div class="num" id="cdMins">--</div>
+                <div class="lbl">Min</div>
+              </div>
+              <div class="cd">
+                <div class="num" id="cdSecs">--</div>
+                <div class="lbl">Seg</div>
+              </div>
+            </div>
+            <div class="countdown-note">
+              *Hora referencial: Lima, Perú. (Puedes ajustarla luego si deseas)
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn xl" href="#planes" id="ctaGoPlans">¡Suscribirme!</a>
+            <a class="btn ghost xl" href="#premios">Ver próximos premios</a>
+          </div>
+
+          <div class="hero-mini">
+            *Si el DNI es incorrecto y resultas ganador, no podrás reclamar el premio.
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-banner">
+            <img src="assets/img/banner1.jpg" alt="Banner del sorteo" />
+            <div class="hero-overlay">
+              <div class="hero-overlay-card">
+                <div class="hero-overlay-title">Sorteo PS5</div>
+                <div class="hero-overlay-sub">20 de marzo</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-prize">
+            <img src="assets/img/prizes/ps5.png" alt="PlayStation 5" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout: contenido + feed (PC) -->
+    <section class="container layout">
+      <div class="content">
+
+        <!-- Promos -->
+        <section class="section" id="promos">
+          <div class="section-head">
+            <div>
+              <h2>Promos para suscriptores</h2>
+              <p>Coloca aquí promociones de comercios locales (solo para suscriptores).</p>
+            </div>
+            <button class="btn ghost sm">Mostrar más →</button>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card promo">
+              <div class="card-media media-grad"></div>
+              <div class="card-body">
+                <div class="card-title">Promo #1</div>
+                <div class="card-text">Ejemplo: 20% en hamburguesas (presentando suscripción).</div>
+                <button class="btn sm ghost">Ver detalle</button>
+              </div>
+            </article>
+
+            <article class="card promo">
+              <div class="card-media media-grad2"></div>
+              <div class="card-body">
+                <div class="card-title">Promo #2</div>
+                <div class="card-text">Ejemplo: 2x1 en café (solo suscriptores activos).</div>
+                <button class="btn sm ghost">Ver detalle</button>
+              </div>
+            </article>
+
+            <article class="card promo">
+              <div class="card-media media-grad3"></div>
+              <div class="card-body">
+                <div class="card-title">Promo #3</div>
+                <div class="card-text">Ejemplo: Descuento en barbería / salón.</div>
+                <button class="btn sm ghost">Ver detalle</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Próximos premios -->
+        <section class="section" id="premios">
+          <div class="section-head">
+            <div>
+              <h2>Próximos premios</h2>
+              <p>El premio principal de marzo es PS5. Puedes añadir más premios por mes.</p>
+            </div>
+            <button class="btn ghost sm">Mostrar más →</button>
+          </div>
+
+          <div class="carousel-wrap">
+            <button class="car-btn left" id="prizeLeft" type="button" aria-label="Izquierda">‹</button>
+            <div class="carousel" id="prizeCarousel">
+              <article class="p-card">
+                <div class="p-imgbox">
+                  <img src="assets/img/prizes/ps5.png" alt="PlayStation 5" />
+                </div>
+                <p class="p-name">PlayStation 5 (Premio principal)</p>
+                <div class="p-meta">Sorteo: 20 de marzo</div>
+                <div class="p-price">Incluido en planes activos</div>
+                <button class="p-add" data-open-plan="mensual">Elegir plan</button>
+              </article>
+
+              <article class="p-card">
+                <div class="p-imgbox placeholder"></div>
+                <p class="p-name">Premio extra en vivo</p>
+                <div class="p-meta">Solo conectados</div>
+                <div class="p-price">Facebook/TikTok Live</div>
+                <button class="p-add" data-open-plan="trimestral">Elegir plan</button>
+              </article>
+
+              <article class="p-card">
+                <div class="p-imgbox placeholder2"></div>
+                <p class="p-name">Premio sorpresa</p>
+                <div class="p-meta">Anuncios semanales</div>
+                <div class="p-price">Exclusivo suscriptores</div>
+                <button class="p-add" data-open-plan="anual">Elegir plan</button>
+              </article>
+            </div>
+            <button class="car-btn right" id="prizeRight" type="button" aria-label="Derecha">›</button>
+          </div>
+        </section>
+
+        <!-- Ganadores -->
+        <section class="section" id="ganadores">
+          <div class="section-head">
+            <div>
+              <h2>Ganadores</h2>
+              <p>Publica aquí fotos y anuncios de ganadores anteriores.</p>
+            </div>
+            <button class="btn ghost sm">Ver más →</button>
+          </div>
+
+          <div class="winners-grid">
+            <article class="winner">
+              <div class="winner-photo"></div>
+              <div class="winner-meta">
+                <div class="winner-name">Ganador/a #1</div>
+                <div class="winner-desc">Premio: (editar)</div>
+              </div>
+            </article>
+
+            <article class="winner">
+              <div class="winner-photo alt"></div>
+              <div class="winner-meta">
+                <div class="winner-name">Ganador/a #2</div>
+                <div class="winner-desc">Premio: (editar)</div>
+              </div>
+            </article>
+
+            <article class="winner">
+              <div class="winner-photo alt2"></div>
+              <div class="winner-meta">
+                <div class="winner-name">Ganador/a #3</div>
+                <div class="winner-desc">Premio: (editar)</div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Eventos -->
+        <section class="section" id="eventos">
+          <div class="section-head">
+            <div>
+              <h2>Eventos</h2>
+              <p>Sorteo de entradas, cine, conciertos, etc.</p>
+            </div>
+            <button class="btn ghost sm">Ver más →</button>
+          </div>
+
+          <div class="events-grid">
+            <article class="event-card">
+              <div class="event-media poster1"></div>
+              <div class="event-body">
+                <div class="event-title">Entradas al cine (pre-estreno)</div>
+                <div class="event-sub">Fecha: por anunciar</div>
+                <button class="btn sm ghost">Ver detalles</button>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-media poster2"></div>
+              <div class="event-body">
+                <div class="event-title">Concierto local</div>
+                <div class="event-sub">Fecha: por anunciar</div>
+                <button class="btn sm ghost">Ver detalles</button>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-media poster3"></div>
+              <div class="event-body">
+                <div class="event-title">Sorteo especial en vivo</div>
+                <div class="event-sub">Solo conectados</div>
+                <button class="btn sm ghost">Ver detalles</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Planes -->
+        <section class="section" id="planes">
+          <div class="section-head">
+            <div>
+              <h2>Planes</h2>
+              <p>Suscríbete y participa. La compra se finaliza por WhatsApp con pago manual.</p>
+            </div>
+          </div>
+
+          <div class="plans-grid">
+            <article class="plan-card" data-plan="mensual">
+              <div class="plan-top">
+                <div class="plan-title">Mensual</div>
+                <div class="plan-price">S/ <span>7.90</span></div>
+                <div class="plan-chip">Acceso 1 mes</div>
+              </div>
+              <ul class="plan-list">
+                <li>Participas en sorteos del mes</li>
+                <li>Promos para suscriptores</li>
+                <li>Premios extra para conectados</li>
+              </ul>
+              <button class="btn plan-btn" data-subscribe="mensual">Suscribirme</button>
+            </article>
+
+            <article class="plan-card featured" data-plan="trimestral">
+              <div class="plan-top">
+                <div class="plan-title">Trimestral</div>
+                <div class="plan-price">S/ <span>21.90</span></div>
+                <div class="plan-chip hot">Recomendado</div>
+              </div>
+              <ul class="plan-list">
+                <li>Participas 3 meses</li>
+                <li>Más oportunidades de ganar</li>
+                <li>Promos para suscriptores</li>
+              </ul>
+              <button class="btn plan-btn" data-subscribe="trimestral">Suscribirme</button>
+            </article>
+
+            <article class="plan-card" data-plan="anual">
+              <div class="plan-top">
+                <div class="plan-title">Anual</div>
+                <div class="plan-price">S/ <span>80.90</span></div>
+                <div class="plan-chip">Acceso 12 meses</div>
+              </div>
+              <ul class="plan-list">
+                <li>Participas todo el año</li>
+                <li>Promos para suscriptores</li>
+                <li>Mayor prioridad en dinámicas</li>
+              </ul>
+              <button class="btn plan-btn" data-subscribe="anual">Suscribirme</button>
+            </article>
+          </div>
+
+          <div class="legal-note">
+            Al suscribirte aceptas términos y condiciones. En caso de resultar ganador, se validará identidad (DNI) y datos.
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-grid">
+            <div>
+              <div class="f-title">JudithAlva.com</div>
+              <p class="f-text">Sorteos por suscripción • Promos locales • Eventos</p>
+              <div class="f-text"><b>Transmisión:</b> Facebook Live + TikTok Live</div>
+            </div>
+
+            <div>
+              <div class="f-title">Secciones</div>
+              <div class="f-links">
+                <a href="#promos">Promos</a>
+                <a href="#premios">Próximos premios</a>
+                <a href="#ganadores">Ganadores</a>
+                <a href="#eventos">Eventos</a>
+                <a href="#planes">Planes</a>
+              </div>
+            </div>
+
+            <div>
+              <div class="f-title">Soporte</div>
+              <div class="f-links">
+                <a href="#" onclick="return false;">Términos</a>
+                <a href="#" onclick="return false;">Privacidad</a>
+                <a href="#" onclick="return false;">Preguntas frecuentes</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            © <span id="year"></span> JudithAlva.com — Lima, Perú
+          </div>
+        </footer>
+
+      </div>
+
+      <!-- Feed (PC) -->
+      <aside class="feed">
+        <div class="feed-card">
+          <div class="feed-title">Feed</div>
+          <div class="feed-sub">Anuncio de ganadores</div>
+
+          <div class="timer-row">
+            <div class="t-chip"><b id="feedD">--</b>d</div>
+            <div class="t-chip"><b id="feedH">--</b>h</div>
+            <div class="t-chip"><b id="feedM">--</b>m</div>
+            <div class="t-chip"><b id="feedS">--</b>s</div>
+            <div class="t-live">LIVE</div>
+          </div>
+
+          <div class="feed-banner">
+            <div class="feed-banner-title">Sorteo PS5</div>
+            <div class="feed-banner-sub">20 de marzo • En vivo</div>
+          </div>
+
+          <div class="feed-mini">
+            Tip: publica aquí flyers, anuncios, y “destacados”.
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Mobile bottom nav -->
+  <nav class="mobile-nav" aria-label="Navegación móvil">
+    <a href="#inicio" class="active">
+      <div class="m-ico">⌂</div><div class="m-lbl">Inicio</div>
+    </a>
+    <a href="#promos">
+      <div class="m-ico">％</div><div class="m-lbl">Promos</div>
+    </a>
+    <a href="#premios">
+      <div class="m-ico">🎁</div><div class="m-lbl">Premios</div>
+    </a>
+    <a href="#planes">
+      <div class="m-ico">★</div><div class="m-lbl">Planes</div>
+    </a>
+  </nav>
+
+  <!-- WhatsApp flotante -->
+  <a
+    class="wa-float"
+    id="waFloat"
+    href="https://wa.me/51915161364?text=Hola%20JudithAlva.com%2C%20quiero%20informaci%C3%B3n%20sobre%20suscripciones."
+    target="_blank"
+    rel="noopener"
+    aria-label="Chatear por WhatsApp"
+  >
+    <img class="wa-icon" src="assets/img/whatsapp.png" alt="WhatsApp">
+  </a>
+
+  <!-- Modal: Auth placeholder -->
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-label="Iniciar sesión">
+      <div class="sheet-head">
+        <div>
+          <div class="sheet-title">Iniciar sesión</div>
+          <div class="sheet-sub">Demo (puedes conectar tu backend luego)</div>
+        </div>
+        <button class="xbtn" data-close="authModal" type="button">✕</button>
+      </div>
+      <div class="sheet-body">
+        <label class="field">
+          <span>Correo</span>
+          <input type="email" placeholder="correo@ejemplo.com" />
+        </label>
+        <label class="field">
+          <span>Contraseña</span>
+          <input type="password" placeholder="••••••••" />
+        </label>
+        <button class="btn" type="button" data-close="authModal">Entrar</button>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- WINNERS -->
-<section class="winners card">
-  <h2>🏆 Ganadores recientes</h2>
+  <!-- Modal: Suscripción + verificación -->
+  <div class="modal" id="subModal" aria-hidden="true">
+    <div class="sheet xl" role="dialog" aria-label="Suscripción">
+      <div class="sheet-head">
+        <div>
+          <div class="sheet-title">Suscribirme</div>
+          <div class="sheet-sub" id="subPlanLine">Plan: —</div>
+        </div>
+        <button class="xbtn" data-close="subModal" type="button">✕</button>
+      </div>
 
-  <div class="winner">
-    <span>María G.</span>
-    <span>🎧 AirPods</span>
-    <span>12/02</span>
+      <div class="sheet-body">
+        <div class="two-col">
+          <label class="field">
+            <span>Nombres</span>
+            <input id="nombres" type="text" placeholder="Tus nombres" autocomplete="given-name" />
+          </label>
+          <label class="field">
+            <span>Apellidos</span>
+            <input id="apellidos" type="text" placeholder="Tus apellidos" autocomplete="family-name" />
+          </label>
+        </div>
+
+        <div class="two-col">
+          <label class="field">
+            <span>WhatsApp</span>
+            <input id="whatsapp" type="tel" placeholder="+51 9XXXXXXXX" autocomplete="tel" />
+          </label>
+          <label class="field">
+            <span>DNI (8 dígitos)</span>
+            <input id="dni" type="text" inputmode="numeric" maxlength="8" placeholder="12345678" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Correo</span>
+          <input id="correo" type="email" placeholder="correo@ejemplo.com" autocomplete="email" />
+        </label>
+
+        <div class="verify-box">
+          <div class="verify-left">
+            <div class="verify-title">Verificación de correo</div>
+            <div class="verify-sub">Te enviaremos un código de 6 dígitos (modo demo).</div>
+          </div>
+          <button class="btn ghost sm" id="sendCodeBtn" type="button">Enviar código</button>
+        </div>
+
+        <div class="two-col">
+          <label class="field">
+            <span>Código (6 dígitos)</span>
+            <input id="codigo" type="text" inputmode="numeric" maxlength="6" placeholder="000000" />
+          </label>
+          <button class="btn sm" id="verifyBtn" type="button">Verificar</button>
+        </div>
+
+        <div class="status" id="statusBox" aria-live="polite"></div>
+
+        <div class="sheet-actions">
+          <button class="btn ghost" data-close="subModal" type="button">Cancelar</button>
+          <button class="btn" id="continueBtn" type="button" disabled>
+            Continuar por WhatsApp
+          </button>
+        </div>
+
+        <div class="fineprint">
+          Al continuar, se abrirá WhatsApp para coordinar el pago manual. Tus datos se usarán para validar premios.
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="winner">
-    <span>Carlos R.</span>
-    <span>⌚ Smartwatch</span>
-    <span>05/02</span>
-  </div>
 
-  <p class="hint" style="margin-top:12px;">
-    Publicamos resultados y evidencia del sorteo en nuestras redes después de cada transmisión.
-  </p>
-</section>
+  <!-- FX nodes -->
+  <div id="fx-root"></div>
 
-<script src="app.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
