@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>JudithAlva.com — Sorteos & Suscripciones</title>
   <meta name="description" content="Sorteos por suscripción — Promos, Premios, Ganadores, Eventos y Planes. Primer sorteo: PlayStation 5 (20 de marzo)." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
@@ -17,24 +16,12 @@
         <img src="assets/img/logo.png" alt="JudithAlva.com" />
       </div>
       <div class="side-icons">
-        <a class="ico active" href="#inicio" aria-label="Inicio">
-          <span>⌂</span>
-        </a>
-        <a class="ico" href="#promos" aria-label="Promos">
-          <span>％</span>
-        </a>
-        <a class="ico" href="#premios" aria-label="Próximos premios">
-          <span>🎁</span>
-        </a>
-        <a class="ico" href="#ganadores" aria-label="Ganadores">
-          <span>🏆</span>
-        </a>
-        <a class="ico" href="#eventos" aria-label="Eventos">
-          <span>🎟️</span>
-        </a>
-        <a class="ico" href="#planes" aria-label="Planes">
-          <span>★</span>
-        </a>
+        <a class="ico active" href="#inicio" aria-label="Inicio"><span>⌂</span></a>
+        <a class="ico" href="#promos" aria-label="Promos"><span>％</span></a>
+        <a class="ico" href="#premios" aria-label="Próximos premios"><span>🎁</span></a>
+        <a class="ico" href="#ganadores" aria-label="Ganadores"><span>🏆</span></a>
+        <a class="ico" href="#eventos" aria-label="Eventos"><span>🎟️</span></a>
+        <a class="ico" href="#planes" aria-label="Planes"><span>★</span></a>
       </div>
     </div>
 
@@ -55,8 +42,8 @@
       </div>
 
       <div class="topbar-actions">
-        <a class="btn ghost" href="#ganadores">Ver ganadores</a>
-        <button class="btn" id="openAuth">Iniciar sesión</button>
+        <!-- Quitado: Ver ganadores -->
+        <button class="btn" id="openAuth" type="button">Iniciar sesión</button>
       </div>
     </div>
   </header>
@@ -103,7 +90,7 @@
               </div>
             </div>
             <div class="countdown-note">
-              *Hora referencial: Lima, Perú. (Puedes ajustarla luego si deseas)
+              *Hora referencial: Lima, Perú. (puedes ajustarla luego)
             </div>
           </div>
 
@@ -146,7 +133,7 @@
               <h2>Promos para suscriptores</h2>
               <p>Coloca aquí promociones de comercios locales (solo para suscriptores).</p>
             </div>
-            <button class="btn ghost sm">Mostrar más →</button>
+            <button class="btn ghost sm" type="button">Mostrar más →</button>
           </div>
 
           <div class="cards-grid">
@@ -155,7 +142,7 @@
               <div class="card-body">
                 <div class="card-title">Promo #1</div>
                 <div class="card-text">Ejemplo: 20% en hamburguesas (presentando suscripción).</div>
-                <button class="btn sm ghost">Ver detalle</button>
+                <button class="btn sm ghost" type="button">Ver detalle</button>
               </div>
             </article>
 
@@ -164,7 +151,7 @@
               <div class="card-body">
                 <div class="card-title">Promo #2</div>
                 <div class="card-text">Ejemplo: 2x1 en café (solo suscriptores activos).</div>
-                <button class="btn sm ghost">Ver detalle</button>
+                <button class="btn sm ghost" type="button">Ver detalle</button>
               </div>
             </article>
 
@@ -173,7 +160,7 @@
               <div class="card-body">
                 <div class="card-title">Promo #3</div>
                 <div class="card-text">Ejemplo: Descuento en barbería / salón.</div>
-                <button class="btn sm ghost">Ver detalle</button>
+                <button class="btn sm ghost" type="button">Ver detalle</button>
               </div>
             </article>
           </div>
@@ -186,11 +173,12 @@
               <h2>Próximos premios</h2>
               <p>El premio principal de marzo es PS5. Puedes añadir más premios por mes.</p>
             </div>
-            <button class="btn ghost sm">Mostrar más →</button>
+            <button class="btn ghost sm" type="button">Mostrar más →</button>
           </div>
 
           <div class="carousel-wrap">
             <button class="car-btn left" id="prizeLeft" type="button" aria-label="Izquierda">‹</button>
+
             <div class="carousel" id="prizeCarousel">
               <article class="p-card">
                 <div class="p-imgbox">
@@ -199,7 +187,7 @@
                 <p class="p-name">PlayStation 5 (Premio principal)</p>
                 <div class="p-meta">Sorteo: 20 de marzo</div>
                 <div class="p-price">Incluido en planes activos</div>
-                <button class="p-add" data-open-plan="mensual">Elegir plan</button>
+                <button class="p-add" data-open-plan="mensual" type="button">Elegir plan</button>
               </article>
 
               <article class="p-card">
@@ -207,7 +195,7 @@
                 <p class="p-name">Premio extra en vivo</p>
                 <div class="p-meta">Solo conectados</div>
                 <div class="p-price">Facebook/TikTok Live</div>
-                <button class="p-add" data-open-plan="trimestral">Elegir plan</button>
+                <button class="p-add" data-open-plan="trimestral" type="button">Elegir plan</button>
               </article>
 
               <article class="p-card">
@@ -215,9 +203,10 @@
                 <p class="p-name">Premio sorpresa</p>
                 <div class="p-meta">Anuncios semanales</div>
                 <div class="p-price">Exclusivo suscriptores</div>
-                <button class="p-add" data-open-plan="anual">Elegir plan</button>
+                <button class="p-add" data-open-plan="anual" type="button">Elegir plan</button>
               </article>
             </div>
+
             <button class="car-btn right" id="prizeRight" type="button" aria-label="Derecha">›</button>
           </div>
         </section>
@@ -229,7 +218,7 @@
               <h2>Ganadores</h2>
               <p>Publica aquí fotos y anuncios de ganadores anteriores.</p>
             </div>
-            <button class="btn ghost sm">Ver más →</button>
+            <button class="btn ghost sm" type="button">Ver más →</button>
           </div>
 
           <div class="winners-grid">
@@ -266,7 +255,7 @@
               <h2>Eventos</h2>
               <p>Sorteo de entradas, cine, conciertos, etc.</p>
             </div>
-            <button class="btn ghost sm">Ver más →</button>
+            <button class="btn ghost sm" type="button">Ver más →</button>
           </div>
 
           <div class="events-grid">
@@ -275,7 +264,7 @@
               <div class="event-body">
                 <div class="event-title">Entradas al cine (pre-estreno)</div>
                 <div class="event-sub">Fecha: por anunciar</div>
-                <button class="btn sm ghost">Ver detalles</button>
+                <button class="btn sm ghost" type="button">Ver detalles</button>
               </div>
             </article>
 
@@ -284,7 +273,7 @@
               <div class="event-body">
                 <div class="event-title">Concierto local</div>
                 <div class="event-sub">Fecha: por anunciar</div>
-                <button class="btn sm ghost">Ver detalles</button>
+                <button class="btn sm ghost" type="button">Ver detalles</button>
               </div>
             </article>
 
@@ -293,7 +282,7 @@
               <div class="event-body">
                 <div class="event-title">Sorteo especial en vivo</div>
                 <div class="event-sub">Solo conectados</div>
-                <button class="btn sm ghost">Ver detalles</button>
+                <button class="btn sm ghost" type="button">Ver detalles</button>
               </div>
             </article>
           </div>
@@ -320,7 +309,7 @@
                 <li>Promos para suscriptores</li>
                 <li>Premios extra para conectados</li>
               </ul>
-              <button class="btn plan-btn" data-subscribe="mensual">Suscribirme</button>
+              <button class="btn plan-btn" data-subscribe="mensual" type="button">Suscribirme</button>
             </article>
 
             <article class="plan-card featured" data-plan="trimestral">
@@ -334,7 +323,7 @@
                 <li>Más oportunidades de ganar</li>
                 <li>Promos para suscriptores</li>
               </ul>
-              <button class="btn plan-btn" data-subscribe="trimestral">Suscribirme</button>
+              <button class="btn plan-btn" data-subscribe="trimestral" type="button">Suscribirme</button>
             </article>
 
             <article class="plan-card" data-plan="anual">
@@ -348,7 +337,7 @@
                 <li>Promos para suscriptores</li>
                 <li>Mayor prioridad en dinámicas</li>
               </ul>
-              <button class="btn plan-btn" data-subscribe="anual">Suscribirme</button>
+              <button class="btn plan-btn" data-subscribe="anual" type="button">Suscribirme</button>
             </article>
           </div>
 
@@ -473,7 +462,7 @@
     </div>
   </div>
 
-  <!-- Modal: Suscripción + verificación -->
+  <!-- Modal: Suscripción -->
   <div class="modal" id="subModal" aria-hidden="true">
     <div class="sheet xl" role="dialog" aria-label="Suscripción">
       <div class="sheet-head">
@@ -512,27 +501,11 @@
           <input id="correo" type="email" placeholder="correo@ejemplo.com" autocomplete="email" />
         </label>
 
-        <div class="verify-box">
-          <div class="verify-left">
-            <div class="verify-title">Verificación de correo</div>
-            <div class="verify-sub">Te enviaremos un código de 6 dígitos (modo demo).</div>
-          </div>
-          <button class="btn ghost sm" id="sendCodeBtn" type="button">Enviar código</button>
-        </div>
-
-        <div class="two-col">
-          <label class="field">
-            <span>Código (6 dígitos)</span>
-            <input id="codigo" type="text" inputmode="numeric" maxlength="6" placeholder="000000" />
-          </label>
-          <button class="btn sm" id="verifyBtn" type="button">Verificar</button>
-        </div>
-
         <div class="status" id="statusBox" aria-live="polite"></div>
 
         <div class="sheet-actions">
           <button class="btn ghost" data-close="subModal" type="button">Cancelar</button>
-          <button class="btn" id="continueBtn" type="button" disabled>
+          <button class="btn" id="continueBtn" type="button">
             Continuar por WhatsApp
           </button>
         </div>
@@ -544,7 +517,7 @@
     </div>
   </div>
 
-  <!-- FX nodes -->
+  <!-- FX root -->
   <div id="fx-root"></div>
 
   <script src="assets/js/app.js"></script>
