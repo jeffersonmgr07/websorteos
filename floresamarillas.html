@@ -19,6 +19,7 @@
     --sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
   *{ box-sizing:border-box; }
+  [hidden]{ display:none !important; }
   html{ height:100%; }
   body{
     margin:0; min-height:100%;
@@ -65,140 +66,375 @@
   .stack > *{ grid-area:1 / 1; }
 
   .intro{
-    text-align:center; display:flex; flex-direction:column; align-items:center; gap:22px;
-    padding:8px 6px; transition:opacity .5s ease, transform .5s ease;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    padding:12px 10px;
+    transition:opacity .45s ease, transform .45s ease, filter .45s ease;
   }
-  .intro.out{ opacity:0; transform:translateY(-8px); }
+  .intro.out{
+    opacity:0;
+    transform:translateY(-10px) scale(.985);
+    filter:blur(3px);
+  }
 
   .eyebrow{
-    margin:0; font-weight:500; font-size:.78rem; letter-spacing:.30em;
-    text-transform:uppercase; color:var(--ink-soft);
-    text-shadow:0 0 10px rgba(255,248,235,.95), 0 0 4px rgba(255,248,235,.95);
+    margin:0;
+    font-weight:500;
+    font-size:.68rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:rgba(82,60,16,.72);
   }
   .name{
-    margin:0; font-family:var(--script); font-weight:400;
-    font-size:clamp(3.5rem,16vw,5.4rem); line-height:1;
-    max-width:100%; padding:0 4px; text-wrap:balance; color:var(--ink);
-    text-shadow:
-      0 0 3px rgba(255,253,248,1),
-      0 0 9px rgba(255,252,245,.95),
-      0 0 18px rgba(255,250,240,.7),
-      0 0 30px rgba(255,250,240,.45);
+    margin:0;
+    font-family:var(--script);
+    font-weight:400;
+    font-size:clamp(3rem,14vw,4.7rem);
+    line-height:1;
+    max-width:100%;
+    padding:0 4px;
+    text-wrap:balance;
+    color:#3b2a0d;
+    text-shadow:0 1px 12px rgba(255,248,222,.46);
   }
   .prompt{
-    margin:0 auto; max-width:22ch; min-height:3.6em;
-    font-weight:700; font-size:1rem; line-height:1.6;
-    letter-spacing:.12em; text-transform:uppercase; color:var(--ink);
-    text-shadow:0 1px 0 rgba(255,253,244,.95), 0 0 12px rgba(255,253,244,1), 0 0 24px rgba(255,250,235,.85);
-    transition:opacity .25s ease;
+    margin:0 auto;
+    max-width:27ch;
+    min-height:3.2em;
+    font-weight:400;
+    font-size:.83rem;
+    line-height:1.65;
+    letter-spacing:.075em;
+    text-transform:uppercase;
+    color:rgba(58,42,15,.88);
+    transition:opacity .22s ease;
   }
   .prompt.swap{ opacity:0; }
-  .prompt.pop{ animation:promptPop .5s ease; }
-  @keyframes promptPop{ 0%{transform:scale(.9)} 42%{transform:scale(1.09)} 100%{transform:scale(1)} }
+  .prompt.pop{ animation:promptPop .42s ease; }
+  @keyframes promptPop{ 0%{transform:translateY(3px);opacity:.45} 100%{transform:none;opacity:1} }
 
   .btn{
-    position:relative; cursor:pointer;
-    font-family:var(--sans); font-weight:500; font-size:.82rem;
-    letter-spacing:.2em; text-transform:uppercase; color:var(--gold-dk);
-    background:linear-gradient(180deg,#fffdf8,#f6ecd8);
-    border:1.5px solid var(--gold); border-radius:999px; padding:15px 30px;
-    box-shadow:0 8px 22px rgba(120,80,20,.22), inset 0 1px 0 rgba(255,255,255,.85);
+    position:relative;
+    cursor:pointer;
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:.73rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-dk);
+    background:rgba(255,250,240,.46);
+    border:1px solid rgba(126,92,19,.72);
+    border-radius:999px;
+    padding:11px 22px;
+    box-shadow:none;
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
     -webkit-tap-highlight-color:transparent;
-    transition:transform .12s ease, box-shadow .3s ease;
+    touch-action:manipulation;
+    transition:transform .16s ease, background .22s ease, border-color .22s ease;
   }
-  .btn:hover{ box-shadow:0 10px 26px rgba(120,80,20,.3); }
-  .btn:active{ transform:scale(.96); }
-  .btn.press{ animation:press .42s cubic-bezier(.36,.07,.19,.97); }
-  @keyframes press{
-    0%{transform:scale(1)} 15%{transform:scale(.9) rotate(-1.5deg)}
-    35%{transform:scale(1.05) rotate(1.5deg)} 55%{transform:scale(.97) rotate(-1deg)}
-    100%{transform:scale(1) rotate(0)}
-  }
-  .btn:focus-visible{ outline:2px solid var(--gold-dk); outline-offset:4px; }
+  .btn:hover{ background:rgba(255,250,240,.68); border-color:var(--gold-dk); }
+  .btn:active{ transform:scale(.97); }
+  .btn.press{ animation:press .3s ease; }
+  @keyframes press{ 0%,100%{transform:scale(1)} 50%{transform:scale(.96)} }
+  .btn:focus-visible,
+  .more-btn:focus-visible{ outline:1px solid var(--gold-dk); outline-offset:4px; }
 
   .message{
     position:relative;
     overflow:hidden;
     text-align:center;
-    padding:34px 24px 30px;
-    border-radius:26px;
-    border:1px solid rgba(185,131,43,.22);
-    background:linear-gradient(145deg, rgba(255,250,240,.82), rgba(255,250,240,.66));
-    box-shadow:0 18px 46px rgba(94,63,9,.16), inset 0 1px 0 rgba(255,255,255,.48);
-    backdrop-filter:blur(4px);
-    -webkit-backdrop-filter:blur(4px);
+    padding:30px 26px 26px;
+    border-radius:20px;
+    border:1px solid rgba(126,92,19,.18);
+    background:rgba(255,250,240,.68);
+    box-shadow:0 12px 34px rgba(87,59,8,.10);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+    transition:opacity .44s ease, transform .44s ease, filter .44s ease;
+  }
+  .message.out{
+    opacity:0;
+    transform:translateY(-12px) scale(.975);
+    filter:blur(4px);
   }
   .message::before{
-    content:""; position:absolute; inset:-25%; pointer-events:none; z-index:0;
+    content:"";
+    position:absolute;
+    inset:-22%;
+    pointer-events:none;
+    z-index:0;
     background:
-      radial-gradient(circle at 22% 82%, rgba(185,131,43,.18) 0 2px, transparent 7px),
-      radial-gradient(circle at 70% 72%, rgba(231,196,113,.28) 0 3px, transparent 10px),
-      radial-gradient(circle at 46% 96%, rgba(126,92,19,.14) 0 2px, transparent 8px);
-    background-size:86px 120px, 120px 150px, 95px 135px;
-    filter:blur(2.2px);
-    opacity:.85;
-    animation:goldDust 11s linear infinite;
+      radial-gradient(circle at 22% 82%, rgba(185,131,43,.11) 0 2px, transparent 7px),
+      radial-gradient(circle at 70% 72%, rgba(231,196,113,.18) 0 3px, transparent 10px),
+      radial-gradient(circle at 46% 96%, rgba(126,92,19,.09) 0 2px, transparent 8px);
+    background-size:105px 145px, 150px 180px, 120px 160px;
+    filter:blur(3px);
+    opacity:.64;
+    animation:goldDust 15s linear infinite;
   }
   .message > *{ position:relative; z-index:1; }
   @keyframes goldDust{
-    from{ transform:translate3d(0,14%,0); }
-    to{ transform:translate3d(0,-14%,0); }
+    from{ transform:translate3d(0,16%,0); }
+    to{ transform:translate3d(0,-16%,0); }
   }
-  .message .ln{ opacity:0; transform:translateY(12px); transition:opacity .8s ease, transform .8s ease; }
+  .message .ln{
+    opacity:0;
+    transform:translateY(9px);
+    transition:opacity .65s ease, transform .65s ease;
+  }
   .message .ln.show{ opacity:1; transform:none; }
 
-  .preamble{ margin:0 0 20px; font-style:italic; font-weight:300; font-size:1.05rem; line-height:1.65; color:var(--ink-soft); }
-  .body{ display:flex; flex-direction:column; gap:16px; }
-  .body p{
-    margin:0; font-weight:400; font-size:1.04rem; line-height:1.72; letter-spacing:.01em;
-    color:var(--ink); max-width:34ch; margin-inline:auto; text-wrap:pretty;
-  }
-  .closing{ margin:28px 0 2px; font-style:italic; font-weight:300; font-size:1rem; color:var(--ink-soft); }
-  .firma{ margin:0; font-family:var(--sans); font-weight:400; font-style:italic; font-size:1.08rem; line-height:1.4; color:var(--gold-dk); }
-  .despedida{ margin:16px 0 0; font-style:italic; font-weight:400; font-size:1.08rem; color:var(--gold-dk); }
-  .more-wrap{ margin-top:24px; }
-  .more-btn{
-    border:1.5px solid var(--gold);
-    border-radius:999px;
-    padding:13px 24px;
-    background:rgba(255,253,248,.78);
-    color:var(--gold-dk);
-    font:500 .82rem var(--sans);
-    letter-spacing:.08em;
-    cursor:pointer;
-    box-shadow:0 8px 22px rgba(120,80,20,.18);
-    transition:transform .18s ease, box-shadow .25s ease, background .25s ease;
-  }
-  .more-btn:hover{ background:rgba(255,253,248,.9); box-shadow:0 10px 26px rgba(120,80,20,.24); }
-  .more-btn:active{ transform:scale(.96); }
-  .final-note{
-    min-height:260px;
-    display:flex; align-items:center; justify-content:center; flex-direction:column;
-    gap:10px; padding:26px 18px;
-    text-align:center;
-    animation:finalIn .55s ease both;
-  }
-  .final-note p{
-    margin:0;
-    font-size:1.28rem;
+  .preamble{
+    margin:0 auto 19px;
+    max-width:31ch;
+    font-style:italic;
+    font-weight:300;
+    font-size:.92rem;
     line-height:1.65;
-    color:var(--ink);
+    color:rgba(106,80,21,.84);
   }
-  .final-note strong{ font-family:var(--script); font-size:2.2rem; font-weight:400; color:var(--gold-dk); }
-  @keyframes finalIn{ from{ opacity:0; transform:scale(.96) translateY(8px); } to{ opacity:1; transform:none; } }
+  .body{ display:flex; flex-direction:column; gap:14px; }
+  .body p{
+    margin:0 auto;
+    max-width:35ch;
+    font-weight:400;
+    font-size:.95rem;
+    line-height:1.72;
+    letter-spacing:.005em;
+    color:rgba(58,42,15,.93);
+    text-wrap:pretty;
+  }
+  .closing{
+    margin:24px 0 2px;
+    font-style:italic;
+    font-weight:300;
+    font-size:.9rem;
+    color:rgba(106,80,21,.78);
+  }
+  .firma{
+    margin:0;
+    font-family:var(--sans);
+    font-weight:400;
+    font-style:italic;
+    font-size:.94rem;
+    line-height:1.45;
+    color:var(--gold-dk);
+  }
+
+  .more-wrap{ margin-top:21px; }
+  .more-btn{
+    appearance:none;
+    border:1px solid rgba(126,92,19,.72);
+    border-radius:999px;
+    padding:9px 16px;
+    background:rgba(255,250,240,.22);
+    color:var(--gold-dk);
+    font:500 .72rem var(--sans);
+    letter-spacing:.055em;
+    cursor:pointer;
+    box-shadow:none;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    transition:background .2s ease, transform .16s ease, border-color .2s ease;
+  }
+  .more-btn:hover{ background:rgba(255,250,240,.58); border-color:var(--gold-dk); }
+  .more-btn:active{ transform:scale(.97); }
+
+  .final-screen{
+    display:flex;
+    pointer-events:none;
+    min-height:62svh;
+    align-items:center;
+    justify-content:center;
+    padding:18px 6px;
+    opacity:0;
+    transform:translateY(14px) scale(.985);
+    filter:blur(4px);
+    transition:opacity .55s ease, transform .55s ease, filter .55s ease;
+  }
+  .final-screen.show{
+    pointer-events:auto;
+    opacity:1;
+    transform:none;
+    filter:none;
+  }
+  .final-card{
+    width:min(82vw,300px);
+    padding:25px 20px 23px;
+    text-align:center;
+    border:1px solid rgba(126,92,19,.22);
+    border-radius:18px;
+    background:rgba(255,250,240,.61);
+    box-shadow:0 10px 30px rgba(87,59,8,.08);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+  }
+  .final-mark{
+    display:block;
+    width:28px;
+    height:1px;
+    margin:0 auto 17px;
+    background:rgba(126,92,19,.52);
+  }
+  .final-card p{
+    margin:0 0 8px;
+    font-size:.86rem;
+    line-height:1.6;
+    color:rgba(58,42,15,.78);
+  }
+  .final-card strong{
+    display:block;
+    font-family:var(--sans);
+    font-size:1rem;
+    line-height:1.5;
+    font-weight:500;
+    color:#4a3510;
+  }
+
+
+  /* ---------- Acceso privado ---------- */
+  .gate{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    padding:20px 14px;
+    transition:opacity .42s ease, transform .42s ease, filter .42s ease;
+  }
+  .gate.out{
+    opacity:0;
+    transform:translateY(-10px) scale(.985);
+    filter:blur(3px);
+  }
+  .gate-mark{
+    width:30px;
+    height:1px;
+    background:rgba(126,92,19,.55);
+    margin-bottom:2px;
+  }
+  .gate-kicker{
+    margin:0;
+    font-weight:500;
+    font-size:.67rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:rgba(82,60,16,.70);
+  }
+  .gate-title{
+    margin:0;
+    font-family:var(--script);
+    font-weight:400;
+    font-size:clamp(3rem,14vw,4.5rem);
+    line-height:1;
+    color:#3b2a0d;
+  }
+  .gate-copy{
+    margin:0 auto;
+    max-width:31ch;
+    font-size:.91rem;
+    line-height:1.7;
+    color:rgba(58,42,15,.86);
+    text-wrap:pretty;
+  }
+  .gate-note{
+    margin:0;
+    font-size:.76rem;
+    line-height:1.55;
+    color:rgba(106,80,21,.72);
+  }
+  .code-step{
+    width:min(100%,340px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    margin-top:2px;
+    padding:18px 16px;
+    border:1px solid rgba(126,92,19,.18);
+    border-radius:18px;
+    background:rgba(255,250,240,.46);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .code-sent{
+    margin:0;
+    max-width:30ch;
+    font-size:.82rem;
+    line-height:1.6;
+    color:rgba(58,42,15,.82);
+  }
+  .code-sent strong{
+    display:block;
+    margin-top:3px;
+    font-weight:500;
+    color:var(--gold-dk);
+    overflow-wrap:anywhere;
+  }
+  .code-input{
+    width:174px;
+    height:48px;
+    border:1px solid rgba(126,92,19,.42);
+    border-radius:13px;
+    outline:none;
+    background:rgba(255,255,255,.58);
+    color:#3b2a0d;
+    text-align:center;
+    font:500 1.08rem var(--sans);
+    letter-spacing:.34em;
+    padding:0 10px 0 16px;
+    -webkit-appearance:none;
+    appearance:none;
+    transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .code-input:focus{
+    border-color:rgba(126,92,19,.78);
+    background:rgba(255,255,255,.78);
+    box-shadow:0 0 0 3px rgba(185,131,43,.09);
+  }
+  .code-error{
+    min-height:1.4em;
+    margin:0;
+    font-size:.75rem;
+    color:#7a421d;
+  }
+  .gate .btn,
+  .code-step .btn{
+    touch-action:manipulation;
+  }
+  .btn[disabled]{
+    opacity:.58;
+    cursor:default;
+    transform:none !important;
+  }
+  .api-frame{
+    position:absolute;
+    width:1px;
+    height:1px;
+    border:0;
+    opacity:0;
+    pointer-events:none;
+  }
 
   @media (max-width:600px){
-    .wrap{ padding:20px 12px; }
-    .card{ width:min(94vw,520px); }
-    .message{ padding:30px 20px 28px; border-radius:24px; }
-    .preamble{ font-size:1.02rem; margin-bottom:18px; }
-    .body{ gap:14px; }
-    .body p{ font-size:1.02rem; line-height:1.68; max-width:31ch; }
+    .wrap{ padding:18px 14px; }
+    .card{ width:min(92vw,520px); }
+    .intro{ gap:16px; }
+    .message{ padding:27px 20px 24px; border-radius:19px; }
+    .preamble{ font-size:.9rem; margin-bottom:17px; }
+    .body{ gap:13px; }
+    .body p{ font-size:.93rem; line-height:1.68; max-width:32ch; }
+    .more-wrap{ margin-top:19px; }
   }
 
   @media (prefers-reduced-motion: reduce){
     .bg-photo{ animation:none !important; }
-    .message .ln{ transition:opacity .4s ease; transform:none; }
+    .message .ln{ transition:opacity .35s ease; transform:none; }
+    .message, .final-screen, .intro{ transition:opacity .25s ease; filter:none; transform:none; }
   }
 </style>
 
@@ -209,7 +445,33 @@
 <main class="wrap">
   <div class="card" id="card">
     <div class="stack">
-      <section class="intro" id="intro">
+      <section class="gate" id="gate">
+        <span class="gate-mark" aria-hidden="true"></span>
+        <p class="gate-kicker">Mensaje privado</p>
+        <h1 class="gate-title">Para Judith</h1>
+        <p class="gate-copy">Este mensaje es privado. Para continuar, confirma que eres tú.</p>
+        <button class="btn" id="sendCodeBtn" type="button">Enviar código</button>
+        <p class="gate-note" id="gateNote">Te enviaremos el código a tu correo.</p>
+
+        <div class="code-step" id="codeStep" hidden>
+          <p class="code-sent">El código fue enviado a:<strong>jalvacar@ucvvirtual.edu.pe</strong></p>
+          <input
+            class="code-input"
+            id="codeInput"
+            type="text"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            maxlength="6"
+            pattern="[0-9]*"
+            aria-label="Código de acceso de 6 dígitos"
+            placeholder="••••••"
+          >
+          <button class="btn" id="unlockBtn" type="button">Abrir mensaje</button>
+          <p class="code-error" id="codeError" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="intro" id="intro" hidden>
         <p class="eyebrow" id="eyebrow"></p>
         <h1 class="name" id="name"></h1>
         <p class="prompt" id="prompt"></p>
@@ -224,13 +486,18 @@
         <div class="more-wrap ln" id="moreWrap">
           <button class="more-btn" id="moreBtn" type="button">¿Quieres ver más?</button>
         </div>
-        <div class="final-note" id="finalNote" hidden>
+      </section>
+
+      <section class="final-screen" id="finalScreen" hidden aria-live="polite">
+        <div class="final-card">
+          <span class="final-mark" aria-hidden="true"></span>
           <p>No hay nada más...</p>
           <strong>Mejor desbloquéame pe!</strong>
         </div>
       </section>
     </div>
   </div>
+  <iframe class="api-frame" id="apiFrame" name="apiFrame" title="" aria-hidden="true"></iframe>
 </main>
 
 <script>
@@ -267,6 +534,153 @@ const CONFIG = {
 
 const $ = s => document.querySelector(s);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Acceso privado / Apps Script ---------- */
+const ACCESS = {
+  endpoint: "https://script.google.com/macros/s/AKfycbylu2Iq8XSlEsw82LPdMIj4vtQRNjlhEEO65ETGPnuGuaHFC-JV3ixTn-1qSM2HjOQ9/exec",
+  id: "judith_F7K29",
+  correo: "jalvacar@ucvvirtual.edu.pe",
+  sesion: (window.crypto && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : (Date.now().toString(36) + Math.random().toString(36).slice(2))
+};
+
+let accessToken = "";
+let aperturaSolicitada = false;
+
+function postAppsScript(datos){
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = ACCESS.endpoint;
+  form.target = "apiFrame";
+  form.style.display = "none";
+
+  Object.entries(datos).forEach(([key,value])=>{
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = String(value ?? "");
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(()=> form.remove(), 1200);
+}
+
+const gate = $("#gate");
+const sendCodeBtn = $("#sendCodeBtn");
+const codeStep = $("#codeStep");
+const codeInput = $("#codeInput");
+const unlockBtn = $("#unlockBtn");
+const codeError = $("#codeError");
+const gateNote = $("#gateNote");
+
+sendCodeBtn.addEventListener("click", ()=>{
+  sendCodeBtn.disabled = true;
+  sendCodeBtn.textContent = "Enviando…";
+  codeError.textContent = "";
+
+  postAppsScript({
+    id: ACCESS.id,
+    evento: "enviar_codigo",
+    sesion: ACCESS.sesion
+  });
+});
+
+unlockBtn.addEventListener("click", validarCodigo);
+codeInput.addEventListener("keydown", e=>{
+  if(e.key === "Enter") validarCodigo();
+});
+codeInput.addEventListener("input", ()=>{
+  codeInput.value = codeInput.value.replace(/\D/g, "").slice(0,6);
+  codeError.textContent = "";
+});
+
+function validarCodigo(){
+  const codigo = codeInput.value.trim();
+  if(codigo.length !== 6){
+    codeError.textContent = "Ingresa el código de 6 dígitos.";
+    codeInput.focus();
+    return;
+  }
+
+  unlockBtn.disabled = true;
+  unlockBtn.textContent = "Verificando…";
+  codeError.textContent = "";
+
+  postAppsScript({
+    id: ACCESS.id,
+    evento: "validar_codigo",
+    codigo,
+    sesion: ACCESS.sesion
+  });
+}
+
+function mostrarExperiencia(){
+  gate.classList.add("out");
+  burst(12);
+  setTimeout(()=>{
+    gate.hidden = true;
+    intro.hidden = false;
+    intro.classList.remove("out");
+  }, reduce ? 160 : 420);
+}
+
+function avisarApertura(){
+  if(!accessToken || aperturaSolicitada) return;
+  aperturaSolicitada = true;
+  postAppsScript({
+    id: ACCESS.id,
+    evento: "mensaje_abierto",
+    token: accessToken,
+    sesion: ACCESS.sesion
+  });
+}
+
+window.addEventListener("message", event=>{
+  const origenValido =
+    event.origin === "https://script.google.com" ||
+    /^https:\/\/[^/]*googleusercontent\.com$/.test(event.origin);
+
+  if(!origenValido) return;
+
+  const data = event.data;
+  if(!data || data.origen !== "alerta-flores") return;
+
+  if(data.tipo === "codigo_enviado"){
+    sendCodeBtn.disabled = false;
+    sendCodeBtn.textContent = "Reenviar código";
+    gateNote.textContent = "Revisa tu correo e ingresa el código para continuar.";
+    codeStep.hidden = false;
+    setTimeout(()=> codeInput.focus(), 120);
+    return;
+  }
+
+  if(data.tipo === "codigo_incorrecto"){
+    unlockBtn.disabled = false;
+    unlockBtn.textContent = "Abrir mensaje";
+    codeError.textContent = "El código no es correcto. Inténtalo otra vez.";
+    codeInput.select();
+    return;
+  }
+
+  if(data.tipo === "acceso_correcto" && data.ok && data.token){
+    accessToken = data.token;
+    unlockBtn.disabled = false;
+    unlockBtn.textContent = "Abrir mensaje";
+    mostrarExperiencia();
+    return;
+  }
+
+  if(data.tipo === "error"){
+    sendCodeBtn.disabled = false;
+    sendCodeBtn.textContent = "Enviar código";
+    unlockBtn.disabled = false;
+    unlockBtn.textContent = "Abrir mensaje";
+    codeError.textContent = data.mensaje || "No se pudo completar la solicitud. Inténtalo nuevamente.";
+  }
+});
 
 $("#eyebrow").textContent = CONFIG.eyebrow;
 $("#name").textContent    = CONFIG.saludo;
@@ -309,6 +723,7 @@ function staggerIn(){
 }
 
 function openMessage(){
+  avisarApertura();
   buildMessage();
   intro.classList.add("out");
   burst(28);
@@ -316,14 +731,17 @@ function openMessage(){
 }
 
 const moreBtn = $("#moreBtn");
+const finalScreen = $("#finalScreen");
 moreBtn.addEventListener("click", ()=>{
-  burst(18);
-  const toHide = [...message.querySelectorAll(".preamble, .body, .closing, .firma, .more-wrap")];
-  toHide.forEach(el=>{ el.style.transition="opacity .35s ease, transform .35s ease"; el.style.opacity="0"; el.style.transform="translateY(-6px)"; });
+  burst(10);
+  message.classList.add("out");
+
   setTimeout(()=>{
-    toHide.forEach(el=> el.hidden=true);
-    $("#finalNote").hidden=false;
-  }, 360);
+    message.hidden = true;
+    message.classList.remove("out");
+    finalScreen.hidden = false;
+    requestAnimationFrame(()=> requestAnimationFrame(()=> finalScreen.classList.add("show")));
+  }, reduce ? 180 : 440);
 });
 
 /* ---------- Burbujas / puntos dorados ---------- */
