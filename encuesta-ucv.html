@@ -1,7 +1,17 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Encuesta académica | Lima Norte 2026</title><style>
 :root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#172b45;background:#edf2f8}*{box-sizing:border-box}body{margin:0}.top{background:#143767;color:white;padding:36px 20px 60px}.wrap{max-width:850px;margin:auto}.top h1{font-size:clamp(23px,3.4vw,36px);line-height:1.18;margin:9px 0}.top p{color:#dce7f7;line-height:1.5}.kicker{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:#9ed5fc;font-weight:750}.panel{background:white;border:1px solid #e2e8f0;border-radius:18px;padding:22px 25px;margin: -28px 14px 30px;position:relative;box-shadow:0 12px 32px #1b3b6921}main{padding:0 10px 30px}.info{background:#f2f7fd;padding:16px 20px;border-radius:12px;line-height:1.55;font-size:14px}.info p{margin:6px 0}.section{font-size:17px;margin:29px 0 12px;border-left:4px solid #2672b7;padding:7px 12px;background:#f3f7fc}fieldset{border:1px solid #dde5ef;border-radius:12px;margin:12px 0;padding:16px}legend{font-weight:650;line-height:1.5;padding:0 6px}.num{font-size:12px;color:#3671aa;margin-right:7px}.opts{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:10px}.opt{font-size:12px;display:flex;gap:6px;align-items:center;border:1px solid #dce5f0;border-radius:8px;padding:10px 7px;cursor:pointer}.opt:has(input:checked){background:#e7f1ff;border-color:#276eb4}.opt input{accent-color:#276eb4}.entry{width:100%;max-width:320px;font-size:16px;padding:12px;border:1px solid #cbd5e1;border-radius:9px;margin-top:10px}.check{display:flex;gap:11px;align-items:flex-start;padding:14px 0;font-size:14px;line-height:1.5}.check input{margin-top:4px}.btn{border:0;background:#17639f;color:white;border-radius:10px;padding:14px 28px;font-size:16px;font-weight:650;cursor:pointer}.gps-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.btn-alt{background:#e8f1fb;color:#174a7b;border:1px solid #a7c3e4;border-radius:10px;padding:11px 15px;cursor:pointer;font-weight:600}.btn-alt:disabled{opacity:.5;cursor:not-allowed}.gps-status{font-size:13px;color:#36556c;line-height:1.55;margin-top:10px}.btn:disabled{opacity:.6;cursor:not-allowed}#state{margin-top:15px;font-size:14px;line-height:1.5}.small{font-size:13px;color:#486078;line-height:1.5}footer{text-align:center;color:#64748b;font-size:12px;padding:20px}@media(max-width:700px){.opts{grid-template-columns:1fr 1fr}.opt:last-child{grid-column:auto}.panel{padding:16px 14px}fieldset{padding:12px}}
 
-.screen{display:none}.screen.active{display:block}.fieldlabel{display:block;font-weight:650;margin:15px 0 4px}.notice{padding:13px;border-radius:10px;background:#eef5ff;color:#1c476c;font-size:14px;line-height:1.6;margin:12px 0}.error{color:#a32828;font-size:14px;margin:10px 0}.success{text-align:center;padding:35px 10px}.success .checkmark{font-size:55px;color:#177c56}.btn-link{background:none;border:none;color:#17639f;text-decoration:underline;cursor:pointer;margin-left:12px}.muted{font-size:13px;color:#536b7d}</style></head><body>
+.screen{display:none}.screen.active{display:block}.fieldlabel{display:block;font-weight:650;margin:15px 0 4px}.notice{padding:13px;border-radius:10px;background:#eef5ff;color:#1c476c;font-size:14px;line-height:1.6;margin:12px 0}.error{color:#a32828;font-size:14px;margin:10px 0}.success{text-align:center;padding:35px 10px}.success .checkmark{font-size:55px;color:#177c56}.btn-link{background:none;border:none;color:#17639f;text-decoration:underline;cursor:pointer;margin-left:12px}.muted{font-size:13px;color:#536b7d}
+/* Pantalla final: solamente mensaje de agradecimiento */
+body.finished {background:#edf2f8;min-height:100vh}
+body.finished .top, body.finished footer {display:none}
+body.finished main {min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+body.finished .panel {margin:0;width:100%;max-width:600px;padding:54px 26px;box-shadow:0 18px 40px #183d6917}
+body.finished .success {padding:10px 0;text-align:center}
+body.finished .success .checkmark {display:flex;align-items:center;justify-content:center;margin:0 auto 25px;width:74px;height:74px;border-radius:50%;background:#e7f7ee;color:#16824b;font-size:40px;font-weight:700}
+body.finished .success h2 {font-size:clamp(24px,4vw,32px);line-height:1.3;margin:0 auto 16px;max-width:470px}
+body.finished .success p {font-size:18px;line-height:1.65;color:#4b647b;max-width:440px;margin:0 auto}
+</style></head><body>
 <header class="top"><div class="wrap"><span class="kicker">Investigación formativa · 2026</span><h1>Estrés académico y rendimiento académico</h1><p>Estudiantes de Administración de Empresas de una universidad de Lima Norte</p></div></header>
 <main class="wrap"><div class="panel">
 <section id="screen-email" class="screen active"><h2>Acceso a la encuesta</h2><p>Esta encuesta está dirigida únicamente a estudiantes de la población universitaria indicada.</p><form id="email-form"><label class="fieldlabel" for="email">Correo institucional</label><input class="entry" type="email" id="email" placeholder="nombre@ucvvirtual.edu.pe" autocomplete="email" required><p class="small">Se admiten los dominios institucionales @ucvvirtual.edu.pe y @ucv.edu.pe. No se requiere contraseña.</p><p id="email-error" class="error" role="alert"></p><button class="btn" type="submit">Continuar</button></form><p class="muted">La revisión del dominio es un filtro, no una verificación de identidad o matrícula.</p></section>
@@ -20,37 +30,128 @@
 <fieldset><legend><span class="num">08</span> Tuve dificultades para mantener organizadas mis actividades de estudio.</legend><div class="opts"><label class="opt"><input type="radio" required name="p8" value="1"><span>Nunca</span></label><label class="opt"><input type="radio" required name="p8" value="2"><span>Casi nunca</span></label><label class="opt"><input type="radio" required name="p8" value="3"><span>A veces</span></label><label class="opt"><input type="radio" required name="p8" value="4"><span>Casi siempre</span></label><label class="opt"><input type="radio" required name="p8" value="5"><span>Siempre</span></label></div></fieldset>
 <fieldset><legend><span class="num">09</span> Modifiqué negativamente mis hábitos de estudio durante periodos de exigencia académica.</legend><div class="opts"><label class="opt"><input type="radio" required name="p9" value="1"><span>Nunca</span></label><label class="opt"><input type="radio" required name="p9" value="2"><span>Casi nunca</span></label><label class="opt"><input type="radio" required name="p9" value="3"><span>A veces</span></label><label class="opt"><input type="radio" required name="p9" value="4"><span>Casi siempre</span></label><label class="opt"><input type="radio" required name="p9" value="5"><span>Siempre</span></label></div></fieldset>
 <h3 class="section">Rendimiento académico</h3><fieldset><legend><span class="num">10</span> Indique su promedio académico del periodo 2026 evaluado (0 a 20).</legend><p class="small">Si no dispone de su promedio oficial, indique el promedio estimado, que se tratará como dato autorreportado.</p><input class="entry" name="promedio" type="number" min="0" max="20" step="0.01" required placeholder="Ejemplo: 15.50"></fieldset><button class="btn" type="submit" id="send">Enviar respuestas</button><p id="state" role="status" aria-live="polite"></p></form></section>
-<section id="screen-success" class="screen"><div class="success"><div class="checkmark">✓</div><h2>¡Respuestas registradas correctamente!</h2><p>Gracias por tomarte el tiempo de participar en esta investigación. Tus respuestas se guardaron correctamente.</p><p class="small">Código de registro: <strong id="confirmation"></strong></p></div></section>
+<section id="screen-success" class="screen" aria-live="polite"><div class="success"><div class="checkmark" aria-hidden="true">✓</div><h2>Gracias por tomarte el tiempo de llenar esta encuesta.</h2><p>Tus respuestas serán de gran ayuda para nuestro proyecto.</p></div></section>
 </div><footer>Investigación académica · Lima Norte 2026</footer></main>
 <iframe name="submit-target" id="submit-target" hidden title="Confirmación del envío"></iframe>
 <script>
-// Copie aquí la URL /exec de SU implementación de Apps Script.
+// Copia aquí la misma URL /exec de Apps Script que utilizas actualmente.
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQ9neie_ALYkayTMLt8nsBK0jP6-Z5_3MmpbmOk6W5xb1McSBHBp4aY_ojH2QcwRu0/exec';
 const ALLOWED_DOMAINS = ['ucvvirtual.edu.pe', 'ucv.edu.pe'];
-const screens=['email','consent','survey','success'];
-const el=id=>document.getElementById(id);
-const show=name=>{screens.forEach(s=>el('screen-'+s).classList.toggle('active',s===name));window.scrollTo({top:0,behavior:'instant'});};
-let email='',locationData=null,requestId=null,pending=false;
-el('email-form').addEventListener('submit',ev=>{ev.preventDefault();const v=el('email').value.trim().toLowerCase();const domain=v.split('@')[1]||'';
- if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||!ALLOWED_DOMAINS.includes(domain)){el('email-error').textContent='Esta encuesta es solo para estudiantes de la UCV. Utiliza tu correo institucional.';return;}
- email=v;el('email-error').textContent='';show('consent');});
-el('back').onclick=()=>show('email');
-el('consent-form').addEventListener('submit',ev=>{ev.preventDefault();if(!ev.target.reportValidity())return;
- const btn=el('continue'); el('gps-error').textContent=''; btn.disabled=true;btn.textContent='Solicitando permiso del dispositivo…';
- if(!navigator.geolocation){el('gps-error').textContent='Tu navegador no permite la ubicación. No se puede continuar con el requisito actual.';btn.disabled=false;btn.textContent='Continuar a la encuesta';return;}
- navigator.geolocation.getCurrentPosition(pos=>{locationData={lat:pos.coords.latitude.toFixed(3),lon:pos.coords.longitude.toFixed(3)};btn.disabled=false;btn.textContent='Continuar a la encuesta';show('survey');},err=>{locationData=null;el('gps-error').textContent=err.code===1?'No se concedió el permiso de ubicación. Para continuar se requiere autorizarlo desde el navegador.':'No fue posible obtener la ubicación. Verifica los permisos y vuelve a intentar.';btn.disabled=false;btn.textContent='Continuar a la encuesta';},{enableHighAccuracy:false,timeout:16000,maximumAge:0});});
-// El servidor devuelve un mensaje de confirmación desde la respuesta del iframe.
-window.addEventListener('message',event=>{if(!pending || event.source!==el('submit-target').contentWindow)return;const data=event.data;if(!data||data.app!=='judith-encuesta'||data.requestId!==requestId)return;
- pending=false;el('send').disabled=false; if(data.ok){el('confirmation').textContent=data.code||'Registrado';show('success');}else{el('state').textContent='No fue posible confirmar el registro: '+(data.error||'intenta nuevamente.');}});
-el('survey').addEventListener('submit',ev=>{ev.preventDefault();const form=ev.currentTarget;if(!form.reportValidity()||pending)return;
- if(!locationData){el('state').textContent='Falta la autorización de ubicación. Vuelve a ingresar al formulario.';return;}
- if(!APPS_SCRIPT_URL.startsWith('https://script.google.com/macros/s/')){el('state').textContent='El formulario no está conectado a Google Sheets. Contacta al equipo.';return;}
- requestId=(crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(36).slice(2));
- const data=new FormData(form);data.set('email',email);data.set('lat',locationData.lat);data.set('lon',locationData.lon);data.set('mayor','si');data.set('carrera','si');data.set('consent','si');data.set('gps_consent','si');data.set('request_id',requestId);
- const transfer=document.createElement('form');transfer.method='POST';transfer.action=APPS_SCRIPT_URL;transfer.target='submit-target';transfer.style.display='none';
- for(const [key,value] of data.entries()){const item=document.createElement('input');item.type='hidden';item.name=key;item.value=value;transfer.appendChild(item);}
- document.body.appendChild(transfer);pending=true;el('send').disabled=true;el('state').textContent='Registrando respuestas…';transfer.submit();transfer.remove();
- // No mostramos éxito si no llega confirmación real del servidor.
- setTimeout(()=>{if(pending){pending=false;el('send').disabled=false;el('state').textContent='No se recibió confirmación del servidor. Revisa la hoja antes de volver a enviar para evitar duplicados.';}},20000);
+const screens = ['email','consent','survey','success'];
+const el = id => document.getElementById(id);
+function show(name) {
+  screens.forEach(s => el('screen-'+s).classList.toggle('active',s===name));
+  document.body.classList.toggle('finished',name==='success');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+let email='', locationData=null, requestId=null, pending=false;
+let confirmTimer=null, checkTimers=[], checkScripts=[];
+
+el('email-form').addEventListener('submit', ev => {
+  ev.preventDefault();
+  const value=el('email').value.trim().toLowerCase();
+  const domain=value.split('@')[1]||'';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || !ALLOWED_DOMAINS.includes(domain)) {
+    el('email-error').textContent='Esta encuesta es solo para estudiantes de la UCV. Utiliza tu correo institucional.';
+    return;
+  }
+  email=value;el('email-error').textContent='';show('consent');
+});
+el('back').addEventListener('click',()=>show('email'));
+el('consent-form').addEventListener('submit',ev=>{
+  ev.preventDefault();if(!ev.currentTarget.reportValidity())return;
+  const btn=el('continue'); el('gps-error').textContent='';btn.disabled=true;
+  btn.textContent='Solicitando permiso del dispositivo…';
+  if(!navigator.geolocation){
+    el('gps-error').textContent='Tu navegador no permite la ubicación. No se puede continuar con el requisito actual.';
+    btn.disabled=false;btn.textContent='Continuar a la encuesta';return;
+  }
+  navigator.geolocation.getCurrentPosition(pos=>{
+    locationData={lat:pos.coords.latitude.toFixed(3),lon:pos.coords.longitude.toFixed(3)};
+    btn.disabled=false;btn.textContent='Continuar a la encuesta';show('survey');
+  },err=>{
+    locationData=null;
+    el('gps-error').textContent=err.code===1?'No se concedió el permiso de ubicación. Para continuar se requiere autorizarlo desde el navegador.':'No fue posible obtener la ubicación. Verifica los permisos y vuelve a intentar.';
+    btn.disabled=false;btn.textContent='Continuar a la encuesta';
+  },{enableHighAccuracy:false,timeout:16000,maximumAge:0});
+});
+
+function stopChecks(){
+  clearTimeout(confirmTimer);confirmTimer=null;
+  checkTimers.forEach(clearTimeout);checkTimers=[];
+  checkScripts.forEach(script=>script.remove());checkScripts=[];
+}
+function completed(){
+  if(!pending)return;
+  pending=false;stopChecks();
+  // Únicamente mostrar esta pantalla cuando el backend verificó el registro.
+  el('state').textContent='';show('success');
+}
+function fail(message){
+  if(!pending)return;
+  pending=false;stopChecks();el('send').disabled=false;
+  el('send').textContent='Enviar respuestas';
+  el('state').textContent=message;
+}
+
+// Primera vía de confirmación: Apps Script comunica el resultado desde el iframe.
+window.addEventListener('message',event=>{
+  if(!pending)return;
+  const fromGoogle = /^https:\/\/(?:script\.google\.com|(?:[a-z0-9-]+\.)?googleusercontent\.com)$/.test(event.origin);
+  if(!fromGoogle)return;
+  const data=event.data;
+  if(!data||data.app!=='judith-encuesta'||data.requestId!==requestId)return;
+  if(data.ok)completed();
+  else fail('No se pudo guardar la encuesta. Intenta nuevamente.');
+});
+
+// Segunda vía: consultar si la fila está guardada mediante un identificador
+// aleatorio. Solo se devuelve el estado, nunca correo, respuestas ni GPS.
+function checkRegistration(){
+  if(!pending||!requestId)return;
+  const callback='__judithStatusCallback';
+  const script=document.createElement('script');
+  const separator=APPS_SCRIPT_URL.includes('?')?'&':'?';
+  script.src=APPS_SCRIPT_URL+separator+'check='+encodeURIComponent(requestId)+'&callback='+callback+'&t='+Date.now();
+  script.async=true;
+  script.onerror=()=>script.remove();
+  checkScripts.push(script);document.head.appendChild(script);
+}
+window.__judithStatusCallback=function(data){
+  if(pending&&data&&data.app==='judith-encuesta'&&data.requestId===requestId&&data.ok===true){completed();}
+};
+
+el('survey').addEventListener('submit',ev=>{
+  ev.preventDefault();const form=ev.currentTarget;
+  if(!form.reportValidity()||pending)return;
+  if(!locationData){el('state').textContent='Es necesario regresar y autorizar la ubicación para continuar.';return;}
+  if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(APPS_SCRIPT_URL)){
+    el('state').textContent='No se pudo establecer conexión con el formulario. Contacta al equipo de investigación.';return;
+  }
+  // Se conserva el ID del intento si hay que reintentar, para evitar filas duplicadas.
+  if(!requestId){
+    requestId=typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function'
+      ?crypto.randomUUID()
+      :String(Date.now())+'-'+Math.random().toString(36).slice(2);
+  }
+  const data=new FormData(form);
+  data.set('email',email);data.set('lat',locationData.lat);data.set('lon',locationData.lon);
+  data.set('mayor','si');data.set('carrera','si');data.set('consent','si');data.set('gps_consent','si');
+  data.set('request_id',requestId);
+  const transfer=document.createElement('form');
+  transfer.method='POST';transfer.action=APPS_SCRIPT_URL;transfer.target='submit-target';transfer.hidden=true;
+  for(const [key,value] of data.entries()){
+    const input=document.createElement('input');input.type='hidden';input.name=key;input.value=value;
+    transfer.appendChild(input);
+  }
+  document.body.appendChild(transfer);pending=true;
+  el('send').disabled=true;el('send').textContent='Enviando…';
+  el('state').textContent='Guardando tus respuestas…';
+  transfer.submit();transfer.remove();
+  // Respaldo automático si la confirmación del iframe no llega por restricciones del navegador.
+  [2500,5500,9500,14500,19000].forEach(ms=>checkTimers.push(setTimeout(checkRegistration,ms)));
+  confirmTimer=setTimeout(()=>{
+    fail('No se pudo verificar el registro. Comprueba con el equipo antes de volver a enviar.');
+  },24000);
 });
 </script></body></html>
