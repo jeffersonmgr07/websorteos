@@ -90,8 +90,8 @@ el('consent-form').addEventListener('submit', event => {
     error => {
       locationData = null;
       el('gps-error').textContent = error.code === 1
-        ? 'No se autorizó la ubicación. Puedes abandonar la encuesta sin ninguna consecuencia.'
-        : 'No fue posible obtener la ubicación. Revisa los permisos del navegador e inténtalo de nuevo.';
+        ? 'No se puede continuar'
+        : 'No se puede continuar';
       button.disabled = false;
       button.textContent = 'Continuar a la encuesta';
     },
