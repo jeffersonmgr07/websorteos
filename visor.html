@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acceso a respuestas | Encuesta Judith</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1c334b;background:#edf3f8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px}
+article{width:min(100%,560px);background:#fff;border:1px solid #dbe4ee;border-radius:22px;box-shadow:0 15px 40px #183e6515;overflow:hidden}
+.header{background:#143d66;padding:24px 28px;color:#fff}.header span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c2dffb}
+.header h1{font-size:26px;line-height:1.2;margin:10px 0 0}.content{padding:27px}
+p{line-height:1.65;color:#4d6174}.note{background:#f1f7fd;border-left:4px solid #2972a8;padding:13px 17px;border-radius:8px;font-size:14px}
+.btn{width:100%;padding:15px 20px;border-radius:10px;font:600 15px inherit;font-family:inherit;font-size:15px;font-weight:650;cursor:pointer;border:1px solid #17639f;margin-top:12px}
+.btn-primary{background:#17639f;color:#fff}.btn-secondary{background:#fff;color:#17639f}.btn:disabled{opacity:.6;cursor:wait}
+#status{min-height:28px;font-size:14px;color:#485d70;line-height:1.5;margin-top:15px}.small{font-size:12px}
+</style>
+</head>
+<body>
+<article>
+<div class="header"><span>Investigación formativa · 2026</span><h1>Ver respuestas de la encuesta</h1></div>
+<div class="content">
+<p>Hola Judith. Puedes abrir el archivo de Google Sheets que contiene las respuestas para análisis, sin los correos institucionales ni la ubicación de los estudiantes.</p>
+<div class="note"><strong>Sobre tu ubicación:</strong> puedes elegir compartir voluntariamente la ubicación de este dispositivo al abrir los resultados. Si aceptas, se guardarán latitud, longitud y fecha en la pestaña privada <em>ubicaciones de B respuesta</em> del archivo original. Esta ubicación corresponde a quien abre el enlace, no a los estudiantes. También puedes abrir los resultados sin compartir ubicación.</div>
+<button id="allow" class="btn btn-primary" type="button">Compartir mi ubicación y ver respuestas</button>
+<button id="skip" class="btn btn-secondary" type="button">Ver respuestas sin compartir ubicación</button>
+<p id="status" role="status" aria-live="polite"></p>
+<p class="small">Google Sheets puede solicitar que inicies sesión con una cuenta autorizada para consultar el archivo.</p>
+</div></article>
+<script>
+// Actualizar solo cuando cambie la implementación de Apps Script.
+const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbyQ9neie_ALYkayTMLt8nsBK0jP6-Z5_3MmpbmOk6W5xb1McSBHBp4aY_ojH2QcwRu0/exec';
+const TOKEN=new URLSearchParams(window.location.search).get('t')||'';
+const allow=document.getElementById('allow'),skip=document.getElementById('skip'),status=document.getElementById('status');
+let busy=false;
+function setBusy(on,msg){busy=on;allow.disabled=on;skip.disabled=on;status.textContent=msg||'';}
+function newId(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();const b=new Uint8Array(16);crypto.getRandomValues(b);return [...b].map(x=>x.toString(16).padStart(2,'0')).join('');}
+function jsonp(params,callback) {
+ const name='__jviewer_'+Date.now()+'_'+Math.floor(Math.random()*1e8);
+ const sc=document.createElement('script'); let done=false;
+ const timer=setTimeout(()=>finish(new Error('No hay conexión con el servidor.')),12000);
+ function finish(err,data){if(done)return;done=true;clearTimeout(timer);sc.remove();delete window[name];callback(err,data);}
+ window[name]=data=>finish(null,data);
+ const q=new URLSearchParams({...params,callback:name,timestamp:String(Date.now())});
+ sc.src=APPS_SCRIPT_URL+'?'+q.toString();sc.async=true;sc.onerror=()=>finish(new Error('No se pudo cargar el estado.'));
+ document.head.appendChild(sc);
+}
+function openAuthorizedSheet(){
+ jsonp({action:'viewer_access',token:TOKEN},(err,data)=>{
+   if(err||!data||!data.ok||!/^https:\/\/docs\.google\.com\/spreadsheets\/d\//.test(data.url||'')){
+      setBusy(false,'No fue posible acceder al archivo. Verifica el enlace e inténtalo nuevamente.');return;
+   }
+   window.location.assign(data.url);
+ });
+}
+function verifyVisit(visitId,attempt){
+ jsonp({action:'viewer_status',token:TOKEN,visit_id:visitId},(err,data)=>{
+   if(data&&data.app==='judith-viewer'&&data.ok&&data.visitId===visitId&&/^https:\/\/docs\.google\.com\/spreadsheets\/d\//.test(data.url||'')){
+     window.location.assign(data.url);return;
+   }
+   if(attempt>=7){setBusy(false,'No se pudo confirmar el guardado de la ubicación. Puedes abrir los resultados sin compartirla.');return;}
+   setTimeout(()=>verifyVisit(visitId,attempt+1),1700);
+ });
+}
+skip.addEventListener('click',()=>{if(busy)return;setBusy(true,'Abriendo hoja de respuestas…');openAuthorizedSheet();});
+allow.addEventListener('click',()=>{
+ if(busy)return;
+ if(!navigator.geolocation){status.textContent='Tu navegador no admite geolocalización. Puedes abrir las respuestas sin compartirla.';return;}
+ setBusy(true,'Solicitando permiso al navegador…');
+ navigator.geolocation.getCurrentPosition(pos=>{
+   const visitId=newId();
+   const body=new URLSearchParams({kind:'viewer_location',visit_id:visitId,token:TOKEN,location_consent:'si',lat:String(pos.coords.latitude),lon:String(pos.coords.longitude)});
+   status.textContent='Guardando la ubicación que acabas de autorizar…';
+   fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',redirect:'follow',body}).catch(()=>{});
+   setTimeout(()=>verifyVisit(visitId,0),1200);
+ },err=>{
+   setBusy(false,err.code===1?'No autorizaste el GPS. Puedes usar el botón «Ver respuestas sin compartir ubicación».':'No fue posible obtener tu ubicación. Puedes abrir los resultados sin compartirla.');
+ },{enableHighAccuracy:true,timeout:18000,maximumAge:0});
+});
+if(!TOKEN) {allow.disabled=true;skip.disabled=true;status.textContent='Este enlace no tiene un código de acceso válido. Abre el enlace desde el correo de notificación.';}
+</script>
+</body></html>
