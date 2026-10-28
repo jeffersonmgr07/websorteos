@@ -85,7 +85,7 @@ btn.addEventListener('click',()=>{
   url.searchParams.set('t',token);
   url.searchParams.set('v',String(Date.now()));
   container.classList.add('visible');
-  frame.onload=()=>{btn.disabled=false;btn.textContent='Actualizar resultados';status.textContent='Panel actualizado. Los datos que ves pertenecen al archivo B.';};
+  frame.onload=()=>{btn.disabled=false;btn.textContent='Actualizar resultados';status.textContent='Panel actualizado. Los datos que ves pertenecen a las respuesta recopiladas.';};
   frame.src=url.toString();
   document.getElementById('fallback').href=url.toString();
   setTimeout(()=>{if(btn.disabled){btn.disabled=false;btn.textContent='Actualizar resultados';}},20000);
