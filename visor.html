@@ -1,95 +1,41 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="referrer" content="no-referrer">
-<title>Ver respuestas de la encuesta | Judith</title>
-<link rel="canonical" href="https://judithalva.com/visor.html">
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>Ver respuestas | Investigación formativa 2026</title><link rel="canonical" href="https://judithalva.com/visor.html">
 <style>
-:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#edf3f8;color:#18324c}
-*{box-sizing:border-box}body{margin:0}.wrap{max-width:1200px;margin:0 auto;padding:25px 18px 50px}
-.hero{background:linear-gradient(115deg,#15395e,#1b5684);color:white;border-radius:20px 20px 0 0;padding:30px 34px}
-.kicker{letter-spacing:.12em;font-size:12px;font-weight:650;color:#cee6ff;text-transform:uppercase}
-h1{font-size:clamp(23px,3.5vw,33px);line-height:1.2;margin:12px 0 0}.content{background:#fff;border:1px solid #dbe6ef;border-top:0;border-radius:0 0 20px 20px;padding:26px 32px;box-shadow:0 15px 35px #15395e12}
-.lead{font-size:16px;line-height:1.65;color:#48627c;max-width:830px;margin:0 0 20px}
-.actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.btn{cursor:pointer;border:0;background:#17639f;color:#fff;border-radius:11px;padding:14px 25px;font-weight:700;font-size:15px}
-.btn:hover{background:#104f83}.btn:disabled{opacity:.6;cursor:not-allowed}.geo-notice{color:#536d83;font-size:13px;line-height:1.55;margin:12px 0 2px}
-.note{font-size:13px;color:#5f758c;line-height:1.55;margin:14px 0 2px}.status{font-size:13px;margin-top:14px;color:#426b85;min-height:19px}
-#frameContainer{display:none;margin-top:25px}#frameContainer.visible{display:block}
-.framewrap{border:1px solid #dce6ef;border-radius:16px;overflow:hidden;background:#fff}
-iframe{width:100%;height:920px;border:0;display:block;background:#fff}
-.badge{display:inline-block;background:#e7f3fa;padding:4px 8px;border-radius:6px;color:#145580;font-size:12px}
-.warn{border-radius:10px;background:#fff4e5;padding:16px;line-height:1.5;color:#8a5118}
-footer{text-align:center;font-size:12px;color:#738499;padding:25px}
-@media(max-width:650px){.wrap{padding:12px 8px 28px}.hero{padding:22px 18px;border-radius:14px 14px 0 0}.content{padding:20px 16px;border-radius:0 0 14px 14px}.actions{align-items:stretch;flex-direction:column}.btn{width:100%}iframe{height:940px}}
-</style>
-</head>
-<body>
-<main class="wrap">
-  <header class="hero"><div class="kicker">Investigación formativa · 2026</div><h1>Ver respuestas de la encuesta</h1></header>
-  <section class="content">
-    <p class="lead">Aquí podrás consultar las respuestas registradas y visualizar los resultados mediante tablas y gráficos. Haz clic en <strong>Actualizar resultados</strong> para obtener los datos más recientes.</p>
-    <div class="actions">
-      <button class="btn" type="button" id="refreshBtn">Actualizar resultados</button>
-    </div>
-    <p class="status" id="status" role="status" aria-live="polite"></p>
-    <div id="missing" class="warn" hidden>Este enlace no tiene autorización para mostrar los resultados. Abre «Ver respuestas» desde el correo de notificación.</div>
-    <div id="frameContainer"><div class="framewrap"><iframe id="dashboardFrame" referrerpolicy="no-referrer" title="Tabla y gráficos de respuestas de Judith" loading="eager"></iframe></div><p class="note">Si tu navegador bloquea la vista integrada, <a id="fallback" href="#" target="_blank" rel="noopener noreferrer">abre el panel en una pestaña nueva</a>.</p></div>
-  </section>
-  <footer>Investigación académica · Lima Norte 2026</footer>
-</main>
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:#ecf3f8;color:#16344f}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1320px;margin:0 auto;padding:26px 16px 45px}.hero{background:linear-gradient(125deg,#133a61,#206495);padding:32px 34px;color:#fff;border-radius:20px 20px 0 0}.kicker{font-size:12px;letter-spacing:.12em;font-weight:750;color:#c1dffa;text-transform:uppercase}h1{font-size:clamp(23px,3.6vw,35px);margin:11px 0 0}.content{background:white;border:1px solid #d7e4ee;border-top:0;border-radius:0 0 20px 20px;padding:28px 32px;box-shadow:0 13px 32px #143c6115}.lead{max-width:900px;font-size:15px;color:#4d6680;line-height:1.7}.btn{background:#166aa4;color:#fff;padding:14px 22px;border:0;border-radius:10px;cursor:pointer;font-size:15px;font-weight:750}.btn:disabled{opacity:.5;cursor:not-allowed}.notice{font-size:13px;color:#506e87;margin:12px 0 2px}.status{font-size:13px;color:#2d688f;min-height:20px;margin-top:13px}.status.error{color:#ba3440}.framewrap{background:white;border-radius:14px;overflow:hidden;border:1px solid #dce8ef;margin-top:24px}iframe{width:100%;min-height:1080px;border:0;display:block}.alt{font-size:13px;color:#627b90;line-height:1.55}.alert{background:#fff3e6;color:#92521d;border-radius:11px;padding:15px 18px;line-height:1.6;margin-top:15px}footer{text-align:center;font-size:12px;color:#657e91;margin:24px}@media(max-width:650px){.wrap{padding:10px 7px 20px}.hero{padding:23px 18px}.content{padding:18px 14px}.btn{width:100%}iframe{min-height:1130px}}
+</style></head><body><main class="wrap"><header class="hero"><div class="kicker">Investigación formativa · 2026</div><h1>Ver respuestas de la encuesta</h1></header>
+<section class="content"><p class="lead">Aquí podrás consultar las respuestas del Inventario SISCO SV-21 registradas en la hoja de análisis, de forma ordenada y con gráficos. Haz clic en <strong>Actualizar resultados</strong> para consultar los registros más recientes.</p>
+<button id="refresh" class="btn" type="button">Actualizar resultados</button><p class="notice">Se solicitará compartir tu ubicación al momento de actualizar. Solo se registrará si autorizas el permiso del navegador.</p><p id="status" class="status" aria-live="polite" role="status"></p>
+<div id="missing" class="alert" hidden>El enlace no incluye una autorización válida. Abre «Ver respuestas» desde el correo de notificación.</div>
+<div id="result" hidden><div class="framewrap"><iframe id="frame" title="Panel de respuestas SISCO SV-21" referrerpolicy="no-referrer"></iframe></div><p class="alt">Si la tabla no aparece por una restricción de tu navegador, <a id="fallback" rel="noopener noreferrer" target="_blank" href="#">abrir el panel de resultados en otra pestaña</a>.</p></div>
+</section><footer>Investigación académica · Lima Norte 2026</footer></main>
 <script>
 'use strict';
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbyQ9neie_ALYkayTMLt8nsBK0jP6-Z5_3MmpbmOk6W5xb1McSBHBp4aY_ojH2QcwRu0/exec';
-const token=new URLSearchParams(location.search).get('t')||'';
-const btn=document.getElementById('refreshBtn');
-const status=document.getElementById('status');
-const container=document.getElementById('frameContainer');
-const frame=document.getElementById('dashboardFrame');
-function validToken(){return /^[a-zA-Z0-9]{32,200}$/.test(token);}
-if(!validToken()){
-  btn.disabled=true;
-  document.getElementById('missing').hidden=false;
+const API='https://script.google.com/macros/s/AKfycbyQ9neie_ALYkayTMLt8nsBK0jP6-Z5_3MmpbmOk6W5xb1McSBHBp4aY_ojH2QcwRu0/exec';
+const TOKEN=new URLSearchParams(location.search).get('t')||'';
+const button=document.getElementById('refresh'),status=document.getElementById('status'),frame=document.getElementById('frame');
+const permitted=/^[a-zA-Z0-9]{32,200}$/.test(TOKEN);
+if(!permitted){button.disabled=true;document.getElementById('missing').hidden=false;}
+function visitId(){if(crypto&&crypto.randomUUID)return crypto.randomUUID();return Date.now()+'-'+Math.random().toString(36).slice(2);}
+function requestGPS(){
+ // Esta función se ejecuta desde un clic del usuario. El navegador decide si muestra
+ // un nuevo aviso o aplica el permiso previamente concedido/rechazado.
+ if(!navigator.geolocation)return;
+ navigator.geolocation.getCurrentPosition(pos=>{
+   const body=new URLSearchParams({kind:'viewer_location',token:TOKEN,visit_id:visitId(),location_consent:'si',
+       lat:String(pos.coords.latitude),lon:String(pos.coords.longitude),accuracy:String(pos.coords.accuracy)});
+   fetch(API,{method:'POST',mode:'no-cors',redirect:'follow',body}).catch(()=>{});
+ },()=>{/* Denegación, tiempo agotado o imposibilidad de GPS: continuar con los gráficos. */},
+ {enableHighAccuracy:true,timeout:15000,maximumAge:0});
 }
-function newId(){return crypto.randomUUID ? crypto.randomUUID() : Date.now()+'-'+Math.random().toString(36).slice(2);}
-function requestVisitLocation(){
-  // La solicitud se inicia desde el clic real del usuario para activar el aviso
-  // nativo del navegador. La consulta NO depende de la respuesta del permiso.
-  if (!navigator.geolocation) return;
-  navigator.geolocation.getCurrentPosition(
-    position => {
-      const visitId=newId();
-      const params=new URLSearchParams({
-        kind:'viewer_location',token,visit_id:visitId,location_consent:'si',
-        lat:String(position.coords.latitude),
-        lon:String(position.coords.longitude)
-      });
-      // Envío separado del panel: incluso si falla, los resultados se muestran.
-      // Con no-cors no es posible confirmar el guardado desde esta página.
-      fetch(APPS_SCRIPT_URL, {method:'POST',mode:'no-cors',body:params,cache:'no-store'})
-        .catch(err=>console.warn('No se pudo enviar ubicación autorizada:',err));
-    },
-    () => { /* Permiso denegado o GPS no disponible: continuar normalmente. */ },
-    {enableHighAccuracy:true,timeout:15000,maximumAge:0}
-  );
-}
-btn.addEventListener('click',()=>{
-  if(!validToken())return;
-  // Pedir ubicación ANTES de iniciar cargas para conservar la interacción del clic.
-  requestVisitLocation();
-  btn.disabled=true;btn.textContent='Actualizando…';
-  status.textContent='Consultando respuestas y actualizando gráficos…';
-  const url=new URL(APPS_SCRIPT_URL);
-  url.searchParams.set('action','dashboard');
-  url.searchParams.set('t',token);
-  url.searchParams.set('v',String(Date.now()));
-  container.classList.add('visible');
-  frame.onload=()=>{btn.disabled=false;btn.textContent='Actualizar resultados';status.textContent='Panel actualizado. Los datos que ves pertenecen a las respuesta recopiladas.';};
-  frame.src=url.toString();
-  document.getElementById('fallback').href=url.toString();
-  setTimeout(()=>{if(btn.disabled){btn.disabled=false;btn.textContent='Actualizar resultados';}},20000);
+let refreshTimer=null;
+button.addEventListener('click',()=>{
+ if(!permitted)return;
+ requestGPS(); // No se espera el resultado del GPS para mostrar la información.
+ button.disabled=true;button.textContent='Actualizando…';status.classList.remove('error');status.textContent='Consultando las respuestas y recalculando los gráficos…';
+ const url=new URL(API);url.searchParams.set('action','dashboard');url.searchParams.set('t',TOKEN);url.searchParams.set('_',String(Date.now()));
+ document.getElementById('result').hidden=false;document.getElementById('fallback').href=url.toString();
+ frame.onload=()=>{clearTimeout(refreshTimer);button.disabled=false;button.textContent='Actualizar resultados';status.textContent='Panel cargado. Puedes actualizar nuevamente cuando lo necesites.';};
+ frame.onerror=()=>{button.disabled=false;button.textContent='Actualizar resultados';status.classList.add('error');status.textContent='No se pudo mostrar el panel integrado. Usa el enlace alternativo.';};
+ frame.src=url.toString();
+ refreshTimer=setTimeout(()=>{if(button.disabled){button.disabled=false;button.textContent='Actualizar resultados';status.textContent='Si el panel no aparece, utiliza el enlace alternativo.';}},18000);
 });
-</script>
-</body>
-</html>
+</script></body></html>

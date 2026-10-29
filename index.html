@@ -1,529 +1,114 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>JudithAlva.com — Sorteos & Suscripciones</title>
-  <meta name="description" content="Sorteos por suscripción — Promos, Premios, Ganadores, Eventos y Planes. Primer sorteo: PlayStation 5 (20 de marzo)." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-
-<body>
-  <!-- Barra superior desarrollador -->
-  <div class="dev-bar">
-    Desarrollado por Jefferson García Romero's GitHub Profile
-  </div>
-  <!-- Sidebar (PC) -->
-  <aside class="side">
-    <div class="side-top">
-      <div class="brand-mini">
-        <img src="assets/img/logo.png" alt="JudithAlva.com" />
-      </div>
-      <div class="side-icons">
-        <a class="ico active" href="#inicio" aria-label="Inicio"><span>⌂</span></a>
-        <a class="ico" href="#promos" aria-label="Promos"><span>％</span></a>
-        <a class="ico" href="#premios" aria-label="Próximos premios"><span>🎁</span></a>
-        <a class="ico" href="#ganadores" aria-label="Ganadores"><span>🏆</span></a>
-        <a class="ico" href="#eventos" aria-label="Eventos"><span>🎟️</span></a>
-        <a class="ico" href="#planes" aria-label="Planes"><span>★</span></a>
-      </div>
-    </div>
-
-    <div class="side-bottom">
-      <div class="side-hint">JudithAlva.com</div>
-    </div>
-  </aside>
-
-  <!-- Header -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">
-        <img class="brand-logo" src="assets/img/logo.png" alt="JudithAlva.com" />
-        <div class="brand-text">
-          <div class="brand-title">JudithAlva.com</div>
-          <div class="brand-sub">Sorteos • Promos • Eventos</div>
-        </div>
-      </div>
-
-      <div class="topbar-actions">
-        <!-- Quitado: Ver ganadores -->
-        <button class="btn" id="openAuth" type="button">Iniciar sesión</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main class="main">
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <div class="hero-kicker">PRIMER SORTEO</div>
-          <h1 class="hero-title">
-            Este <span class="accent">20 de marzo</span> sorteamos una
-            <span class="accent">PlayStation 5</span>
-          </h1>
-
-          <p class="hero-desc">
-            Transmisión en <b>Facebook Live</b> y <b>TikTok Live</b>. Habrá <b>premios extra</b> para las personas conectadas.
-          </p>
-
-          <div class="hero-badges">
-            <div class="pill">🎥 Facebook Live</div>
-            <div class="pill">📱 TikTok Live</div>
-            <div class="pill">🎁 Premios extra en vivo</div>
-          </div>
-
-          <div class="countdown-card" aria-label="Cuenta regresiva">
-            <div class="countdown-title">Cuenta regresiva</div>
-            <div class="countdown" id="countdown">
-              <div class="cd">
-                <div class="num" id="cdDays">--</div>
-                <div class="lbl">Días</div>
-              </div>
-              <div class="cd">
-                <div class="num" id="cdHours">--</div>
-                <div class="lbl">Horas</div>
-              </div>
-              <div class="cd">
-                <div class="num" id="cdMins">--</div>
-                <div class="lbl">Min</div>
-              </div>
-              <div class="cd">
-                <div class="num" id="cdSecs">--</div>
-                <div class="lbl">Seg</div>
-              </div>
-            </div>
-            <div class="countdown-note">
-              *Hora referencial: Lima, Perú. (puedes ajustarla luego)
-            </div>
-          </div>
-
-          <div class="hero-cta">
-            <a class="btn xl" href="#planes" id="ctaGoPlans">¡Suscribirme!</a>
-            <a class="btn ghost xl" href="#premios">Ver próximos premios</a>
-          </div>
-
-          <div class="hero-mini">
-            *Si el DNI es incorrecto y resultas ganador, no podrás reclamar el premio.
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-banner">
-            <img src="assets/img/banner1.png" alt="Banner del sorteo" />
-            <div class="hero-overlay">
-              <div class="hero-overlay-card">
-                <div class="hero-overlay-title">Sorteo PS5</div>
-                <div class="hero-overlay-sub">20 de marzo</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-prize">
-            <img src="assets/img/prizes/ps5.png" alt="PlayStation 5" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Layout: contenido + feed (PC) -->
-    <section class="container layout">
-      <div class="content">
-
-        <!-- Promos -->
-        <section class="section" id="promos">
-          <div class="section-head">
-            <div>
-              <h2>Promos para suscriptores</h2>
-              <p>Coloca aquí promociones de comercios locales (solo para suscriptores).</p>
-            </div>
-            <button class="btn ghost sm" type="button">Mostrar más →</button>
-          </div>
-
-          <div class="cards-grid">
-            <article class="card promo">
-              <div class="card-media media-grad"></div>
-              <div class="card-body">
-                <div class="card-title">Promo #1</div>
-                <div class="card-text">Ejemplo: 20% en hamburguesas (presentando suscripción).</div>
-                <button class="btn sm ghost" type="button">Ver detalle</button>
-              </div>
-            </article>
-
-            <article class="card promo">
-              <div class="card-media media-grad2"></div>
-              <div class="card-body">
-                <div class="card-title">Promo #2</div>
-                <div class="card-text">Ejemplo: 2x1 en café (solo suscriptores activos).</div>
-                <button class="btn sm ghost" type="button">Ver detalle</button>
-              </div>
-            </article>
-
-            <article class="card promo">
-              <div class="card-media media-grad3"></div>
-              <div class="card-body">
-                <div class="card-title">Promo #3</div>
-                <div class="card-text">Ejemplo: Descuento en barbería / salón.</div>
-                <button class="btn sm ghost" type="button">Ver detalle</button>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Próximos premios -->
-        <section class="section" id="premios">
-          <div class="section-head">
-            <div>
-              <h2>Próximos premios</h2>
-              <p>El premio principal de marzo es PS5. Puedes añadir más premios por mes.</p>
-            </div>
-            <button class="btn ghost sm" type="button">Mostrar más →</button>
-          </div>
-
-          <div class="carousel-wrap">
-            <button class="car-btn left" id="prizeLeft" type="button" aria-label="Izquierda">‹</button>
-
-            <div class="carousel" id="prizeCarousel">
-              <article class="p-card">
-                <div class="p-imgbox">
-                  <img src="assets/img/prizes/ps5.png" alt="PlayStation 5" />
-                </div>
-                <p class="p-name">PlayStation 5 (Premio principal)</p>
-                <div class="p-meta">Sorteo: 20 de marzo</div>
-                <div class="p-price">Incluido en planes activos</div>
-                <button class="p-add" data-open-plan="mensual" type="button">Elegir plan</button>
-              </article>
-
-              <article class="p-card">
-                <div class="p-imgbox placeholder"></div>
-                <p class="p-name">Premio extra en vivo</p>
-                <div class="p-meta">Solo conectados</div>
-                <div class="p-price">Facebook/TikTok Live</div>
-                <button class="p-add" data-open-plan="trimestral" type="button">Elegir plan</button>
-              </article>
-
-              <article class="p-card">
-                <div class="p-imgbox placeholder2"></div>
-                <p class="p-name">Premio sorpresa</p>
-                <div class="p-meta">Anuncios semanales</div>
-                <div class="p-price">Exclusivo suscriptores</div>
-                <button class="p-add" data-open-plan="anual" type="button">Elegir plan</button>
-              </article>
-            </div>
-
-            <button class="car-btn right" id="prizeRight" type="button" aria-label="Derecha">›</button>
-          </div>
-        </section>
-
-        <!-- Ganadores -->
-        <section class="section" id="ganadores">
-          <div class="section-head">
-            <div>
-              <h2>Ganadores</h2>
-              <p>Publica aquí fotos y anuncios de ganadores anteriores.</p>
-            </div>
-            <button class="btn ghost sm" type="button">Ver más →</button>
-          </div>
-
-          <div class="winners-grid">
-            <article class="winner">
-              <div class="winner-photo"></div>
-              <div class="winner-meta">
-                <div class="winner-name">Ganador/a #1</div>
-                <div class="winner-desc">Premio: (editar)</div>
-              </div>
-            </article>
-
-            <article class="winner">
-              <div class="winner-photo alt"></div>
-              <div class="winner-meta">
-                <div class="winner-name">Ganador/a #2</div>
-                <div class="winner-desc">Premio: (editar)</div>
-              </div>
-            </article>
-
-            <article class="winner">
-              <div class="winner-photo alt2"></div>
-              <div class="winner-meta">
-                <div class="winner-name">Ganador/a #3</div>
-                <div class="winner-desc">Premio: (editar)</div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Eventos -->
-        <section class="section" id="eventos">
-          <div class="section-head">
-            <div>
-              <h2>Eventos</h2>
-              <p>Sorteo de entradas, cine, conciertos, etc.</p>
-            </div>
-            <button class="btn ghost sm" type="button">Ver más →</button>
-          </div>
-
-          <div class="events-grid">
-            <article class="event-card">
-              <div class="event-media poster1"></div>
-              <div class="event-body">
-                <div class="event-title">Entradas al cine (pre-estreno)</div>
-                <div class="event-sub">Fecha: por anunciar</div>
-                <button class="btn sm ghost" type="button">Ver detalles</button>
-              </div>
-            </article>
-
-            <article class="event-card">
-              <div class="event-media poster2"></div>
-              <div class="event-body">
-                <div class="event-title">Concierto local</div>
-                <div class="event-sub">Fecha: por anunciar</div>
-                <button class="btn sm ghost" type="button">Ver detalles</button>
-              </div>
-            </article>
-
-            <article class="event-card">
-              <div class="event-media poster3"></div>
-              <div class="event-body">
-                <div class="event-title">Sorteo especial en vivo</div>
-                <div class="event-sub">Solo conectados</div>
-                <button class="btn sm ghost" type="button">Ver detalles</button>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Planes -->
-        <section class="section" id="planes">
-          <div class="section-head">
-            <div>
-              <h2>Planes</h2>
-              <p>Suscríbete y participa. La compra se finaliza por WhatsApp con pago manual.</p>
-            </div>
-          </div>
-
-          <div class="plans-grid">
-            <article class="plan-card" data-plan="mensual">
-              <div class="plan-top">
-                <div class="plan-title">Mensual</div>
-                <div class="plan-price">S/ <span>7.90</span></div>
-                <div class="plan-chip">Acceso 1 mes</div>
-              </div>
-              <ul class="plan-list">
-                <li>Participas en sorteos del mes</li>
-                <li>Promos para suscriptores</li>
-                <li>Premios extra para conectados</li>
-              </ul>
-              <button class="btn plan-btn" data-subscribe="mensual" type="button">Suscribirme</button>
-            </article>
-
-            <article class="plan-card featured" data-plan="trimestral">
-              <div class="plan-top">
-                <div class="plan-title">Trimestral</div>
-                <div class="plan-price">S/ <span>21.90</span></div>
-                <div class="plan-chip hot">Recomendado</div>
-              </div>
-              <ul class="plan-list">
-                <li>Participas 3 meses</li>
-                <li>Más oportunidades de ganar</li>
-                <li>Promos para suscriptores</li>
-              </ul>
-              <button class="btn plan-btn" data-subscribe="trimestral" type="button">Suscribirme</button>
-            </article>
-
-            <article class="plan-card" data-plan="anual">
-              <div class="plan-top">
-                <div class="plan-title">Anual</div>
-                <div class="plan-price">S/ <span>80.90</span></div>
-                <div class="plan-chip">Acceso 12 meses</div>
-              </div>
-              <ul class="plan-list">
-                <li>Participas todo el año</li>
-                <li>Promos para suscriptores</li>
-                <li>Mayor prioridad en dinámicas</li>
-              </ul>
-              <button class="btn plan-btn" data-subscribe="anual" type="button">Suscribirme</button>
-            </article>
-          </div>
-
-          <div class="legal-note">
-            Al suscribirte aceptas términos y condiciones. En caso de resultar ganador, se validará identidad (DNI) y datos.
-          </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="footer-grid">
-            <div>
-              <div class="f-title">JudithAlva.com</div>
-              <p class="f-text">Sorteos por suscripción • Promos locales • Eventos</p>
-              <div class="f-text"><b>Transmisión:</b> Facebook Live + TikTok Live</div>
-            </div>
-
-            <div>
-              <div class="f-title">Secciones</div>
-              <div class="f-links">
-                <a href="#promos">Promos</a>
-                <a href="#premios">Próximos premios</a>
-                <a href="#ganadores">Ganadores</a>
-                <a href="#eventos">Eventos</a>
-                <a href="#planes">Planes</a>
-              </div>
-            </div>
-
-            <div>
-              <div class="f-title">Soporte</div>
-              <div class="f-links">
-                <a href="#" onclick="return false;">Términos</a>
-                <a href="#" onclick="return false;">Privacidad</a>
-                <a href="#" onclick="return false;">Preguntas frecuentes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-bottom">
-            © <span id="year"></span> JudithAlva.com — Lima, Perú
-          </div>
-        </footer>
-
-      </div>
-
-      <!-- Feed (PC) -->
-      <aside class="feed">
-        <div class="feed-card">
-          <div class="feed-title">Feed</div>
-          <div class="feed-sub">Anuncio de ganadores</div>
-
-          <div class="timer-row">
-            <div class="t-chip"><b id="feedD">--</b>d</div>
-            <div class="t-chip"><b id="feedH">--</b>h</div>
-            <div class="t-chip"><b id="feedM">--</b>m</div>
-            <div class="t-chip"><b id="feedS">--</b>s</div>
-            <div class="t-live">LIVE</div>
-          </div>
-
-          <div class="feed-banner">
-            <div class="feed-banner-title">Sorteo PS5</div>
-            <div class="feed-banner-sub">20 de marzo • En vivo</div>
-          </div>
-
-          <div class="feed-mini">
-            Tip: publica aquí flyers, anuncios, y “destacados”.
-          </div>
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <!-- Mobile bottom nav -->
-  <nav class="mobile-nav" aria-label="Navegación móvil">
-    <a href="#inicio" class="active">
-      <div class="m-ico">⌂</div><div class="m-lbl">Inicio</div>
-    </a>
-    <a href="#promos">
-      <div class="m-ico">％</div><div class="m-lbl">Promos</div>
-    </a>
-    <a href="#premios">
-      <div class="m-ico">🎁</div><div class="m-lbl">Premios</div>
-    </a>
-    <a href="#planes">
-      <div class="m-ico">★</div><div class="m-lbl">Planes</div>
-    </a>
-  </nav>
-
-  <!-- WhatsApp flotante -->
-  <a
-    class="wa-float"
-    id="waFloat"
-    href="https://wa.me/51915161364?text=Hola%20JudithAlva.com%2C%20quiero%20informaci%C3%B3n%20sobre%20suscripciones."
-    target="_blank"
-    rel="noopener"
-    aria-label="Chatear por WhatsApp"
-  >
-    <img class="wa-icon" src="assets/img/whatsapp.png" alt="WhatsApp">
-  </a>
-
-  <!-- Modal: Auth placeholder -->
-  <div class="modal" id="authModal" aria-hidden="true">
-    <div class="sheet" role="dialog" aria-label="Iniciar sesión">
-      <div class="sheet-head">
-        <div>
-          <div class="sheet-title">Iniciar sesión</div>
-          <div class="sheet-sub">Demo (puedes conectar tu backend luego)</div>
-        </div>
-        <button class="xbtn" data-close="authModal" type="button">✕</button>
-      </div>
-      <div class="sheet-body">
-        <label class="field">
-          <span>Correo</span>
-          <input type="email" placeholder="correo@ejemplo.com" />
-        </label>
-        <label class="field">
-          <span>Contraseña</span>
-          <input type="password" placeholder="••••••••" />
-        </label>
-        <button class="btn" type="button" data-close="authModal">Entrar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Suscripción -->
-  <div class="modal" id="subModal" aria-hidden="true">
-    <div class="sheet xl" role="dialog" aria-label="Suscripción">
-      <div class="sheet-head">
-        <div>
-          <div class="sheet-title">Suscribirme</div>
-          <div class="sheet-sub" id="subPlanLine">Plan: —</div>
-        </div>
-        <button class="xbtn" data-close="subModal" type="button">✕</button>
-      </div>
-
-      <div class="sheet-body">
-        <div class="two-col">
-          <label class="field">
-            <span>Nombres</span>
-            <input id="nombres" type="text" placeholder="Tus nombres" autocomplete="given-name" />
-          </label>
-          <label class="field">
-            <span>Apellidos</span>
-            <input id="apellidos" type="text" placeholder="Tus apellidos" autocomplete="family-name" />
-          </label>
-        </div>
-
-        <div class="two-col">
-          <label class="field">
-            <span>WhatsApp</span>
-            <input id="whatsapp" type="tel" placeholder="+51 9XXXXXXXX" autocomplete="tel" />
-          </label>
-          <label class="field">
-            <span>DNI (8 dígitos)</span>
-            <input id="dni" type="text" inputmode="numeric" maxlength="8" placeholder="12345678" />
-          </label>
-        </div>
-
-        <label class="field">
-          <span>Correo</span>
-          <input id="correo" type="email" placeholder="correo@ejemplo.com" autocomplete="email" />
-        </label>
-
-        <div class="status" id="statusBox" aria-live="polite"></div>
-
-        <div class="sheet-actions">
-          <button class="btn ghost" data-close="subModal" type="button">Cancelar</button>
-          <button class="btn" id="continueBtn" type="button">
-            Continuar por WhatsApp
-          </button>
-        </div>
-
-        <div class="fineprint">
-          Al continuar, se abrirá WhatsApp para coordinar el pago manual. Tus datos se usarán para validar premios.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FX root -->
-  <div id="fx-root"></div>
-
-  <script src="assets/js/app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin"><title>Encuesta de estrés académico · 2026</title>
+<link rel="canonical" href="https://judithalva.com/">
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#17304b;background:#edf3f8}*{box-sizing:border-box}body{margin:0}.top{background:linear-gradient(115deg,#153960,#1e5c8e);padding:40px 18px 65px;color:white}.wrap{max-width:920px;margin:auto}.top h1{font-size:clamp(24px,4vw,36px);margin:9px 0}.top p{color:#d9e9f5;line-height:1.6}.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b2d9f6;font-weight:750}.panel{position:relative;background:#fff;border:1px solid #dfe9f1;border-radius:19px;padding:28px 32px;margin:-32px 12px 30px;box-shadow:0 15px 30px #183d691c}main{padding:0 9px 20px}h2{font-size:23px;margin:0 0 15px}p{line-height:1.65}.screen{display:none}.screen.active{display:block}.fieldLabel{display:block;margin:19px 0 6px;font-weight:700}.entry{width:100%;max-width:410px;border:1px solid #bdcddd;border-radius:10px;padding:12px 14px;font:inherit}.text{font-size:14px;color:#546b7e}.info{background:#f1f7fc;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.65}.info p{margin:9px 0}.check{display:flex;gap:11px;align-items:flex-start;padding:10px 0;font-size:14px;line-height:1.5}.check input{margin-top:5px;accent-color:#17699e}.btn{background:#16659e;color:white;border:0;border-radius:10px;padding:14px 24px;cursor:pointer;font:inherit;font-weight:700;min-height:48px}.btn:disabled{opacity:.45;cursor:not-allowed}.btnLink{border:0;background:transparent;color:#15639d;text-decoration:underline;cursor:pointer;margin-left:10px;padding:8px}.error{color:#af2d38;font-size:14px;min-height:17px;margin-top:7px}.hint{background:#fff5e4;color:#744900;border:1px solid #f1d7a4;padding:13px 15px;line-height:1.65;border-radius:11px;font-size:14px}.screen .hint{margin:12px 0}.section{margin:25px 0 12px;font-size:17px;color:#174b78;padding:9px 12px;background:#eef5fb;border-left:4px solid #2b78b2}.question{padding:16px 18px;border:1px solid #dde8f0;border-radius:12px;margin:12px 0}.question legend{padding:0 4px;font-weight:600;line-height:1.55}.question .topic{color:#638197;font-size:12px;display:block;font-weight:400;margin-top:3px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}.choice{display:flex;gap:8px;align-items:center;border:1px solid #cfdfeb;border-radius:9px;padding:10px 12px;cursor:pointer;font-size:13px}.choice:has(input:checked){background:#e9f5ff;border-color:#357fb4}.choice input{accent-color:#14639c}.row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.small{font-size:12px;color:#5b7286}.success{text-align:center;padding:44px 8px}.success .checkmark{font-size:46px;background:#e3f5ea;color:#178551;width:83px;height:83px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center}footer{text-align:center;font-size:12px;color:#6b8397;padding:12px 0 30px}#formState{color:#375d78;margin-top:12px;font-size:14px}.separator{height:1px;background:#e1e8ef;margin:25px 0}body.finished .top,body.finished footer{display:none}body.finished main{min-height:100vh;display:flex;align-items:center;justify-content:center}body.finished .panel{margin:15px;width:100%;max-width:590px}@media(max-width:660px){.panel{padding:22px 16px;margin:-30px 6px 25px}.choices{grid-template-columns:repeat(2,1fr)}.question{padding:12px}.row{align-items:stretch;flex-direction:column;gap:7px}.btnLink{margin-left:0}}
+</style></head><body>
+<header class="top"><div class="wrap"><span class="kicker">Investigación formativa · 2026</span><h1>Estrés académico y rendimiento académico</h1><p>Estudiantes de Administración de Empresas de una universidad de Lima Norte</p></div></header>
+<main class="wrap"><div class="panel">
+<section id="screen-email" class="screen active"><h2>Acceso a la encuesta</h2><p>El cuestionario está destinado a estudiantes universitarios de Administración de Empresas de la población definida en el estudio.</p><form id="email-form"><label for="email" class="fieldLabel">Correo institucional</label><input id="email" class="entry" type="email" autocomplete="email" required placeholder="nombre@ucvvirtual.edu.pe"><p class="small">Dominios aceptados: @ucvvirtual.edu.pe y @ucv.edu.pe. Este filtro no confirma identidad ni matrícula.</p><p class="error" id="emailError"></p><button class="btn" type="submit">Continuar</button></form></section>
+<section id="screen-consent" class="screen"><h2>Consentimiento informado</h2><div class="info"><p><strong>Propósito:</strong> estudiar la relación entre el estrés académico y el rendimiento académico en estudiantes de Administración de Empresas durante 2026.</p><p><strong>Datos que se guardan:</strong> correo institucional, respuestas, promedio académico informado, fecha y código de envío en una hoja de cálculo original de acceso restringido. Una segunda hoja de análisis conserva respuestas y puntuaciones sin correo ni GPS. Aunque esta segunda hoja no contenga nombres, los datos no deben considerarse completamente anónimos porque existe un identificador de envío.</p><p><strong>Ubicación opcional:</strong> al pulsar «Continuar a la encuesta», el navegador podrá solicitarte permiso para acceder a tu ubicación. Si autorizas el acceso, guardaremos la latitud, longitud y precisión aproximada proporcionadas por el dispositivo en la hoja original. Estos datos pueden revelar un lugar específico; no son necesarios para participar. Si rechazas el permiso, podrás responder con normalidad y no se guardarán coordenadas. Si ya elegiste un permiso anteriormente, es posible que el navegador no vuelva a mostrar la solicitud.</p><p><strong>Participación:</strong> voluntaria; puedes abandonar antes del envío sin consecuencias. Para consultar sobre el tratamiento de información o solicitar su revisión, contacta al equipo por el canal institucional mediante el que recibiste la invitación. Los datos se usarán únicamente para la investigación y no serán publicados individualmente.</p></div>
+<form id="consentForm"><label class="check"><input id="adult" type="checkbox" required> Confirmo tener 18 años o más.</label><label class="check"><input id="career" type="checkbox" required> Confirmo ser estudiante matriculado de Administración de Empresas en la población del estudio.</label><label class="check"><input id="agree" type="checkbox" required> He leído esta información y acepto participar voluntariamente.</label><p id="geoStatus" class="small" role="status"></p><div class="row"><button id="consentButton" class="btn" type="submit">Continuar a la encuesta</button><button id="back" class="btnLink" type="button">Volver</button></div></form></section>
+<section id="screen-survey" class="screen"><h2>Cuestionario académico</h2>
+<div class="info"><p><strong>Metodología</strong></p><p><strong>Instrumento:</strong> SISCO SV-21 (Barraza, 2018).</p><p><strong>Frecuencia:</strong> 0 Nunca · 1 Casi nunca · 2 Rara vez · 3 Algunas veces · 4 Casi siempre · 5 Siempre.</p></div>
+<form id="survey"><fieldset class="question"><legend>En este periodo de estudios, ¿has tenido preocupación o nerviosismo relacionados con tus actividades académicas?</legend><div class="choices"><label class="choice"><input type="radio" name="filtro_estres" value="si" required> Sí</label><label class="choice"><input type="radio" name="filtro_estres" value="no" required> No</label></div></fieldset>
+<div id="moreQuestions" hidden><fieldset class="question"><legend>¿Qué intensidad consideras que ha tenido tu estrés académico? (1 es poco y 5 es mucho)</legend><div class="choices" id="intensityChoices"></div></fieldset><div id="siscoItems"></div>
+<h3 class="section">Rendimiento académico</h3><label for="average" class="fieldLabel">¿Cuál es tu promedio académico del ciclo actual o del último ciclo concluido? (0–20)</label><input id="average" class="entry" name="promedio" type="number" min="0" max="20" step="0.01" inputmode="decimal" placeholder="Por ejemplo: 15.50"/><p class="small">Se trata de un promedio declarado por el estudiante, no verificado con el registro de notas.</p></div>
+<p class="small" id="filterNote" hidden>Según el ítem filtro del instrumento, cuando se responde «No» el cuestionario finaliza sin las 21 preguntas.</p>
+<div class="row"><button id="send" class="btn" type="submit">Enviar respuestas</button><button type="button" class="btnLink" id="goBack">Volver al consentimiento</button></div><p id="formState" role="status" aria-live="polite"></p></form></section>
+<section id="screen-success" class="screen success"><div class="checkmark">✓</div><h2>¡Gracias por tu participación!</h2><p>Gracias por tomarte el tiempo de llenar esta encuesta. Tus respuestas serán de gran ayuda para nuestro proyecto.</p></section>
+</div></main><footer>Investigación formativa · Lima Norte · 2026</footer>
+<script>
+'use strict';
+const API_URL='https://script.google.com/macros/s/AKfycbyQ9neie_ALYkayTMLt8nsBK0jP6-Z5_3MmpbmOk6W5xb1McSBHBp4aY_ojH2QcwRu0/exec';
+const DOMAINS=['ucv.edu.pe','ucvvirtual.edu.pe'];
+/**
+ * REEMPLAZAR LOS 21 CAMPOS VACÍOS CON LOS ENUNCIADOS ÍNTEGROS DEL INSTRUMENTO
+ * SISCO SV-21 QUE EL EQUIPO TENGA AUTORIZADO PARA USAR. NO PARAFRASEAR.
+ * Estos textos son propiedad de sus autores y deben obtenerse de la fuente oficial.
+ * Ítems 1–7: estresores; 8–14: síntomas; 15–21: afrontamiento.
+ * El formulario NO envía respuestas mientras falte algún enunciado.
+ */
+const SISCO_ITEMS=[
+ '', // P1: Estresores · ítem oficial 1
+ '', // P2: Estresores · ítem oficial 2
+ '', // P3: Estresores · ítem oficial 3
+ '', // P4: Estresores · ítem oficial 4
+ '', // P5: Estresores · ítem oficial 5
+ '', // P6: Estresores · ítem oficial 6
+ '', // P7: Estresores · ítem oficial 7
+ '', // P8: Síntomas · ítem oficial 8
+ '', // P9: Síntomas · ítem oficial 9
+ '', // P10: Síntomas · ítem oficial 10
+ '', // P11: Síntomas · ítem oficial 11
+ '', // P12: Síntomas · ítem oficial 12
+ '', // P13: Síntomas · ítem oficial 13
+ '', // P14: Síntomas · ítem oficial 14
+ '', // P15: Afrontamiento · ítem oficial 15
+ '', // P16: Afrontamiento · ítem oficial 16
+ '', // P17: Afrontamiento · ítem oficial 17
+ '', // P18: Afrontamiento · ítem oficial 18
+ '', // P19: Afrontamiento · ítem oficial 19
+ '', // P20: Afrontamiento · ítem oficial 20
+ ''  // P21: Afrontamiento · ítem oficial 21
+];
+const READY=SISCO_ITEMS.length===21&&SISCO_ITEMS.every(v=>typeof v==='string'&&v.trim().length>=12);
+const choiceLabels=['Nunca','Casi nunca','Rara vez','Algunas veces','Casi siempre','Siempre'];
+const $=id=>document.getElementById(id);const screens=['email','consent','survey','success'];
+let studentEmail='',geo=null,sendId=null,sending=false,confirmationTimers=[],confirmScripts=[],timeout=null,poll=0;
+function show(name){screens.forEach(x=>$('screen-'+x).classList.toggle('active',x===name));document.body.classList.toggle('finished',name==='success');window.scrollTo(0,0);}
+function makeRadio(name,value,label,required){const l=document.createElement('label');l.className='choice';const r=document.createElement('input');r.type='radio';r.name=name;r.value=String(value);r.required=Boolean(required);const t=document.createElement('span');t.textContent=label;l.append(r,t);return l;}
+[1,2,3,4,5].forEach(i=>$('intensityChoices').appendChild(makeRadio('intensidad',i,String(i),true)));
+const root=$('siscoItems');for(let i=0;i<21;i++){
+ if(i===0||i===7||i===14){const h=document.createElement('h3');h.className='section';h.textContent=i===0?'Dimensión 1 · Estresores académicos':i===7?'Dimensión 2 · Síntomas del estrés':'Dimensión 3 · Estrategias de afrontamiento';root.appendChild(h);}
+ const field=document.createElement('fieldset');field.className='question';const legend=document.createElement('legend');legend.textContent='P'+(i+1)+'. '+(SISCO_ITEMS[i].trim()||'ENUNCIADO OFICIAL PENDIENTE');field.appendChild(legend);
+ const opts=document.createElement('div');opts.className='choices';choiceLabels.forEach((label,val)=>opts.appendChild(makeRadio('p'+(i+1),val,label,true)));field.appendChild(opts);root.appendChild(field);
+}
+// El filtro «No» se puede enviar sin los ítems SISCO. «Sí» requiere los 21 ítems verificados.
+$('send').disabled=true;
+$('email-form').addEventListener('submit',e=>{e.preventDefault();const email=$('email').value.trim().toLowerCase(),domain=email.split('@')[1]||'';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!DOMAINS.includes(domain)){$('emailError').textContent='Ingresa un correo institucional válido.';return;}studentEmail=email;$('emailError').textContent='';show('consent');});
+$('back').addEventListener('click',()=>show('email'));
+$('goBack').addEventListener('click',()=>show('consent'));
+$('consentForm').addEventListener('submit',e=>{
+ e.preventDefault();if(!e.target.reportValidity())return;geo=null;
+ const btn=$('consentButton');btn.disabled=true;btn.textContent='Solicitando ubicación…';
+ function finish(){btn.disabled=false;btn.textContent='Continuar a la encuesta';show('survey');}
+ if(!navigator.geolocation){$('geoStatus').textContent='GPS no disponible; continuarás sin compartir ubicación.';finish();return;}
+ try {
+  navigator.geolocation.getCurrentPosition(pos=>{geo={lat:pos.coords.latitude,lon:pos.coords.longitude,accuracy:pos.coords.accuracy};$('geoStatus').textContent='Ubicación autorizada para registrar al enviar.';finish();},
+   ()=>{$('geoStatus').textContent='No se obtuvo permiso GPS; continuarás igualmente.';finish();},
+   {enableHighAccuracy:true,timeout:15000,maximumAge:0});
+ } catch (_) { $('geoStatus').textContent='No se pudo solicitar GPS; continuarás igualmente.';finish(); }
+});
+function changeFilter(){
+ const checked=document.querySelector('input[name="filtro_estres"]:checked');
+ const yes=!!checked&&checked.value==='si';
+ const no=!!checked&&checked.value==='no';
+ $('moreQuestions').hidden=!yes;
+ $('filterNote').hidden=!no;
+ document.querySelectorAll('#moreQuestions input').forEach(x=>{x.disabled=!yes;});
+ // «No»: envío inmediato. «Sí»: preguntas obligatorias + promedio, si el instrumento está completo.
+ $('send').disabled=sending||(!no&&!(yes&&READY));
+ $('formState').textContent='';
+}
+document.querySelectorAll('input[name="filtro_estres"]').forEach(x=>x.addEventListener('change',changeFilter));changeFilter();
+function newId(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();if(window.crypto&&crypto.getRandomValues){const a=crypto.getRandomValues(new Uint8Array(16));return Array.from(a,v=>v.toString(16).padStart(2,'0')).join('');}return String(Date.now())+Math.random().toString(36).slice(2);}
+function stopChecks(){confirmationTimers.forEach(clearTimeout);confirmationTimers=[];if(timeout)clearTimeout(timeout);timeout=null;confirmScripts.forEach(([node,key])=>{node.remove();delete window[key];});confirmScripts=[];}
+function success(){if(!sending)return;sending=false;stopChecks();show('success');}
+function error(msg){if(!sending)return;sending=false;stopChecks();$('send').disabled=false;$('send').textContent='Enviar respuestas';$('formState').textContent=msg;}
+function check(){if(!sending||!sendId)return;const name='__judithSISCOcheck'+(++poll);const node=document.createElement('script');window[name]=result=>{if(result&&result.app==='judith-sisco21'&&result.requestId===sendId&&result.ok===true)success();};confirmScripts.push([node,name]);node.onerror=()=>{node.remove();};node.src=API_URL+(API_URL.includes('?')?'&':'?')+'check='+encodeURIComponent(sendId)+'&callback='+name+'&_='+Date.now();document.head.appendChild(node);}
+$('survey').addEventListener('submit',e=>{
+ e.preventDefault();
+ const filtro=document.querySelector('input[name="filtro_estres"]:checked');
+ if(!filtro){$('formState').textContent='Selecciona Sí o No antes de enviar.';return;}
+ if(filtro.value==='si'&&!READY){$('formState').textContent='No se puede registrar la sección de preguntas hasta que el equipo incorpore el instrumento completo.';return;}
+ if(!e.target.reportValidity()||sending)return;
+ if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(API_URL)){$('formState').textContent='El formulario todavía no tiene un Apps Script conectado.';return;}
+ if(!sendId)sendId=newId();const data=new URLSearchParams(new FormData(e.target));data.set('email',studentEmail);data.set('mayor','si');data.set('carrera','si');data.set('consent','si');data.set('request_id',sendId);data.set('instrumento_confirmado',filtro.value==='si'?'si':'no');
+ if(geo){data.set('gps_consent','si');data.set('lat',String(geo.lat));data.set('lon',String(geo.lon));data.set('accuracy',String(geo.accuracy));}else data.set('gps_consent','no');
+ sending=true;$('send').disabled=true;$('send').textContent='Enviando…';$('formState').textContent='Registrando tus respuestas…';
+ fetch(API_URL,{method:'POST',mode:'no-cors',body:data,redirect:'follow'}).catch(()=>{});
+ [1800,3500,6500,10500,16500,23500,31000].forEach(ms=>confirmationTimers.push(setTimeout(check,ms)));
+ timeout=setTimeout(()=>error('No fue posible confirmar el registro. Consulta con el equipo antes de reenviar.'),37000);
+});
+</script></body></html>
