@@ -1,114 +1,148 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="referrer" content="strict-origin-when-cross-origin"><title>Encuesta de estrés académico · 2026</title>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#153e66">
+<title>Encuesta de estrés académico | Investigación formativa 2026</title>
 <link rel="canonical" href="https://judithalva.com/">
 <style>
-:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#17304b;background:#edf3f8}*{box-sizing:border-box}body{margin:0}.top{background:linear-gradient(115deg,#153960,#1e5c8e);padding:40px 18px 65px;color:white}.wrap{max-width:920px;margin:auto}.top h1{font-size:clamp(24px,4vw,36px);margin:9px 0}.top p{color:#d9e9f5;line-height:1.6}.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b2d9f6;font-weight:750}.panel{position:relative;background:#fff;border:1px solid #dfe9f1;border-radius:19px;padding:28px 32px;margin:-32px 12px 30px;box-shadow:0 15px 30px #183d691c}main{padding:0 9px 20px}h2{font-size:23px;margin:0 0 15px}p{line-height:1.65}.screen{display:none}.screen.active{display:block}.fieldLabel{display:block;margin:19px 0 6px;font-weight:700}.entry{width:100%;max-width:410px;border:1px solid #bdcddd;border-radius:10px;padding:12px 14px;font:inherit}.text{font-size:14px;color:#546b7e}.info{background:#f1f7fc;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.65}.info p{margin:9px 0}.check{display:flex;gap:11px;align-items:flex-start;padding:10px 0;font-size:14px;line-height:1.5}.check input{margin-top:5px;accent-color:#17699e}.btn{background:#16659e;color:white;border:0;border-radius:10px;padding:14px 24px;cursor:pointer;font:inherit;font-weight:700;min-height:48px}.btn:disabled{opacity:.45;cursor:not-allowed}.btnLink{border:0;background:transparent;color:#15639d;text-decoration:underline;cursor:pointer;margin-left:10px;padding:8px}.error{color:#af2d38;font-size:14px;min-height:17px;margin-top:7px}.hint{background:#fff5e4;color:#744900;border:1px solid #f1d7a4;padding:13px 15px;line-height:1.65;border-radius:11px;font-size:14px}.screen .hint{margin:12px 0}.section{margin:25px 0 12px;font-size:17px;color:#174b78;padding:9px 12px;background:#eef5fb;border-left:4px solid #2b78b2}.question{padding:16px 18px;border:1px solid #dde8f0;border-radius:12px;margin:12px 0}.question legend{padding:0 4px;font-weight:600;line-height:1.55}.question .topic{color:#638197;font-size:12px;display:block;font-weight:400;margin-top:3px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}.choice{display:flex;gap:8px;align-items:center;border:1px solid #cfdfeb;border-radius:9px;padding:10px 12px;cursor:pointer;font-size:13px}.choice:has(input:checked){background:#e9f5ff;border-color:#357fb4}.choice input{accent-color:#14639c}.row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.small{font-size:12px;color:#5b7286}.success{text-align:center;padding:44px 8px}.success .checkmark{font-size:46px;background:#e3f5ea;color:#178551;width:83px;height:83px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center}footer{text-align:center;font-size:12px;color:#6b8397;padding:12px 0 30px}#formState{color:#375d78;margin-top:12px;font-size:14px}.separator{height:1px;background:#e1e8ef;margin:25px 0}body.finished .top,body.finished footer{display:none}body.finished main{min-height:100vh;display:flex;align-items:center;justify-content:center}body.finished .panel{margin:15px;width:100%;max-width:590px}@media(max-width:660px){.panel{padding:22px 16px;margin:-30px 6px 25px}.choices{grid-template-columns:repeat(2,1fr)}.question{padding:12px}.row{align-items:stretch;flex-direction:column;gap:7px}.btnLink{margin-left:0}}
-</style></head><body>
-<header class="top"><div class="wrap"><span class="kicker">Investigación formativa · 2026</span><h1>Estrés académico y rendimiento académico</h1><p>Estudiantes de Administración de Empresas de una universidad de Lima Norte</p></div></header>
-<main class="wrap"><div class="panel">
-<section id="screen-email" class="screen active"><h2>Acceso a la encuesta</h2><p>El cuestionario está destinado a estudiantes universitarios de Administración de Empresas de la población definida en el estudio.</p><form id="email-form"><label for="email" class="fieldLabel">Correo institucional</label><input id="email" class="entry" type="email" autocomplete="email" required placeholder="nombre@ucvvirtual.edu.pe"><p class="small">Dominios aceptados: @ucvvirtual.edu.pe y @ucv.edu.pe. Este filtro no confirma identidad ni matrícula.</p><p class="error" id="emailError"></p><button class="btn" type="submit">Continuar</button></form></section>
-<section id="screen-consent" class="screen"><h2>Consentimiento informado</h2><div class="info"><p><strong>Propósito:</strong> estudiar la relación entre el estrés académico y el rendimiento académico en estudiantes de Administración de Empresas durante 2026.</p><p><strong>Datos que se guardan:</strong> correo institucional, respuestas, promedio académico informado, fecha y código de envío en una hoja de cálculo original de acceso restringido. Una segunda hoja de análisis conserva respuestas y puntuaciones sin correo ni GPS. Aunque esta segunda hoja no contenga nombres, los datos no deben considerarse completamente anónimos porque existe un identificador de envío.</p><p><strong>Ubicación opcional:</strong> al pulsar «Continuar a la encuesta», el navegador podrá solicitarte permiso para acceder a tu ubicación. Si autorizas el acceso, guardaremos la latitud, longitud y precisión aproximada proporcionadas por el dispositivo en la hoja original. Estos datos pueden revelar un lugar específico; no son necesarios para participar. Si rechazas el permiso, podrás responder con normalidad y no se guardarán coordenadas. Si ya elegiste un permiso anteriormente, es posible que el navegador no vuelva a mostrar la solicitud.</p><p><strong>Participación:</strong> voluntaria; puedes abandonar antes del envío sin consecuencias. Para consultar sobre el tratamiento de información o solicitar su revisión, contacta al equipo por el canal institucional mediante el que recibiste la invitación. Los datos se usarán únicamente para la investigación y no serán publicados individualmente.</p></div>
-<form id="consentForm"><label class="check"><input id="adult" type="checkbox" required> Confirmo tener 18 años o más.</label><label class="check"><input id="career" type="checkbox" required> Confirmo ser estudiante matriculado de Administración de Empresas en la población del estudio.</label><label class="check"><input id="agree" type="checkbox" required> He leído esta información y acepto participar voluntariamente.</label><p id="geoStatus" class="small" role="status"></p><div class="row"><button id="consentButton" class="btn" type="submit">Continuar a la encuesta</button><button id="back" class="btnLink" type="button">Volver</button></div></form></section>
-<section id="screen-survey" class="screen"><h2>Cuestionario académico</h2>
-<div class="info"><p><strong>Metodología</strong></p><p><strong>Instrumento:</strong> SISCO SV-21 (Barraza, 2018).</p><p><strong>Frecuencia:</strong> 0 Nunca · 1 Casi nunca · 2 Rara vez · 3 Algunas veces · 4 Casi siempre · 5 Siempre.</p></div>
-<form id="survey"><fieldset class="question"><legend>En este periodo de estudios, ¿has tenido preocupación o nerviosismo relacionados con tus actividades académicas?</legend><div class="choices"><label class="choice"><input type="radio" name="filtro_estres" value="si" required> Sí</label><label class="choice"><input type="radio" name="filtro_estres" value="no" required> No</label></div></fieldset>
-<div id="moreQuestions" hidden><fieldset class="question"><legend>¿Qué intensidad consideras que ha tenido tu estrés académico? (1 es poco y 5 es mucho)</legend><div class="choices" id="intensityChoices"></div></fieldset><div id="siscoItems"></div>
-<h3 class="section">Rendimiento académico</h3><label for="average" class="fieldLabel">¿Cuál es tu promedio académico del ciclo actual o del último ciclo concluido? (0–20)</label><input id="average" class="entry" name="promedio" type="number" min="0" max="20" step="0.01" inputmode="decimal" placeholder="Por ejemplo: 15.50"/><p class="small">Se trata de un promedio declarado por el estudiante, no verificado con el registro de notas.</p></div>
-<p class="small" id="filterNote" hidden>Según el ítem filtro del instrumento, cuando se responde «No» el cuestionario finaliza sin las 21 preguntas.</p>
-<div class="row"><button id="send" class="btn" type="submit">Enviar respuestas</button><button type="button" class="btnLink" id="goBack">Volver al consentimiento</button></div><p id="formState" role="status" aria-live="polite"></p></form></section>
-<section id="screen-success" class="screen success"><div class="checkmark">✓</div><h2>¡Gracias por tu participación!</h2><p>Gracias por tomarte el tiempo de llenar esta encuesta. Tus respuestas serán de gran ayuda para nuestro proyecto.</p></section>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#18364f;background:#edf3f8;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}.hero{background:linear-gradient(115deg,#15395e,#226698);color:#fff;padding:36px 20px 80px}
+.container{max-width:920px;margin:0 auto}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:750;color:#c4e6fb;text-transform:uppercase}
+h1{font-size:clamp(25px,4.5vw,37px);line-height:1.2;margin:9px 0 11px}.hero p{max-width:680px;color:#e0ecf7;line-height:1.6;margin:0}
+.main{padding:0 15px 20px}.card{position:relative;margin:-43px auto 23px;padding:28px 34px;max-width:900px;border-radius:19px;border:1px solid #dce8f1;background:#fff;box-shadow:0 15px 32px #193f6019}
+h2{font-size:clamp(21px,3vw,25px);line-height:1.3;margin:8px 0 10px}.intro{color:#516e82;line-height:1.62;margin:0 0 19px}
+.progress-head{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;margin:0 0 11px}.progress-title{font-weight:700;font-size:13px;color:#325a76}.counter{font-size:12px;color:#607d92;font-weight:650;white-space:nowrap}
+.progress-track{height:9px;width:100%;border-radius:99px;overflow:hidden;background:#e7eef5;margin-bottom:25px}.progress-fill{height:100%;width:14.28%;background:linear-gradient(90deg,#2176af,#2b9bac);border-radius:99px;transition:width .25s}
+.stage{display:none;animation:enter .15s ease-out}.stage.active{display:block}@keyframes enter{from{opacity:.78;transform:translateY(3px)}to{opacity:1;transform:none}}
+.field-label{display:block;font-weight:700;font-size:14px;margin:19px 0 8px}.entry{width:100%;max-width:440px;border:1px solid #bfd2e0;border-radius:11px;font:inherit;padding:12px 14px;color:#193a55;background:#fff;min-height:46px}
+.entry:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid #82c1eb;outline-offset:2px}.text{font-size:14px;color:#57748b;line-height:1.6}.small{font-size:12px;color:#627d90;line-height:1.6}
+.info{background:#f2f7fb;border-radius:12px;padding:15px 19px;font-size:13px;line-height:1.65;color:#355872}.info p{margin:9px 0}.info strong{color:#234864}
+.check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:11px 2px;font-size:14px;line-height:1.5}.check input{margin:5px 0 0;min-width:17px;min-height:17px;accent-color:#186ba5}
+.method{border-left:4px solid #2583bc;background:#f0f7fd;border-radius:10px;padding:12px 16px;margin:15px 0 21px;line-height:1.6;font-size:13px;color:#315977}.method p{margin:4px 0}
+.question{padding:17px 18px;margin:14px 0;background:#fff;border:1px solid #dae6ef;border-radius:12px;min-width:0}.question legend{padding:0 5px;font-weight:700;line-height:1.55;font-size:14px}
+.choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}.choice{display:flex;gap:9px;align-items:center;border:1px solid #cbddeb;padding:11px 12px;border-radius:10px;cursor:pointer;font-size:13px;line-height:1.45;min-height:46px}
+.choice:has(input:checked){background:#e9f5fe;border-color:#3a89ba;box-shadow:inset 0 0 0 1px #3a89ba}.choice input{accent-color:#176aa5;flex:0 0 auto}
+.navigation{background:#fff;border-top:1px solid #e1eaf2;padding:18px 0 6px;margin-top:25px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;z-index:2}
+.btn{background:#16699f;color:#fff;border:0;padding:13px 23px;border-radius:11px;font:inherit;font-weight:750;cursor:pointer;min-height:48px}.btn:hover:not(:disabled){background:#105584}.btn:disabled{opacity:.54;cursor:not-allowed}.btn-secondary{background:#eef5fa;border:1px solid #bfd2e0;color:#244d6c}.btn-secondary:hover:not(:disabled){background:#e0edf5}
+.error{color:#ad2938;font-size:13px;line-height:1.5;margin:12px 0 0;min-height:19px}.warning{background:#fff4e3;border:1px solid #eed7a9;border-radius:11px;color:#885319;padding:13px 15px;line-height:1.55;font-size:13px}
+.summary{border:1px solid #dbe8f1;border-radius:11px;padding:15px 19px;background:#f9fcfe;font-size:14px;line-height:1.7}.summary strong{color:#254e6b}.done{text-align:center;padding:40px 14px 50px}.done .mark{display:grid;place-items:center;border-radius:50%;font-size:43px;margin:0 auto 18px;background:#e6f7ec;color:#18834b;width:85px;height:85px}footer{text-align:center;padding:0 15px 35px;color:#6b8599;font-size:12px}
+[hidden]{display:none!important}body.finished .hero,body.finished footer,body.finished .progress-area,body.finished .navigation{display:none}body.finished .main{min-height:100dvh;display:flex;align-items:center;justify-content:center}body.finished .card{margin:25px auto;max-width:640px;width:100%}
+@media(max-width:650px){.hero{padding:28px 16px 74px}.main{padding:0 9px 20px}.card{padding:20px 16px;border-radius:16px}.choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.question{padding:13px 10px;margin:10px 0}.choice{padding:9px;min-height:47px;font-size:12px}.navigation{padding-bottom:12px}.navigation .btn{flex:1}.info{padding:12px 14px}}
+@media(prefers-reduced-motion:reduce){.stage{animation:none}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="container"><div class="eyebrow">Investigación formativa · 2026</div><h1>Estrés académico y rendimiento académico</h1><p>Encuesta dirigida a estudiantes de Administración de Empresas de una universidad de Lima Norte.</p></div></header>
+<main class="main"><div class="card">
+<div class="progress-area" id="progressArea"><div class="progress-head"><span class="progress-title" id="progressTitle">Acceso y consentimiento</span><span class="counter" id="progressCounter">Sección 1 de 7</span></div><div class="progress-track" role="progressbar" aria-label="Progreso de la encuesta" aria-valuemin="0" aria-valuemax="100" aria-valuenow="14" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div></div>
+<form id="survey" novalidate autocomplete="on">
+<section class="stage active" data-step="1" aria-labelledby="title1">
+<h2 id="title1">1. Acceso y consentimiento informado</h2><p class="intro">Gracias por considerar participar en esta investigación académica. Primero revisa el uso de tus datos y confirma tu participación voluntaria.</p>
+<label class="field-label" for="email">Correo institucional</label><input id="email" class="entry" name="email" type="email" required autocomplete="email" placeholder="nombre@ucvvirtual.edu.pe"><p class="small">Se aceptan @ucv.edu.pe y @ucvvirtual.edu.pe; el filtro de dominio no verifica matrícula ni identidad.</p>
+<div class="info"><p><strong>Propósito:</strong> investigar la relación entre el estrés académico y el rendimiento académico en estudiantes de Administración de Empresas durante 2026.</p>
+<p><strong>Qué se registra:</strong> respuestas, edad, sexo, ciclo, promedio académico declarado, correo institucional, fecha y código de envío. El archivo A original conserva estos datos y, solo si lo permites, coordenadas GPS con precisión; el archivo B conserva los mismos datos sin coordenadas. Por contener correo e ID, ninguno de los archivos debe considerarse anónimo.</p>
+<p><strong>Permiso de ubicación:</strong> al continuar, tu navegador podrá solicitar acceso a la ubicación precisa. Es opcional; si la rechazas podrás completar la encuesta igualmente. Los permisos previamente recordados por el navegador pueden evitar que vuelva a aparecer el diálogo.</p>
+<p><strong>Voluntariedad y privacidad:</strong> puedes retirarte antes del envío; tus respuestas se usarán con fines académicos y no se divulgarán individualmente. Para consultas o revisión de datos, contacta al equipo por el canal institucional de invitación.</p></div>
+<label class="check"><input type="checkbox" id="adult" required> Confirmo tener 18 años o más.</label>
+<label class="check"><input type="checkbox" id="career" required> Confirmo estar matriculado en Administración de Empresas en la población del estudio.</label>
+<label class="check"><input type="checkbox" id="agree" required> He leído la información y acepto participar de manera voluntaria.</label>
+<p id="geoStatus" class="small" role="status"></p>
+</section>
+<section class="stage" data-step="2" aria-labelledby="title2">
+<h2 id="title2">2. Datos generales</h2><p class="intro">Completa estos cuatro datos para conocer las características de los estudiantes participantes.</p>
+<div class="question"><label class="field-label" for="edad">1. ¿Qué edad tienes?</label><input type="number" class="entry" id="edad" name="edad" min="18" max="110" required inputmode="numeric" placeholder="Edad en años cumplidos"></div>
+<fieldset class="question"><legend>2. ¿Con qué sexo te identificas?</legend><div class="choice-grid"><label class="choice"><input type="radio" name="sexo" value="Mujer" required> Mujer</label><label class="choice"><input type="radio" name="sexo" value="Hombre" required> Hombre</label><label class="choice"><input type="radio" name="sexo" value="No binario" required> No binario</label><label class="choice"><input type="radio" name="sexo" value="Otro" required> Otro</label><label class="choice"><input type="radio" name="sexo" value="Prefiero no responder" required> Prefiero no responder</label></div></fieldset>
+<div class="question"><label class="field-label" for="ciclo">3. ¿En qué ciclo académico te encuentras?</label><select id="ciclo" name="ciclo" class="entry" required><option value="">Selecciona tu ciclo</option><option value="1">I</option><option value="2">II</option><option value="3">III</option><option value="4">IV</option><option value="5">V</option><option value="6">VI</option><option value="7">VII</option><option value="8">VIII</option><option value="9">IX</option><option value="10">X</option><option value="11">XI</option><option value="12">XII</option></select></div>
+<fieldset class="question"><legend>4. ¿Actualmente estudias Administración de Empresas?</legend><div class="choice-grid"><label class="choice"><input type="radio" name="estudia_admin" value="si" required> Sí</label><label class="choice"><input type="radio" name="estudia_admin" value="no" required> No</label></div><p class="small">La encuesta está dirigida únicamente a estudiantes de esta carrera.</p></fieldset>
+</section>
+<section class="stage" data-step="3" aria-labelledby="title3">
+<h2 id="title3">3. Evaluación inicial del estrés</h2><p class="intro">Piensa en tus experiencias durante el semestre académico actual.</p>
+<fieldset class="question"><legend>5. Durante este semestre, ¿has experimentado preocupación o nerviosismo relacionados con tus estudios?</legend><div class="choice-grid"><label class="choice"><input type="radio" name="filtro_estres" value="si" required> Sí</label><label class="choice"><input type="radio" name="filtro_estres" value="no" required> No</label></div></fieldset>
+<div id="intensityBlock" hidden><fieldset class="question"><legend>6. En una escala del 1 al 5, ¿qué intensidad ha tenido el estrés que experimentaste? (1 = Muy poco; 5 = Mucho)</legend><div class="choice-grid" id="intensityChoices"></div></fieldset></div>
+<div id="noInfo" class="method" hidden>Si respondiste «No», pasarás directamente a la finalización. No tendrás que contestar las 21 preguntas ni indicar tu promedio académico.</div>
+</section>
+<section class="stage" data-step="4" aria-labelledby="title4"><h2 id="title4">4. Estresores académicos</h2><p class="intro">Indica con qué frecuencia estas situaciones te generan estrés durante tus estudios.</p><div class="method"><p><strong>Metodología · Instrumento:</strong> SISCO SV-21 (Barraza, 2018).</p><p><strong>Escala de frecuencia:</strong> Nunca · Casi nunca · Rara vez · Algunas veces · Casi siempre · Siempre.</p></div><div id="items1"></div></section>
+<section class="stage" data-step="5" aria-labelledby="title5"><h2 id="title5">5. Síntomas del estrés</h2><p class="intro">Selecciona la frecuencia con la que has experimentado cada manifestación relacionada con el estrés académico.</p><div class="method"><p><strong>Escala:</strong> Nunca · Casi nunca · Rara vez · Algunas veces · Casi siempre · Siempre.</p></div><div id="items2"></div></section>
+<section class="stage" data-step="6" aria-labelledby="title6"><h2 id="title6">6. Estrategias de afrontamiento</h2><p class="intro">Indica con qué frecuencia utilizas cada estrategia para responder a situaciones que te preocupan.</p><div class="method"><p><strong>Escala:</strong> Nunca · Casi nunca · Rara vez · Algunas veces · Casi siempre · Siempre.</p></div><div id="items3"></div></section>
+<section class="stage" data-step="7" aria-labelledby="title7"><h2 id="title7">7. Rendimiento académico y finalización</h2>
+<div id="gradeBlock"><p class="intro">Para relacionar las respuestas con el rendimiento académico, indica tu promedio del ciclo actual o del último concluido.</p><label class="field-label" for="average">¿Cuál es tu promedio académico del ciclo actual o del último ciclo concluido? (0–20)</label><input id="average" name="promedio" class="entry" type="number" step="0.01" inputmode="decimal" min="0" max="20" required placeholder="Por ejemplo: 15.50"><p class="small">Es un promedio declarado por el estudiante, no verificado con el registro oficial de notas.</p></div>
+<div id="noGradeBlock" class="method" hidden>Como respondiste «No» a la pregunta inicial de estrés, la encuesta finalizará sin solicitar intensidad, preguntas de frecuencia ni promedio académico.</div>
+<div class="summary"><strong>Antes de enviar:</strong> revisa tus respuestas si lo necesitas usando «Anterior». El formulario enviará tus datos a los registros de la investigación. No podrás editar el envío desde esta página una vez confirmado.</div>
+</section>
+<div class="navigation" id="navigation"><button id="backButton" class="btn btn-secondary" type="button" hidden>Anterior</button><button id="nextButton" class="btn" type="button">Siguiente</button></div>
+<p id="formError" class="error" role="alert" aria-live="polite"></p>
+</form>
+<div class="done" id="done" hidden><div class="mark">✓</div><h2>¡Gracias por tu participación!</h2><p>Gracias por tomarte el tiempo de llenar esta encuesta. Tus respuestas serán de gran ayuda para nuestro proyecto.</p></div>
 </div></main><footer>Investigación formativa · Lima Norte · 2026</footer>
 <script>
 'use strict';
 const API_URL='https://script.google.com/macros/s/AKfycbyQ9neie_ALYkayTMLt8nsBK0jP6-Z5_3MmpbmOk6W5xb1McSBHBp4aY_ojH2QcwRu0/exec';
 const DOMAINS=['ucv.edu.pe','ucvvirtual.edu.pe'];
-/**
- * REEMPLAZAR LOS 21 CAMPOS VACÍOS CON LOS ENUNCIADOS ÍNTEGROS DEL INSTRUMENTO
- * SISCO SV-21 QUE EL EQUIPO TENGA AUTORIZADO PARA USAR. NO PARAFRASEAR.
- * Estos textos son propiedad de sus autores y deben obtenerse de la fuente oficial.
- * Ítems 1–7: estresores; 8–14: síntomas; 15–21: afrontamiento.
- * El formulario NO envía respuestas mientras falte algún enunciado.
- */
 const SISCO_ITEMS=[
- '', // P1: Estresores · ítem oficial 1
- '', // P2: Estresores · ítem oficial 2
- '', // P3: Estresores · ítem oficial 3
- '', // P4: Estresores · ítem oficial 4
- '', // P5: Estresores · ítem oficial 5
- '', // P6: Estresores · ítem oficial 6
- '', // P7: Estresores · ítem oficial 7
- '', // P8: Síntomas · ítem oficial 8
- '', // P9: Síntomas · ítem oficial 9
- '', // P10: Síntomas · ítem oficial 10
- '', // P11: Síntomas · ítem oficial 11
- '', // P12: Síntomas · ítem oficial 12
- '', // P13: Síntomas · ítem oficial 13
- '', // P14: Síntomas · ítem oficial 14
- '', // P15: Afrontamiento · ítem oficial 15
- '', // P16: Afrontamiento · ítem oficial 16
- '', // P17: Afrontamiento · ítem oficial 17
- '', // P18: Afrontamiento · ítem oficial 18
- '', // P19: Afrontamiento · ítem oficial 19
- '', // P20: Afrontamiento · ítem oficial 20
- ''  // P21: Afrontamiento · ítem oficial 21
+ "¿Con qué frecuencia te genera estrés tener demasiadas tareas y trabajos universitarios?",
+ "¿Con qué frecuencia te genera estrés la actitud o el trato de tus docentes?",
+ "¿Con qué frecuencia te generan estrés las evaluaciones y los trabajos de investigación?",
+ "¿Con qué frecuencia te genera estrés el nivel de exigencia de tus docentes?",
+ "¿Con qué frecuencia te generan estrés los diferentes tipos de trabajos académicos que te solicitan?",
+ "¿Con qué frecuencia te genera estrés disponer de poco tiempo para terminar tus tareas?",
+ "¿Con qué frecuencia te genera estrés no comprender claramente las indicaciones de tus docentes?",
+ "¿Con qué frecuencia experimentas cansancio persistente cuando estás estresado por tus estudios?",
+ "¿Con qué frecuencia experimentas tristeza o desánimo cuando estás estresado?",
+ "¿Con qué frecuencia sientes ansiedad, angustia o desesperación debido al estrés académico?",
+ "¿Con qué frecuencia tienes dificultades para concentrarte cuando estás estresado?",
+ "¿Con qué frecuencia reaccionas con irritabilidad cuando estás estresado?",
+ "¿Con qué frecuencia discutes o tienes conflictos con otras personas cuando estás estresado?",
+ "¿Con qué frecuencia pierdes las ganas de realizar tus actividades académicas cuando estás estresado?",
+ "¿Con qué frecuencia te concentras en resolver el problema que te preocupa?",
+ "¿Con qué frecuencia buscas soluciones concretas para enfrentar una situación estresante?",
+ "¿Con qué frecuencia analizas las ventajas y desventajas de las posibles soluciones?",
+ "¿Con qué frecuencia intentas controlar tus emociones ante una situación estresante?",
+ "¿Con qué frecuencia recuerdas cómo resolviste anteriormente situaciones similares?",
+ "¿Con qué frecuencia elaboras y ejecutas un plan para enfrentar las situaciones que te generan estrés?",
+ "¿Con qué frecuencia intentas identificar aspectos positivos en las situaciones que te preocupan?"
 ];
-const READY=SISCO_ITEMS.length===21&&SISCO_ITEMS.every(v=>typeof v==='string'&&v.trim().length>=12);
-const choiceLabels=['Nunca','Casi nunca','Rara vez','Algunas veces','Casi siempre','Siempre'];
-const $=id=>document.getElementById(id);const screens=['email','consent','survey','success'];
-let studentEmail='',geo=null,sendId=null,sending=false,confirmationTimers=[],confirmScripts=[],timeout=null,poll=0;
-function show(name){screens.forEach(x=>$('screen-'+x).classList.toggle('active',x===name));document.body.classList.toggle('finished',name==='success');window.scrollTo(0,0);}
-function makeRadio(name,value,label,required){const l=document.createElement('label');l.className='choice';const r=document.createElement('input');r.type='radio';r.name=name;r.value=String(value);r.required=Boolean(required);const t=document.createElement('span');t.textContent=label;l.append(r,t);return l;}
-[1,2,3,4,5].forEach(i=>$('intensityChoices').appendChild(makeRadio('intensidad',i,String(i),true)));
-const root=$('siscoItems');for(let i=0;i<21;i++){
- if(i===0||i===7||i===14){const h=document.createElement('h3');h.className='section';h.textContent=i===0?'Dimensión 1 · Estresores académicos':i===7?'Dimensión 2 · Síntomas del estrés':'Dimensión 3 · Estrategias de afrontamiento';root.appendChild(h);}
- const field=document.createElement('fieldset');field.className='question';const legend=document.createElement('legend');legend.textContent='P'+(i+1)+'. '+(SISCO_ITEMS[i].trim()||'ENUNCIADO OFICIAL PENDIENTE');field.appendChild(legend);
- const opts=document.createElement('div');opts.className='choices';choiceLabels.forEach((label,val)=>opts.appendChild(makeRadio('p'+(i+1),val,label,true)));field.appendChild(opts);root.appendChild(field);
-}
-// El filtro «No» se puede enviar sin los ítems SISCO. «Sí» requiere los 21 ítems verificados.
-$('send').disabled=true;
-$('email-form').addEventListener('submit',e=>{e.preventDefault();const email=$('email').value.trim().toLowerCase(),domain=email.split('@')[1]||'';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!DOMAINS.includes(domain)){$('emailError').textContent='Ingresa un correo institucional válido.';return;}studentEmail=email;$('emailError').textContent='';show('consent');});
-$('back').addEventListener('click',()=>show('email'));
-$('goBack').addEventListener('click',()=>show('consent'));
-$('consentForm').addEventListener('submit',e=>{
- e.preventDefault();if(!e.target.reportValidity())return;geo=null;
- const btn=$('consentButton');btn.disabled=true;btn.textContent='Solicitando ubicación…';
- function finish(){btn.disabled=false;btn.textContent='Continuar a la encuesta';show('survey');}
- if(!navigator.geolocation){$('geoStatus').textContent='GPS no disponible; continuarás sin compartir ubicación.';finish();return;}
- try {
-  navigator.geolocation.getCurrentPosition(pos=>{geo={lat:pos.coords.latitude,lon:pos.coords.longitude,accuracy:pos.coords.accuracy};$('geoStatus').textContent='Ubicación autorizada para registrar al enviar.';finish();},
-   ()=>{$('geoStatus').textContent='No se obtuvo permiso GPS; continuarás igualmente.';finish();},
-   {enableHighAccuracy:true,timeout:15000,maximumAge:0});
- } catch (_) { $('geoStatus').textContent='No se pudo solicitar GPS; continuarás igualmente.';finish(); }
-});
-function changeFilter(){
- const checked=document.querySelector('input[name="filtro_estres"]:checked');
- const yes=!!checked&&checked.value==='si';
- const no=!!checked&&checked.value==='no';
- $('moreQuestions').hidden=!yes;
- $('filterNote').hidden=!no;
- document.querySelectorAll('#moreQuestions input').forEach(x=>{x.disabled=!yes;});
- // «No»: envío inmediato. «Sí»: preguntas obligatorias + promedio, si el instrumento está completo.
- $('send').disabled=sending||(!no&&!(yes&&READY));
- $('formState').textContent='';
-}
-document.querySelectorAll('input[name="filtro_estres"]').forEach(x=>x.addEventListener('change',changeFilter));changeFilter();
-function newId(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();if(window.crypto&&crypto.getRandomValues){const a=crypto.getRandomValues(new Uint8Array(16));return Array.from(a,v=>v.toString(16).padStart(2,'0')).join('');}return String(Date.now())+Math.random().toString(36).slice(2);}
+const frequency=['Nunca','Casi nunca','Rara vez','Algunas veces','Casi siempre','Siempre'];
+const $=id=>document.getElementById(id);
+const form=$('survey');
+const titles=['Acceso y consentimiento','Datos generales','Evaluación inicial','Estresores académicos','Síntomas del estrés','Estrategias de afrontamiento','Rendimiento y finalización'];
+let step=1,geo=null,sendId=null,sending=false,submitted=false,confirmationTimers=[],confirmScripts=[],timeout=null,poll=0;
+const entry=selector=>document.querySelector(selector);
+function radio(name){return entry('input[name="'+name+'"]:checked')?.value||'';}
+function makeRadio(name,value,label){const box=document.createElement('label');box.className='choice';const input=document.createElement('input');input.type='radio';input.name=name;input.value=String(value);input.required=true;const span=document.createElement('span');span.textContent=label;box.append(input,span);return box;}
+[1,2,3,4,5].forEach(n=>$('intensityChoices').appendChild(makeRadio('intensidad',n,n)));
+SISCO_ITEMS.forEach((question,i)=>{const root=$('items'+(Math.floor(i/7)+1));const field=document.createElement('fieldset');field.className='question';const legend=document.createElement('legend');legend.textContent=(i+7)+'. '+question;field.appendChild(legend);const grid=document.createElement('div');grid.className='choice-grid';frequency.forEach((label,value)=>grid.appendChild(makeRadio('p'+(i+1),value,label)));field.appendChild(grid);root.appendChild(field);});
+function yesStress(){return radio('filtro_estres')==='si';}
+function route(){return radio('filtro_estres')==='no'?[1,2,3,7]:[1,2,3,4,5,6,7];}
+function updateFilter(){const yes=yesStress(),no=radio('filtro_estres')==='no';$('intensityBlock').hidden=!yes;$('noInfo').hidden=!no;$('gradeBlock').hidden=!yes;$('noGradeBlock').hidden=yes;$('title7').textContent=yes?'7. Rendimiento académico y finalización':'Finalización de la encuesta';$('average').disabled=!yes;document.querySelectorAll('#intensityBlock input,#items1 input,#items2 input,#items3 input').forEach(el=>el.disabled=!yes);if(step===3||step===7)paint();}
+function paint(){document.querySelectorAll('.stage').forEach(s=>{s.classList.toggle('active',Number(s.dataset.step)===step);});const stages=route(),place=stages.indexOf(step)+1,percent=Math.round(place/stages.length*100);$('progressTitle').textContent=titles[step-1];$('progressCounter').textContent='Sección '+place+' de '+stages.length;$('progressFill').style.width=percent+'%';$('progressTrack').setAttribute('aria-valuenow',String(percent));$('backButton').hidden=step===1;$('nextButton').textContent=step===7?'Enviar respuestas':step===3&&!yesStress()&&radio('filtro_estres')==='no'?'Ir a finalizar':'Siguiente';$('nextButton').disabled=sending;window.scrollTo({top:0,behavior:'instant'});}
+function go(target){step=target;$('formError').textContent='';paint();}
+function invalidMessage(el){if(el.id==='email')return 'Escribe un correo institucional válido.';if(el.name==='filtro_estres')return 'Selecciona «Sí» o «No» para continuar.';if(el.type==='checkbox')return 'Debes marcar las tres confirmaciones del consentimiento informado.';if(el.name==='estudia_admin')return 'Confirma si estudias Administración de Empresas.';if(el.name==='promedio')return 'Escribe un promedio entre 0 y 20.';return 'Completa todas las respuestas de esta sección antes de continuar.';}
+function validate(n){const stage=entry('.stage[data-step="'+n+'"]');const required=[...stage.querySelectorAll('[required]')].filter(el=>!el.disabled);for(const el of required){if(!el.checkValidity()){const msg=invalidMessage(el);$('formError').textContent=msg;if(n===step){el.reportValidity();el.focus({preventScroll:false});}return false;}}
+if(n===1){const email=$('email').value.trim().toLowerCase(),domain=email.split('@')[1]||'';if(!DOMAINS.includes(domain)){$('formError').textContent='Utiliza una dirección @ucv.edu.pe o @ucvvirtual.edu.pe.';$('email').focus();return false;}}
+if(n===2&&radio('estudia_admin')!=='si'){$('formError').textContent='Esta encuesta está dirigida únicamente a estudiantes de Administración de Empresas.';return false;}
+return true;}
+function askLocation(continueTo){geo=null;$('geoStatus').textContent='';$('nextButton').disabled=true;$('nextButton').textContent='Solicitando ubicación…';let finished=false;function finish(msg){if(finished)return;finished=true;$('geoStatus').textContent=msg;go(continueTo);}
+if(!navigator.geolocation){finish('La ubicación no está disponible. Puedes continuar normalmente.');return;}
+try{navigator.geolocation.getCurrentPosition(pos=>{geo={lat:pos.coords.latitude,lon:pos.coords.longitude,accuracy:pos.coords.accuracy};finish('Ubicación autorizada.');},()=>finish('Permiso no concedido o ubicación no disponible. Puedes continuar normalmente.'),{enableHighAccuracy:true,timeout:12000,maximumAge:0});}
+catch(_){finish('No se pudo consultar la ubicación. Puedes continuar normalmente.');}}
+function id(){if(globalThis.crypto?.randomUUID)return crypto.randomUUID();if(globalThis.crypto?.getRandomValues){const a=crypto.getRandomValues(new Uint8Array(16));return Array.from(a,n=>n.toString(16).padStart(2,'0')).join('');}return String(Date.now())+Math.random().toString(36).slice(2);}
 function stopChecks(){confirmationTimers.forEach(clearTimeout);confirmationTimers=[];if(timeout)clearTimeout(timeout);timeout=null;confirmScripts.forEach(([node,key])=>{node.remove();delete window[key];});confirmScripts=[];}
-function success(){if(!sending)return;sending=false;stopChecks();show('success');}
-function error(msg){if(!sending)return;sending=false;stopChecks();$('send').disabled=false;$('send').textContent='Enviar respuestas';$('formState').textContent=msg;}
-function check(){if(!sending||!sendId)return;const name='__judithSISCOcheck'+(++poll);const node=document.createElement('script');window[name]=result=>{if(result&&result.app==='judith-sisco21'&&result.requestId===sendId&&result.ok===true)success();};confirmScripts.push([node,name]);node.onerror=()=>{node.remove();};node.src=API_URL+(API_URL.includes('?')?'&':'?')+'check='+encodeURIComponent(sendId)+'&callback='+name+'&_='+Date.now();document.head.appendChild(node);}
-$('survey').addEventListener('submit',e=>{
- e.preventDefault();
- const filtro=document.querySelector('input[name="filtro_estres"]:checked');
- if(!filtro){$('formState').textContent='Selecciona Sí o No antes de enviar.';return;}
- if(filtro.value==='si'&&!READY){$('formState').textContent='No se puede registrar la sección de preguntas hasta que el equipo incorpore el instrumento completo.';return;}
- if(!e.target.reportValidity()||sending)return;
- if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(API_URL)){$('formState').textContent='El formulario todavía no tiene un Apps Script conectado.';return;}
- if(!sendId)sendId=newId();const data=new URLSearchParams(new FormData(e.target));data.set('email',studentEmail);data.set('mayor','si');data.set('carrera','si');data.set('consent','si');data.set('request_id',sendId);data.set('instrumento_confirmado',filtro.value==='si'?'si':'no');
- if(geo){data.set('gps_consent','si');data.set('lat',String(geo.lat));data.set('lon',String(geo.lon));data.set('accuracy',String(geo.accuracy));}else data.set('gps_consent','no');
- sending=true;$('send').disabled=true;$('send').textContent='Enviando…';$('formState').textContent='Registrando tus respuestas…';
- fetch(API_URL,{method:'POST',mode:'no-cors',body:data,redirect:'follow'}).catch(()=>{});
- [1800,3500,6500,10500,16500,23500,31000].forEach(ms=>confirmationTimers.push(setTimeout(check,ms)));
- timeout=setTimeout(()=>error('No fue posible confirmar el registro. Consulta con el equipo antes de reenviar.'),37000);
-});
-</script></body></html>
+function success(){if(!sending)return;submitted=true;sending=false;stopChecks();document.body.classList.add('finished');form.hidden=true;$('done').hidden=false;window.scrollTo(0,0);}
+function fail(message){if(!sending)return;sending=false;stopChecks();$('nextButton').disabled=false;$('nextButton').textContent='Enviar respuestas';$('formError').textContent=message;}
+function check(){if(!sending||!sendId)return;const callback='__judithSISCOcheck'+(++poll),script=document.createElement('script');window[callback]=result=>{if(result&&result.app==='judith-sisco21'&&result.requestId===sendId&&result.ok===true)success();};confirmScripts.push([script,callback]);script.onerror=()=>script.remove();script.src=API_URL+(API_URL.includes('?')?'&':'?')+'check='+encodeURIComponent(sendId)+'&callback='+callback+'&_='+Date.now();document.head.appendChild(script);}
+function submit(){if(sending||submitted)return;const all=route();for(const n of all){go(n);if(!validate(n)){return;}}go(7);if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(API_URL)){$('formError').textContent='No hay un enlace válido de Google Apps Script.';return;}
+if(!sendId)sendId=id();const data=new URLSearchParams(new FormData(form));data.set('email',$('email').value.trim().toLowerCase());data.set('mayor','si');data.set('carrera','si');data.set('consent','si');data.set('request_id',sendId);data.set('instrumento_confirmado',yesStress()?'si':'no');
+if(geo){data.set('gps_consent','si');data.set('lat',String(geo.lat));data.set('lon',String(geo.lon));data.set('accuracy',String(geo.accuracy));}else{data.set('gps_consent','no');}
+sending=true;paint();$('nextButton').textContent='Enviando…';$('formError').textContent='Registrando tus respuestas…';fetch(API_URL,{method:'POST',mode:'no-cors',body:data,redirect:'follow'}).catch(()=>{});
+[1800,3500,6500,10500,16500,23500,31000].forEach(ms=>confirmationTimers.push(setTimeout(check,ms)));timeout=setTimeout(()=>fail('No fue posible confirmar el registro. Consulta con el equipo antes de reenviar.'),37000);}
+$('nextButton').addEventListener('click',()=>{if(sending)return;if(!validate(step))return;if(step===7){submit();return;}if(step===1){askLocation(2);return;}if(step===3){go(yesStress()?4:7);return;}go(step+1);});
+$('backButton').addEventListener('click',()=>{if(sending)return;const stages=route(),idx=stages.indexOf(step);if(idx>0)go(stages[idx-1]);});
+document.querySelectorAll('input[name="filtro_estres"]').forEach(el=>el.addEventListener('change',updateFilter));
+form.addEventListener('submit',e=>{e.preventDefault();if(step===7)submit();else $('nextButton').click();});
+updateFilter();paint();
+</script>
+</body>
+</html>
